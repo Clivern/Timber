@@ -360,6 +360,29 @@ sudo chown -R www-data:www-data /var/www/html/timber/timber/client-sample.php;
 sudo chown -R www-data:www-data /var/www/html/timber/timber/client-default.php;
 ```
 
+### How to enable or disable debug mode?
+* Open `timber/client.php` file and set `TIMBER_DEBUG_MODE` to `true` or `false`. So it should be look like the following:
+
+```
+/**
+ * Debug mode active
+ *
+ * @since 1.0
+ * @var boolean
+ */
+define('TIMBER_DEBUG_MODE', true);
+```
+
+```
+/**
+ * Debug mode inactive
+ *
+ * @since 1.0
+ * @var boolean
+ */
+define('TIMBER_DEBUG_MODE', false);
+```
+
 Translation
 ===========
 
