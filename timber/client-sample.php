@@ -235,13 +235,15 @@ define('TIMBER_LANGS_DIR', '/langs');
 /**
  * Debug mode
  *
+ * It is recommended to close debug mode in production environments
+ *
  * @since 1.0
  * @var boolean
  */
 define('TIMBER_DEBUG_MODE', false);
 
 /**
- * Mod Rewrite
+ * Mod Rewrite (Pretty URLS)
  *
  * @since 1.0
  * @var boolean
