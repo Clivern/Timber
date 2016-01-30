@@ -1,0 +1,5637 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Timber\n"
+"POT-Creation-Date: 2016-01-29 14:41+0200\n"
+"PO-Revision-Date: 2016-01-29 14:42+0200\n"
+"Last-Translator: \n"
+"Language-Team: Clivern <Support@clivern.com>\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.8\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: trans;trans();__(;__();__\n"
+"X-Poedit-SearchPath-0: ../timber\n"
+"X-Poedit-SearchPath-1: ../themes\n"
+"X-Poedit-SearchPath-2: ../themes/default\n"
+
+#: ../themes/default/404.tpl.php:9 ../timber/controllers/Error.php:89
+msgid "404"
+msgstr ""
+
+#: ../themes/default/404.tpl.php:10
+msgid "Page Not Found"
+msgstr ""
+
+#: ../themes/default/404.tpl.php:11
+msgid ""
+"Sorry, but the page you are looking for has not been found. Try checking the "
+"URL for error, then hit the refresh button on your browser or go back to "
+"main page."
+msgstr ""
+
+#: ../themes/default/404.tpl.php:12 ../themes/default/500.tpl.php:10
+msgid "You can go back to main page"
+msgstr ""
+
+#: ../themes/default/500.tpl.php:7 ../themes/default/maintenance.tpl.php:7
+#: ../timber/controllers/Error.php:78
+msgid "500"
+msgstr ""
+
+#: ../themes/default/500.tpl.php:8
+msgid "Something Goes Wrong"
+msgstr ""
+
+#: ../themes/default/500.tpl.php:9
+msgid ""
+"The server encountered something unexpected that didn't allow it to complete "
+"your request. We apologize."
+msgstr ""
+
+#: ../themes/default/bottom-menu.sec.php:5
+msgid "Copyright"
+msgstr ""
+
+#: ../themes/default/calendar.tpl.php:19
+#: ../themes/default/side-menu.sec.php:160
+#: ../timber/controllers/Calendar.php:123
+msgid "Calendar"
+msgstr ""
+
+#: ../themes/default/calendar.tpl.php:38
+#: ../themes/default/quotations-add.tpl.php:192
+#: ../themes/default/uploader.sec.php:14
+msgid "Close"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:17
+#: ../themes/default/side-menu.sec.php:12
+#: ../timber/controllers/Dashboard.php:160
+msgid "Dashboard"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:34
+#: ../themes/default/dashboard.tpl.php:82
+#: ../themes/default/dashboard.tpl.php:239
+#: ../themes/default/dashboard.tpl.php:287
+#: ../themes/default/dashboard.tpl.php:453
+#: ../themes/default/dashboard.tpl.php:501
+msgid "In Progress Projects"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:46
+#: ../themes/default/dashboard.tpl.php:121
+#: ../themes/default/dashboard.tpl.php:465
+#: ../themes/default/dashboard.tpl.php:540
+msgid "Unpaid Invoices"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:58
+#: ../themes/default/dashboard.tpl.php:477
+#: ../themes/default/dashboard.tpl.php:577
+#: ../themes/default/members-view.tpl.php:153
+#: ../themes/default/side-menu.sec.php:143
+#: ../themes/default/subscriptions-add.tpl.php:19
+#: ../themes/default/subscriptions-edit.tpl.php:19
+#: ../themes/default/subscriptions-list.tpl.php:19
+#: ../themes/default/subscriptions-view.tpl.php:19
+#: ../timber/controllers/Subscriptions.php:190
+msgid "Subscriptions"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:70
+#: ../themes/default/members-add.tpl.php:19
+#: ../themes/default/members-edit.tpl.php:19
+#: ../themes/default/members-list.tpl.php:19
+#: ../themes/default/members-view.tpl.php:17
+#: ../themes/default/side-menu.sec.php:37
+#: ../timber/controllers/Members.php:184
+msgid "Members"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:90
+#: ../themes/default/dashboard.tpl.php:295
+#: ../themes/default/dashboard.tpl.php:371
+#: ../themes/default/dashboard.tpl.php:410
+#: ../themes/default/dashboard.tpl.php:509
+#: ../themes/default/expenses-add.tpl.php:40
+#: ../themes/default/expenses-edit.tpl.php:41
+#: ../themes/default/expenses-list.tpl.php:40
+#: ../themes/default/expenses-view.tpl.php:38
+#: ../themes/default/items-add.tpl.php:34
+#: ../themes/default/items-edit.tpl.php:34
+#: ../themes/default/items-list.tpl.php:37
+#: ../themes/default/members-view.tpl.php:93
+#: ../themes/default/members-view.tpl.php:128
+#: ../themes/default/projects-add.tpl.php:32
+#: ../themes/default/projects-edit.tpl.php:33
+#: ../themes/default/projects-view-milestones.sec.php:90
+#: ../themes/default/projects-view-milestones.sec.php:147
+#: ../themes/default/projects-view-tasks.sec.php:114
+#: ../themes/default/projects-view-tasks.sec.php:207
+#: ../themes/default/quotations-add.tpl.php:49
+#: ../themes/default/quotations-list.tpl.php:41
+#: ../themes/default/quotations-list.tpl.php:83
+#: ../themes/default/quotations-view.tpl.php:40
+#: ../timber/controllers/Calendar.php:142
+msgid "Title"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:91
+#: ../themes/default/dashboard.tpl.php:296
+#: ../themes/default/dashboard.tpl.php:372
+#: ../themes/default/dashboard.tpl.php:411
+#: ../themes/default/dashboard.tpl.php:510
+#: ../themes/default/members-view.tpl.php:95
+#: ../timber/controllers/Calendar.php:145
+msgid "Progress"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:92
+#: ../themes/default/dashboard.tpl.php:131
+#: ../themes/default/dashboard.tpl.php:168
+#: ../themes/default/dashboard.tpl.php:202
+#: ../themes/default/dashboard.tpl.php:297
+#: ../themes/default/dashboard.tpl.php:336
+#: ../themes/default/dashboard.tpl.php:373
+#: ../themes/default/dashboard.tpl.php:412
+#: ../themes/default/dashboard.tpl.php:511
+#: ../themes/default/dashboard.tpl.php:550
+#: ../themes/default/dashboard.tpl.php:587
+#: ../themes/default/dashboard.tpl.php:621
+#: ../themes/default/members-view.tpl.php:72
+msgid "Created"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:111
+#: ../themes/default/dashboard.tpl.php:316
+#: ../themes/default/dashboard.tpl.php:530
+msgid "No projects found."
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:129
+#: ../themes/default/dashboard.tpl.php:166
+#: ../themes/default/dashboard.tpl.php:200
+#: ../themes/default/dashboard.tpl.php:548
+#: ../themes/default/dashboard.tpl.php:585
+#: ../themes/default/dashboard.tpl.php:619
+#: ../themes/default/members-view.tpl.php:158
+#: ../themes/default/members-view.tpl.php:188
+#: ../themes/default/members-view.tpl.php:250
+#: ../themes/default/quotations-view.tpl.php:36
+#: ../themes/default/subscriptions-view.tpl.php:37
+#: ../timber/controllers/Calendar.php:153
+msgid "Reference ID"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:130
+#: ../themes/default/dashboard.tpl.php:167
+#: ../themes/default/dashboard.tpl.php:201
+#: ../themes/default/dashboard.tpl.php:549
+#: ../themes/default/dashboard.tpl.php:586
+#: ../themes/default/dashboard.tpl.php:620
+#: ../themes/default/estimates-add.tpl.php:272
+#: ../themes/default/estimates-edit.tpl.php:285
+#: ../themes/default/estimates-list.tpl.php:43
+#: ../themes/default/estimates-list.tpl.php:95
+#: ../themes/default/estimates-view.tpl.php:217
+#: ../themes/default/expenses-add.tpl.php:117
+#: ../themes/default/expenses-edit.tpl.php:120
+#: ../themes/default/expenses-list.tpl.php:42
+#: ../themes/default/expenses-view.tpl.php:58
+#: ../themes/default/invoices-add.tpl.php:270
+#: ../themes/default/invoices-edit.tpl.php:283
+#: ../themes/default/invoices-list.tpl.php:44
+#: ../themes/default/invoices-list.tpl.php:96
+#: ../themes/default/invoices-view.tpl.php:216
+#: ../themes/default/members-view.tpl.php:160
+#: ../themes/default/members-view.tpl.php:190
+#: ../themes/default/members-view.tpl.php:252
+#: ../themes/default/subscriptions-add.tpl.php:282
+#: ../themes/default/subscriptions-edit.tpl.php:292
+#: ../themes/default/subscriptions-list.tpl.php:44
+#: ../themes/default/subscriptions-list.tpl.php:90
+#: ../themes/default/subscriptions-view.tpl.php:65
+#: ../themes/default/subscriptions-view.tpl.php:102
+#: ../themes/default/subscriptions-view.tpl.php:153
+#: ../timber/libraries/Biller.php:307 ../timber/libraries/Biller.php:344
+msgid "Total"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:145
+#: ../themes/default/dashboard.tpl.php:564
+msgid "No invoices found."
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:158
+msgid "Latest Subscriptions"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:182
+#: ../themes/default/dashboard.tpl.php:601
+msgid "No subscriptions found."
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:192
+msgid "Latest Estimates"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:216
+#: ../themes/default/dashboard.tpl.php:635
+msgid "No estimates found."
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:251
+#: ../themes/default/dashboard.tpl.php:326
+#: ../themes/default/projects-view-stats.sec.php:57
+#: ../themes/default/projects-view-stats.sec.php:207
+msgid "Pending Tickets"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:263
+#: ../themes/default/dashboard.tpl.php:363
+#: ../themes/default/projects-view-stats.sec.php:22
+#: ../themes/default/projects-view-stats.sec.php:173
+msgid "In Progress Tasks"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:275
+#: ../themes/default/dashboard.tpl.php:402
+#: ../themes/default/projects-view-stats.sec.php:32
+msgid "Overdue Tasks"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:334
+#: ../themes/default/members-view.tpl.php:219
+#: ../themes/default/projects-view-stats.sec.php:213
+#: ../themes/default/projects-view-tickets.sec.php:21
+#: ../themes/default/projects-view-tickets.sec.php:121
+#: ../themes/default/projects-view-tickets.sec.php:183
+msgid "Subject"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:335
+#: ../themes/default/expenses-list.tpl.php:41
+#: ../themes/default/expenses-view.tpl.php:42
+#: ../themes/default/members-view.tpl.php:221
+#: ../themes/default/projects-view-stats.sec.php:214
+#: ../themes/default/projects-view-tickets.sec.php:23
+#: ../themes/default/projects-view-tickets.sec.php:135
+#: ../themes/default/projects-view-tickets.sec.php:203
+#: ../themes/default/subscriptions-add.tpl.php:67
+#: ../themes/default/subscriptions-edit.tpl.php:68
+#: ../timber/controllers/Calendar.php:134
+msgid "Type"
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:350
+msgid "No tickets found."
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:392
+#: ../themes/default/dashboard.tpl.php:431
+msgid "No tasks found."
+msgstr ""
+
+#: ../themes/default/dashboard.tpl.php:489
+#: ../themes/default/dashboard.tpl.php:611
+#: ../themes/default/estimates-add.tpl.php:19
+#: ../themes/default/estimates-edit.tpl.php:19
+#: ../themes/default/estimates-list.tpl.php:19
+#: ../themes/default/estimates-view.tpl.php:18
+#: ../themes/default/members-view.tpl.php:245
+#: ../themes/default/side-menu.sec.php:75
+#: ../timber/controllers/Estimates.php:183
+msgid "Estimates"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:35
+#: ../themes/default/estimates-edit.tpl.php:36
+#: ../themes/default/invoices-add.tpl.php:36
+#: ../themes/default/invoices-edit.tpl.php:37
+#: ../themes/default/subscriptions-add.tpl.php:36
+#: ../themes/default/subscriptions-edit.tpl.php:37
+msgid "General"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:39
+#: ../themes/default/estimates-edit.tpl.php:40
+#: ../themes/default/expenses-add.tpl.php:51
+#: ../themes/default/expenses-edit.tpl.php:52
+#: ../themes/default/invoices-add.tpl.php:40
+#: ../themes/default/invoices-edit.tpl.php:41
+msgid "Issue Date"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:44
+#: ../themes/default/estimates-edit.tpl.php:45
+#: ../themes/default/invoices-add.tpl.php:45
+#: ../themes/default/invoices-edit.tpl.php:46
+msgid "Due Date"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:49
+#: ../themes/default/estimates-edit.tpl.php:50
+#: ../themes/default/estimates-list.tpl.php:42
+#: ../themes/default/estimates-list.tpl.php:94
+#: ../themes/default/expenses-add.tpl.php:56
+#: ../themes/default/expenses-edit.tpl.php:57
+#: ../themes/default/invoices-add.tpl.php:50
+#: ../themes/default/invoices-edit.tpl.php:51
+#: ../themes/default/invoices-list.tpl.php:43
+#: ../themes/default/invoices-list.tpl.php:95
+#: ../themes/default/members-view.tpl.php:130
+#: ../themes/default/members-view.tpl.php:159
+#: ../themes/default/members-view.tpl.php:189
+#: ../themes/default/members-view.tpl.php:220
+#: ../themes/default/members-view.tpl.php:251
+#: ../themes/default/projects-add.tpl.php:47
+#: ../themes/default/projects-edit.tpl.php:48
+#: ../themes/default/projects-view-milestones.sec.php:24
+#: ../themes/default/projects-view-milestones.sec.php:110
+#: ../themes/default/projects-view-milestones.sec.php:167
+#: ../themes/default/projects-view-stats.sec.php:180
+#: ../themes/default/projects-view-tasks.sec.php:24
+#: ../themes/default/projects-view-tasks.sec.php:160
+#: ../themes/default/projects-view-tasks.sec.php:253
+#: ../themes/default/projects-view-tickets.sec.php:22
+#: ../themes/default/projects-view-tickets.sec.php:126
+#: ../themes/default/projects-view-tickets.sec.php:192
+#: ../themes/default/subscriptions-add.tpl.php:50
+#: ../themes/default/subscriptions-edit.tpl.php:51
+#: ../themes/default/subscriptions-list.tpl.php:43
+#: ../themes/default/subscriptions-list.tpl.php:89
+#: ../themes/default/subscriptions-view.tpl.php:45
+#: ../themes/default/subscriptions-view.tpl.php:101
+#: ../themes/default/subscriptions-view.tpl.php:152
+#: ../timber/controllers/Calendar.php:144
+msgid "Status"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:51
+#: ../themes/default/estimates-edit.tpl.php:52
+msgid "Open"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:52
+#: ../themes/default/estimates-edit.tpl.php:53
+#: ../themes/default/messages-add.tpl.php:109
+#: ../themes/default/messages-view.tpl.php:209
+#: ../themes/default/messages-view.tpl.php:395
+msgid "Send"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:53
+#: ../themes/default/estimates-edit.tpl.php:54
+#: ../timber/services/DashboardData.php:328
+#: ../timber/services/DashboardData.php:628
+#: ../timber/services/EstimatesData.php:111
+#: ../timber/services/EstimatesData.php:252
+#: ../timber/services/EstimatesData.php:416
+#: ../timber/services/MembersData.php:478
+msgid "Accepted"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:54
+#: ../themes/default/estimates-edit.tpl.php:55
+#: ../timber/services/DashboardData.php:328
+#: ../timber/services/DashboardData.php:628
+#: ../timber/services/EstimatesData.php:111
+#: ../timber/services/EstimatesData.php:252
+#: ../timber/services/EstimatesData.php:416
+#: ../timber/services/MembersData.php:478
+msgid "Rejected"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:55
+#: ../themes/default/estimates-edit.tpl.php:56
+#: ../timber/services/DashboardData.php:328
+#: ../timber/services/DashboardData.php:628
+#: ../timber/services/EstimatesData.php:111
+#: ../timber/services/EstimatesData.php:252
+#: ../timber/services/EstimatesData.php:416
+#: ../timber/services/MembersData.php:478
+msgid "Invoiced"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:56
+#: ../themes/default/estimates-edit.tpl.php:57
+#: ../themes/default/projects-view-tickets.sec.php:130
+#: ../themes/default/projects-view-tickets.sec.php:196
+#: ../timber/services/DashboardData.php:328
+#: ../timber/services/DashboardData.php:429
+#: ../timber/services/DashboardData.php:628
+#: ../timber/services/EstimatesData.php:111
+#: ../timber/services/EstimatesData.php:252
+#: ../timber/services/EstimatesData.php:416
+#: ../timber/services/MembersData.php:447
+#: ../timber/services/MembersData.php:478
+#: ../timber/services/ProjectsData.php:910
+#: ../timber/services/ProjectsData.php:1055
+#: ../timber/services/ProjectsData.php:1323
+msgid "Closed"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:61
+#: ../themes/default/estimates-edit.tpl.php:63
+#: ../themes/default/expenses-add.tpl.php:64
+#: ../themes/default/expenses-edit.tpl.php:66
+#: ../themes/default/invoices-add.tpl.php:59
+#: ../themes/default/invoices-edit.tpl.php:61
+#: ../themes/default/members-view.tpl.php:129
+msgid "Project"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:63
+#: ../themes/default/estimates-edit.tpl.php:65
+#: ../themes/default/expenses-add.tpl.php:66
+#: ../themes/default/expenses-edit.tpl.php:68
+#: ../themes/default/invoices-add.tpl.php:61
+#: ../themes/default/invoices-edit.tpl.php:63
+msgid "Select Project"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:76
+#: ../themes/default/estimates-edit.tpl.php:79
+msgid "Estimate To"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:80
+#: ../themes/default/estimates-edit.tpl.php:83
+#: ../themes/default/estimates-list.tpl.php:41
+#: ../themes/default/invoices-add.tpl.php:78
+#: ../themes/default/invoices-edit.tpl.php:81
+#: ../themes/default/invoices-list.tpl.php:42
+#: ../themes/default/members-add.tpl.php:130
+#: ../themes/default/members-add.tpl.php:133
+#: ../themes/default/members-list.tpl.php:49
+#: ../themes/default/quotations-view.tpl.php:55
+#: ../themes/default/quotations-view.tpl.php:63
+#: ../themes/default/realtime.tpl.php:20
+#: ../themes/default/subscriptions-add.tpl.php:90
+#: ../themes/default/subscriptions-edit.tpl.php:90
+#: ../themes/default/subscriptions-list.tpl.php:42
+#: ../themes/default/subscriptions-view.tpl.php:41
+msgid "Client"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:84
+#: ../themes/default/estimates-edit.tpl.php:87
+#: ../themes/default/invoices-add.tpl.php:82
+#: ../themes/default/invoices-edit.tpl.php:85
+#: ../themes/default/quotations-view.tpl.php:67
+#: ../themes/default/subscriptions-add.tpl.php:94
+#: ../themes/default/subscriptions-edit.tpl.php:94
+msgid "Select Client"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:103
+#: ../themes/default/estimates-edit.tpl.php:106
+msgid "Estimate Terms and Notes"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:112
+#: ../themes/default/estimates-edit.tpl.php:117
+msgid "Estimate Items"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:119
+#: ../themes/default/estimates-add.tpl.php:158
+#: ../themes/default/estimates-edit.tpl.php:124
+#: ../themes/default/estimates-edit.tpl.php:164
+#: ../themes/default/invoices-add.tpl.php:117
+#: ../themes/default/invoices-add.tpl.php:156
+#: ../themes/default/invoices-edit.tpl.php:122
+#: ../themes/default/invoices-edit.tpl.php:162
+#: ../themes/default/subscriptions-add.tpl.php:129
+#: ../themes/default/subscriptions-add.tpl.php:168
+#: ../themes/default/subscriptions-edit.tpl.php:131
+#: ../themes/default/subscriptions-edit.tpl.php:171
+msgid "Select Item"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:205
+#: ../themes/default/estimates-edit.tpl.php:212
+msgid "Estimate Attachments"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:208
+#: ../themes/default/estimates-edit.tpl.php:215
+#: ../themes/default/expenses-add.tpl.php:134
+#: ../themes/default/expenses-edit.tpl.php:137
+#: ../themes/default/invoices-add.tpl.php:206
+#: ../themes/default/invoices-edit.tpl.php:213
+#: ../themes/default/messages-add.tpl.php:101
+#: ../themes/default/messages-view.tpl.php:201
+#: ../themes/default/messages-view.tpl.php:381
+#: ../themes/default/subscriptions-add.tpl.php:218
+#: ../themes/default/subscriptions-edit.tpl.php:222
+msgid "Select Files"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:217
+#: ../themes/default/estimates-edit.tpl.php:230
+msgid "Estimate Overall"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:221
+#: ../themes/default/estimates-edit.tpl.php:234
+#: ../themes/default/estimates-view.tpl.php:205
+#: ../themes/default/expenses-add.tpl.php:74
+#: ../themes/default/expenses-edit.tpl.php:77
+#: ../themes/default/expenses-view.tpl.php:46
+#: ../themes/default/invoices-add.tpl.php:219
+#: ../themes/default/invoices-edit.tpl.php:232
+#: ../themes/default/invoices-view.tpl.php:204
+#: ../themes/default/subscriptions-add.tpl.php:231
+#: ../themes/default/subscriptions-edit.tpl.php:241
+#: ../themes/default/subscriptions-view.tpl.php:53
+msgid "Sub Total"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:228
+#: ../themes/default/estimates-edit.tpl.php:241
+#: ../themes/default/expenses-add.tpl.php:79
+#: ../themes/default/expenses-edit.tpl.php:82
+#: ../themes/default/invoices-add.tpl.php:226
+#: ../themes/default/invoices-edit.tpl.php:239
+#: ../themes/default/projects-add.tpl.php:84
+#: ../themes/default/projects-edit.tpl.php:85
+#: ../themes/default/subscriptions-add.tpl.php:238
+#: ../themes/default/subscriptions-edit.tpl.php:248
+#: ../timber/controllers/Calendar.php:159
+msgid "Discount Type"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:230
+#: ../themes/default/estimates-add.tpl.php:248
+#: ../themes/default/estimates-edit.tpl.php:243
+#: ../themes/default/estimates-edit.tpl.php:261
+#: ../themes/default/expenses-add.tpl.php:81
+#: ../themes/default/expenses-add.tpl.php:95
+#: ../themes/default/expenses-edit.tpl.php:84
+#: ../themes/default/expenses-edit.tpl.php:98
+#: ../themes/default/invoices-add.tpl.php:228
+#: ../themes/default/invoices-add.tpl.php:246
+#: ../themes/default/invoices-edit.tpl.php:241
+#: ../themes/default/invoices-edit.tpl.php:259
+#: ../themes/default/projects-add.tpl.php:86
+#: ../themes/default/projects-add.tpl.php:104
+#: ../themes/default/projects-edit.tpl.php:87
+#: ../themes/default/projects-edit.tpl.php:105
+#: ../themes/default/settings.tpl.php:155
+#: ../themes/default/settings.tpl.php:231
+#: ../themes/default/settings.tpl.php:249
+#: ../themes/default/settings.tpl.php:267
+#: ../themes/default/settings.tpl.php:298
+#: ../themes/default/settings.tpl.php:345
+#: ../themes/default/settings.tpl.php:353
+#: ../themes/default/settings.tpl.php:401
+#: ../themes/default/settings.tpl.php:429
+#: ../themes/default/settings.tpl.php:452
+#: ../themes/default/settings.tpl.php:460
+#: ../themes/default/settings.tpl.php:591
+#: ../themes/default/settings.tpl.php:599
+#: ../themes/default/subscriptions-add.tpl.php:240
+#: ../themes/default/subscriptions-add.tpl.php:258
+#: ../themes/default/subscriptions-edit.tpl.php:250
+#: ../themes/default/subscriptions-edit.tpl.php:268
+msgid "Off"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:231
+#: ../themes/default/estimates-edit.tpl.php:244
+#: ../themes/default/expenses-add.tpl.php:82
+#: ../themes/default/expenses-edit.tpl.php:85
+#: ../themes/default/invoices-add.tpl.php:229
+#: ../themes/default/invoices-edit.tpl.php:242
+#: ../themes/default/projects-add.tpl.php:87
+#: ../themes/default/projects-edit.tpl.php:88
+#: ../themes/default/subscriptions-add.tpl.php:241
+#: ../themes/default/subscriptions-edit.tpl.php:251
+msgid "% Discount"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:232
+#: ../themes/default/estimates-edit.tpl.php:245
+#: ../themes/default/expenses-add.tpl.php:83
+#: ../themes/default/expenses-edit.tpl.php:86
+#: ../themes/default/invoices-add.tpl.php:230
+#: ../themes/default/invoices-edit.tpl.php:243
+#: ../themes/default/projects-add.tpl.php:88
+#: ../themes/default/projects-edit.tpl.php:89
+#: ../themes/default/subscriptions-add.tpl.php:242
+#: ../themes/default/subscriptions-edit.tpl.php:252
+msgid "Flat Discount"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:237
+#: ../themes/default/estimates-edit.tpl.php:250
+#: ../themes/default/estimates-view.tpl.php:209
+#: ../themes/default/expenses-add.tpl.php:88
+#: ../themes/default/expenses-edit.tpl.php:91
+#: ../themes/default/expenses-view.tpl.php:50
+#: ../themes/default/invoices-add.tpl.php:235
+#: ../themes/default/invoices-edit.tpl.php:248
+#: ../themes/default/invoices-view.tpl.php:208
+#: ../themes/default/projects-add.tpl.php:93
+#: ../themes/default/projects-edit.tpl.php:94
+#: ../themes/default/subscriptions-add.tpl.php:247
+#: ../themes/default/subscriptions-edit.tpl.php:257
+#: ../themes/default/subscriptions-view.tpl.php:57
+#: ../timber/libraries/Biller.php:332
+msgid "Discount"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:246
+#: ../themes/default/estimates-edit.tpl.php:259
+#: ../themes/default/expenses-add.tpl.php:93
+#: ../themes/default/expenses-edit.tpl.php:96
+#: ../themes/default/invoices-add.tpl.php:244
+#: ../themes/default/invoices-edit.tpl.php:257
+#: ../themes/default/projects-add.tpl.php:102
+#: ../themes/default/projects-edit.tpl.php:103
+#: ../themes/default/subscriptions-add.tpl.php:256
+#: ../themes/default/subscriptions-edit.tpl.php:266
+#: ../timber/controllers/Calendar.php:157
+msgid "Tax Type"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:249
+#: ../themes/default/estimates-edit.tpl.php:262
+#: ../themes/default/expenses-add.tpl.php:96
+#: ../themes/default/expenses-edit.tpl.php:99
+#: ../themes/default/invoices-add.tpl.php:247
+#: ../themes/default/invoices-edit.tpl.php:260
+#: ../themes/default/projects-add.tpl.php:105
+#: ../themes/default/projects-edit.tpl.php:106
+#: ../themes/default/subscriptions-add.tpl.php:259
+#: ../themes/default/subscriptions-edit.tpl.php:269
+msgid "% Tax"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:250
+#: ../themes/default/estimates-edit.tpl.php:263
+#: ../themes/default/expenses-add.tpl.php:97
+#: ../themes/default/expenses-edit.tpl.php:100
+#: ../themes/default/invoices-add.tpl.php:248
+#: ../themes/default/invoices-edit.tpl.php:261
+#: ../themes/default/projects-add.tpl.php:106
+#: ../themes/default/projects-edit.tpl.php:107
+#: ../themes/default/subscriptions-add.tpl.php:260
+#: ../themes/default/subscriptions-edit.tpl.php:270
+msgid "Flat Tax"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:255
+#: ../themes/default/estimates-add.tpl.php:257
+#: ../themes/default/estimates-edit.tpl.php:268
+#: ../themes/default/estimates-edit.tpl.php:270
+#: ../themes/default/expenses-add.tpl.php:102
+#: ../themes/default/expenses-add.tpl.php:104
+#: ../themes/default/expenses-edit.tpl.php:105
+#: ../themes/default/expenses-edit.tpl.php:107
+#: ../themes/default/invoices-add.tpl.php:253
+#: ../themes/default/invoices-add.tpl.php:255
+#: ../themes/default/invoices-edit.tpl.php:266
+#: ../themes/default/invoices-edit.tpl.php:268
+#: ../themes/default/projects-add.tpl.php:111
+#: ../themes/default/projects-add.tpl.php:113
+#: ../themes/default/projects-edit.tpl.php:112
+#: ../themes/default/projects-edit.tpl.php:114
+#: ../themes/default/subscriptions-add.tpl.php:265
+#: ../themes/default/subscriptions-add.tpl.php:267
+#: ../themes/default/subscriptions-edit.tpl.php:275
+#: ../themes/default/subscriptions-edit.tpl.php:277
+msgid "Select Tax"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:265
+#: ../themes/default/estimates-edit.tpl.php:278
+#: ../themes/default/estimates-view.tpl.php:213
+#: ../themes/default/expenses-add.tpl.php:112
+#: ../themes/default/expenses-edit.tpl.php:115
+#: ../themes/default/expenses-view.tpl.php:54
+#: ../themes/default/invoices-add.tpl.php:263
+#: ../themes/default/invoices-edit.tpl.php:276
+#: ../themes/default/invoices-view.tpl.php:212
+#: ../themes/default/projects-add.tpl.php:121
+#: ../themes/default/projects-edit.tpl.php:122
+#: ../themes/default/subscriptions-add.tpl.php:275
+#: ../themes/default/subscriptions-edit.tpl.php:285
+#: ../themes/default/subscriptions-view.tpl.php:61
+msgid "Tax"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:277
+#: ../themes/default/estimates-edit.tpl.php:290
+#: ../themes/default/estimates-view.tpl.php:221
+#: ../themes/default/invoices-add.tpl.php:52
+#: ../themes/default/invoices-add.tpl.php:275
+#: ../themes/default/invoices-edit.tpl.php:53
+#: ../themes/default/invoices-edit.tpl.php:288
+#: ../themes/default/invoices-view.tpl.php:220
+#: ../themes/default/subscriptions-add.tpl.php:52
+#: ../themes/default/subscriptions-edit.tpl.php:53
+#: ../timber/libraries/Biller.php:350 ../timber/services/DashboardData.php:274
+#: ../timber/services/DashboardData.php:301
+#: ../timber/services/DashboardData.php:574
+#: ../timber/services/DashboardData.php:601
+#: ../timber/services/InvoicesData.php:121
+#: ../timber/services/InvoicesData.php:255
+#: ../timber/services/InvoicesData.php:414
+#: ../timber/services/MembersData.php:361
+#: ../timber/services/MembersData.php:394
+#: ../timber/services/SubscriptionsData.php:114
+#: ../timber/services/SubscriptionsData.php:251
+#: ../timber/services/SubscriptionsData.php:412
+#: ../timber/services/SubscriptionsData.php:483
+msgid "Paid"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:281
+#: ../themes/default/estimates-edit.tpl.php:294
+#: ../themes/default/expenses-add.tpl.php:121
+#: ../themes/default/expenses-edit.tpl.php:124
+#: ../themes/default/install.tpl.php:79
+#: ../themes/default/invoices-add.tpl.php:279
+#: ../themes/default/invoices-checkout.tpl.php:133
+#: ../themes/default/invoices-edit.tpl.php:292
+#: ../themes/default/items-add.tpl.php:51
+#: ../themes/default/items-edit.tpl.php:51 ../themes/default/login.tpl.php:77
+#: ../themes/default/members-add.tpl.php:147
+#: ../themes/default/members-edit.tpl.php:137
+#: ../themes/default/profile.tpl.php:147
+#: ../themes/default/projects-add.tpl.php:142
+#: ../themes/default/projects-edit.tpl.php:143
+#: ../themes/default/projects-view-milestones.sec.php:119
+#: ../themes/default/projects-view-milestones.sec.php:176
+#: ../themes/default/projects-view-tasks.sec.php:179
+#: ../themes/default/projects-view-tasks.sec.php:272
+#: ../themes/default/projects-view-tickets.sec.php:155
+#: ../themes/default/projects-view-tickets.sec.php:233
+#: ../themes/default/projects-view-tickets.sec.php:341
+#: ../themes/default/quotations-add.tpl.php:55
+#: ../themes/default/quotations-submit.tpl.php:118
+#: ../themes/default/quotations-view.tpl.php:78
+#: ../themes/default/settings.tpl.php:159
+#: ../themes/default/settings.tpl.php:213
+#: ../themes/default/settings.tpl.php:383
+#: ../themes/default/settings.tpl.php:469
+#: ../themes/default/settings.tpl.php:573
+#: ../themes/default/settings.tpl.php:643
+#: ../themes/default/subscriptions-add.tpl.php:286
+#: ../themes/default/subscriptions-edit.tpl.php:296
+msgid "Submit"
+msgstr ""
+
+#: ../themes/default/estimates-add.tpl.php:282
+#: ../themes/default/estimates-edit.tpl.php:295
+#: ../themes/default/expenses-add.tpl.php:122
+#: ../themes/default/expenses-edit.tpl.php:125
+#: ../themes/default/fpwd.tpl.php:56 ../themes/default/fpwd.tpl.php:67
+#: ../themes/default/install.tpl.php:80
+#: ../themes/default/invoices-add.tpl.php:280
+#: ../themes/default/invoices-checkout.tpl.php:134
+#: ../themes/default/invoices-edit.tpl.php:293
+#: ../themes/default/items-add.tpl.php:52
+#: ../themes/default/items-edit.tpl.php:52 ../themes/default/login.tpl.php:78
+#: ../themes/default/members-add.tpl.php:148
+#: ../themes/default/members-edit.tpl.php:138
+#: ../themes/default/messages-add.tpl.php:110
+#: ../themes/default/messages-view.tpl.php:210
+#: ../themes/default/profile.tpl.php:148
+#: ../themes/default/projects-add.tpl.php:143
+#: ../themes/default/projects-edit.tpl.php:144
+#: ../themes/default/projects-view-milestones.sec.php:120
+#: ../themes/default/projects-view-milestones.sec.php:177
+#: ../themes/default/projects-view-tasks.sec.php:180
+#: ../themes/default/projects-view-tasks.sec.php:273
+#: ../themes/default/projects-view-tickets.sec.php:156
+#: ../themes/default/projects-view-tickets.sec.php:234
+#: ../themes/default/quotations-add.tpl.php:56
+#: ../themes/default/quotations-submit.tpl.php:119
+#: ../themes/default/quotations-view.tpl.php:79
+#: ../themes/default/register.tpl.php:66
+#: ../themes/default/settings.tpl.php:160
+#: ../themes/default/settings.tpl.php:214
+#: ../themes/default/settings.tpl.php:384
+#: ../themes/default/settings.tpl.php:470
+#: ../themes/default/settings.tpl.php:574
+#: ../themes/default/settings.tpl.php:644
+#: ../themes/default/subscriptions-add.tpl.php:287
+#: ../themes/default/subscriptions-edit.tpl.php:297
+msgid "Cancel"
+msgstr ""
+
+#: ../themes/default/estimates-list.tpl.php:40
+#: ../themes/default/estimates-list.tpl.php:93
+#: ../themes/default/invoices-list.tpl.php:41
+#: ../themes/default/invoices-list.tpl.php:94
+#: ../themes/default/quotations-list.tpl.php:40
+#: ../themes/default/quotations-list.tpl.php:82
+#: ../themes/default/subscriptions-list.tpl.php:41
+#: ../themes/default/subscriptions-list.tpl.php:88
+#: ../themes/default/subscriptions-view.tpl.php:100
+#: ../themes/default/subscriptions-view.tpl.php:151
+msgid "Ref. ID"
+msgstr ""
+
+#: ../themes/default/estimates-list.tpl.php:44
+#: ../themes/default/estimates-list.tpl.php:96
+#: ../themes/default/expenses-list.tpl.php:43
+#: ../themes/default/invoices-list.tpl.php:45
+#: ../themes/default/invoices-list.tpl.php:97
+#: ../themes/default/items-list.tpl.php:39
+#: ../themes/default/members-view.tpl.php:96
+#: ../themes/default/members-view.tpl.php:131
+#: ../themes/default/members-view.tpl.php:161
+#: ../themes/default/members-view.tpl.php:191
+#: ../themes/default/members-view.tpl.php:222
+#: ../themes/default/members-view.tpl.php:253
+#: ../themes/default/quotations-list.tpl.php:42
+#: ../themes/default/quotations-list.tpl.php:84
+#: ../themes/default/subscriptions-list.tpl.php:45
+#: ../themes/default/subscriptions-list.tpl.php:91
+#: ../themes/default/subscriptions-view.tpl.php:103
+#: ../themes/default/subscriptions-view.tpl.php:154
+#: ../timber/controllers/Calendar.php:149
+msgid "Created at"
+msgstr ""
+
+#: ../themes/default/estimates-list.tpl.php:45
+#: ../themes/default/estimates-list.tpl.php:97
+#: ../themes/default/expenses-list.tpl.php:44
+#: ../themes/default/invoices-checkout.tpl.php:34
+#: ../themes/default/invoices-list.tpl.php:46
+#: ../themes/default/invoices-list.tpl.php:98
+#: ../themes/default/items-list.tpl.php:40
+#: ../themes/default/projects-view-milestones.sec.php:27
+#: ../themes/default/projects-view-tasks.sec.php:27
+#: ../themes/default/projects-view-tickets.sec.php:24
+#: ../themes/default/quotations-list.tpl.php:43
+#: ../themes/default/quotations-list.tpl.php:85
+#: ../themes/default/quotations-view.tpl.php:99
+#: ../themes/default/subscriptions-list.tpl.php:46
+#: ../themes/default/subscriptions-list.tpl.php:92
+#: ../themes/default/subscriptions-view.tpl.php:104
+#: ../themes/default/subscriptions-view.tpl.php:155
+msgid "Actions"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:32
+#: ../themes/default/invoices-view.tpl.php:31
+#: ../themes/default/messages-view.tpl.php:84
+#: ../themes/default/messages-view.tpl.php:235
+#: ../themes/default/messages-view.tpl.php:314
+#: ../timber/libraries/Biller.php:198 ../timber/libraries/Biller.php:205
+msgid "From:"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:55
+#: ../themes/default/estimates-view.tpl.php:101
+#: ../themes/default/invoices-view.tpl.php:54
+#: ../themes/default/invoices-view.tpl.php:100
+msgid "VAT:"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:59
+#: ../themes/default/estimates-view.tpl.php:105
+#: ../themes/default/invoices-view.tpl.php:58
+#: ../themes/default/invoices-view.tpl.php:104
+msgid "P:"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:71
+msgid "Estimate No."
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:74
+#: ../themes/default/invoices-view.tpl.php:73
+#: ../themes/default/messages-view.tpl.php:91
+#: ../themes/default/messages-view.tpl.php:236
+#: ../themes/default/messages-view.tpl.php:315
+#: ../themes/default/messages-view.tpl.php:367
+#: ../timber/libraries/Biller.php:214
+msgid "To:"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:110
+#: ../themes/default/invoices-view.tpl.php:109
+msgid "Issue Date:"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:111
+#: ../themes/default/invoices-view.tpl.php:110
+msgid "Due Date:"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:137
+#: ../themes/default/invoices-view.tpl.php:136
+msgid "Item List"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:138
+#: ../themes/default/invoices-view.tpl.php:137
+#: ../timber/libraries/Biller.php:305
+msgid "Quantity"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:139
+#: ../themes/default/invoices-view.tpl.php:138
+#: ../themes/default/items-add.tpl.php:44
+#: ../themes/default/items-edit.tpl.php:44
+#: ../themes/default/items-list.tpl.php:38 ../timber/libraries/Biller.php:306
+msgid "Unit Price"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:140
+#: ../themes/default/invoices-view.tpl.php:139
+msgid "Total Price"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:167
+#: ../themes/default/expenses-add.tpl.php:131
+#: ../themes/default/expenses-edit.tpl.php:134
+#: ../themes/default/expenses-view.tpl.php:77
+#: ../themes/default/expenses-view.tpl.php:82
+#: ../themes/default/invoices-view.tpl.php:166
+#: ../themes/default/messages-view.tpl.php:107
+#: ../themes/default/messages-view.tpl.php:158
+#: ../themes/default/messages-view.tpl.php:278
+#: ../themes/default/messages-view.tpl.php:328
+#: ../themes/default/subscriptions-view.tpl.php:200
+#: ../themes/default/subscriptions-view.tpl.php:205
+#: ../timber/controllers/Calendar.php:160
+msgid "Attachments"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:182
+#: ../themes/default/expenses-view.tpl.php:97
+#: ../themes/default/invoices-view.tpl.php:181
+#: ../themes/default/messages-view.tpl.php:122
+#: ../themes/default/messages-view.tpl.php:173
+#: ../themes/default/messages-view.tpl.php:293
+#: ../themes/default/messages-view.tpl.php:343
+#: ../themes/default/projects-view-files.sec.php:43
+#: ../themes/default/subscriptions-view.tpl.php:220
+msgid "Added:"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:231
+#: ../themes/default/invoices-view.tpl.php:229
+msgid "Download"
+msgstr ""
+
+#: ../themes/default/estimates-view.tpl.php:237
+#: ../themes/default/invoices-view.tpl.php:234
+#: ../themes/default/projects-view-tickets.sec.php:268
+#: ../themes/default/projects-view-tickets.sec.php:298
+#: ../themes/default/subscriptions-view.tpl.php:75
+msgid "Edit"
+msgstr ""
+
+#: ../themes/default/expenses-add.tpl.php:19
+#: ../themes/default/expenses-edit.tpl.php:19
+#: ../themes/default/expenses-list.tpl.php:19
+#: ../themes/default/expenses-view.tpl.php:19
+#: ../themes/default/side-menu.sec.php:92
+#: ../timber/controllers/Expenses.php:187
+msgid "Expenses"
+msgstr ""
+
+#: ../themes/default/expenses-add.tpl.php:36
+msgid "Add Expense"
+msgstr ""
+
+#: ../themes/default/expenses-add.tpl.php:45
+#: ../themes/default/expenses-edit.tpl.php:46
+#: ../themes/default/expenses-view.tpl.php:66
+#: ../themes/default/items-add.tpl.php:39
+#: ../themes/default/items-edit.tpl.php:39
+#: ../themes/default/projects-add.tpl.php:37
+#: ../themes/default/projects-edit.tpl.php:38
+#: ../themes/default/projects-view-milestones.sec.php:95
+#: ../themes/default/projects-view-milestones.sec.php:152
+#: ../themes/default/projects-view-tasks.sec.php:119
+#: ../themes/default/projects-view-tasks.sec.php:212
+#: ../themes/default/settings.tpl.php:46
+#: ../timber/controllers/Calendar.php:143
+msgid "Description"
+msgstr ""
+
+#: ../themes/default/expenses-add.tpl.php:58
+#: ../themes/default/expenses-edit.tpl.php:59
+#: ../timber/services/ExpensesData.php:74
+#: ../timber/services/ExpensesData.php:181
+#: ../timber/services/ExpensesData.php:282
+msgid "Payment"
+msgstr ""
+
+#: ../themes/default/expenses-add.tpl.php:59
+#: ../themes/default/expenses-edit.tpl.php:60
+#: ../timber/services/ExpensesData.php:74
+#: ../timber/services/ExpensesData.php:181
+#: ../timber/services/ExpensesData.php:282
+msgid "Refund"
+msgstr ""
+
+#: ../themes/default/expenses-edit.tpl.php:37
+#: ../timber/controllers/Expenses.php:206
+msgid "Edit Expense"
+msgstr ""
+
+#: ../themes/default/expenses-view.tpl.php:32
+msgid "Expense Details"
+msgstr ""
+
+#: ../themes/default/fpwd.tpl.php:42 ../themes/default/fpwd.tpl.php:73
+#: ../themes/default/login.tpl.php:40 ../themes/default/login.tpl.php:82
+#: ../themes/default/register.tpl.php:40 ../themes/default/register.tpl.php:70
+msgid "OR"
+msgstr ""
+
+#: ../themes/default/fpwd.tpl.php:51 ../themes/default/members-add.tpl.php:71
+#: ../themes/default/members-edit.tpl.php:77
+#: ../themes/default/members-view.tpl.php:40
+#: ../themes/default/profile.tpl.php:83
+#: ../themes/default/quotations-view.tpl.php:54
+#: ../themes/default/quotations-view.tpl.php:59
+#: ../themes/default/register.tpl.php:51 ../themes/default/settings.tpl.php:86
+msgid "Email"
+msgstr ""
+
+#: ../themes/default/fpwd.tpl.php:55
+msgid "Remember"
+msgstr ""
+
+#: ../themes/default/fpwd.tpl.php:62
+#: ../themes/default/members-edit.tpl.php:126
+#: ../themes/default/profile.tpl.php:136
+msgid "New Password"
+msgstr ""
+
+#: ../themes/default/fpwd.tpl.php:66
+msgid "Reset"
+msgstr ""
+
+#: ../themes/default/fpwd.tpl.php:77
+msgid "Login To Account"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:21
+msgid "Application Configurations"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:24
+msgid "MySQL Host Name"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:28
+msgid "MySQL Database Name"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:32
+msgid "MySQL Database Username"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:36
+msgid "MySQL Database Password"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:40
+msgid "Home URL"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:46
+msgid "Application Tables and Options"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:49 ../themes/default/settings.tpl.php:654
+msgid "App Name"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:53
+msgid "App Email"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:59
+msgid "Administrator Account"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:62
+msgid "Admin Username"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:66
+msgid "Admin Email"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:70
+msgid "Admin Password"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:74
+msgid "Verify Password Again"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:85
+msgid "Info"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:88
+msgid "System Informations"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:91 ../themes/default/settings.tpl.php:678
+msgid "PHP Version"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:92 ../themes/default/settings.tpl.php:681
+msgid "Required Extensions"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:94 ../themes/default/install.tpl.php:99
+#: ../themes/default/install.tpl.php:106 ../themes/default/install.tpl.php:113
+#: ../themes/default/install.tpl.php:120 ../themes/default/install.tpl.php:127
+#: ../themes/default/install.tpl.php:134
+msgid "success"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:94 ../themes/default/install.tpl.php:101
+#: ../themes/default/install.tpl.php:108 ../themes/default/install.tpl.php:115
+#: ../themes/default/install.tpl.php:122 ../themes/default/install.tpl.php:129
+#: ../themes/default/install.tpl.php:136
+msgid "failed"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:97
+msgid "Client File"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:104
+msgid "Database Connection"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:111
+msgid "Database Tables"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:118
+msgid "App Options"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:125
+msgid "Admin Account"
+msgstr ""
+
+#: ../themes/default/install.tpl.php:132
+msgid "App Installed"
+msgstr ""
+
+#: ../themes/default/invoices-add.tpl.php:19
+#: ../themes/default/invoices-checkout.tpl.php:26
+#: ../themes/default/invoices-edit.tpl.php:19
+#: ../themes/default/invoices-list.tpl.php:19
+#: ../themes/default/invoices-view.tpl.php:18
+#: ../themes/default/members-view.tpl.php:183
+#: ../themes/default/side-menu.sec.php:54
+#: ../themes/default/subscriptions-view.tpl.php:93
+#: ../timber/controllers/Invoices.php:186
+msgid "Invoices"
+msgstr ""
+
+#: ../themes/default/invoices-add.tpl.php:53
+#: ../themes/default/invoices-edit.tpl.php:54
+#: ../themes/default/subscriptions-add.tpl.php:53
+#: ../themes/default/subscriptions-edit.tpl.php:54
+#: ../timber/services/DashboardData.php:274
+#: ../timber/services/DashboardData.php:301
+#: ../timber/services/DashboardData.php:574
+#: ../timber/services/DashboardData.php:601
+#: ../timber/services/InvoicesData.php:121
+#: ../timber/services/InvoicesData.php:255
+#: ../timber/services/InvoicesData.php:414
+#: ../timber/services/MembersData.php:361
+#: ../timber/services/MembersData.php:394
+#: ../timber/services/SubscriptionsData.php:114
+#: ../timber/services/SubscriptionsData.php:251
+#: ../timber/services/SubscriptionsData.php:412
+#: ../timber/services/SubscriptionsData.php:483
+msgid "Partially Paid"
+msgstr ""
+
+#: ../themes/default/invoices-add.tpl.php:54
+#: ../themes/default/invoices-edit.tpl.php:55
+#: ../themes/default/subscriptions-add.tpl.php:54
+#: ../themes/default/subscriptions-edit.tpl.php:55
+#: ../timber/services/DashboardData.php:274
+#: ../timber/services/DashboardData.php:301
+#: ../timber/services/DashboardData.php:574
+#: ../timber/services/DashboardData.php:601
+#: ../timber/services/InvoicesData.php:121
+#: ../timber/services/InvoicesData.php:255
+#: ../timber/services/InvoicesData.php:414
+#: ../timber/services/MembersData.php:361
+#: ../timber/services/MembersData.php:394
+#: ../timber/services/SubscriptionsData.php:114
+#: ../timber/services/SubscriptionsData.php:251
+#: ../timber/services/SubscriptionsData.php:412
+#: ../timber/services/SubscriptionsData.php:483
+msgid "Unpaid"
+msgstr ""
+
+#: ../themes/default/invoices-add.tpl.php:74
+#: ../themes/default/invoices-edit.tpl.php:77
+msgid "Invoice To"
+msgstr ""
+
+#: ../themes/default/invoices-add.tpl.php:101
+#: ../themes/default/invoices-edit.tpl.php:104
+msgid "Invoice Terms and Notes"
+msgstr ""
+
+#: ../themes/default/invoices-add.tpl.php:110
+#: ../themes/default/invoices-edit.tpl.php:115
+msgid "Invoice Items"
+msgstr ""
+
+#: ../themes/default/invoices-add.tpl.php:203
+#: ../themes/default/invoices-edit.tpl.php:210
+msgid "Invoice Attachments"
+msgstr ""
+
+#: ../themes/default/invoices-add.tpl.php:215
+#: ../themes/default/invoices-edit.tpl.php:228
+msgid "Invoice Overall"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:18
+#: ../themes/default/side-menu.sec.php:62
+#: ../timber/controllers/Invoices.php:226
+msgid "Checkout"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:32
+msgid "Invoice ID"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:33
+msgid "Price"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:56
+msgid "Total :"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:71
+#: ../themes/default/settings.tpl.php:426
+msgid "Paypal"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:72
+#: ../themes/default/settings.tpl.php:457
+msgid "Stripe"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:73
+msgid "Wire Transfer"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:87
+msgid "Card Name"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:95
+msgid "Card Number"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:99
+msgid "CVC"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:106
+msgid "Expiration"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:110
+#: ../timber/services/SubscriptionsData.php:421
+msgid "Month"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:111
+msgid "January"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:112
+msgid "February"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:113
+msgid "March"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:114
+msgid "April"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:115
+msgid "May"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:116
+msgid "June"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:117
+msgid "July"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:118
+msgid "August"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:119
+msgid "September"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:120
+msgid "October"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:121
+msgid "November"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:122
+msgid "December"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:141
+msgid "Account Number:"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:142
+msgid "Country:"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:143
+msgid "Swift Code:"
+msgstr ""
+
+#: ../themes/default/invoices-checkout.tpl.php:144
+msgid "Additional Data:"
+msgstr ""
+
+#: ../themes/default/invoices-view.tpl.php:70
+msgid "Invoice No."
+msgstr ""
+
+#: ../themes/default/items-add.tpl.php:19
+#: ../themes/default/items-edit.tpl.php:19
+#: ../themes/default/items-list.tpl.php:18
+#: ../themes/default/quotations-add.tpl.php:132
+#: ../themes/default/quotations-add.tpl.php:154
+#: ../themes/default/side-menu.sec.php:109 ../timber/controllers/Items.php:185
+msgid "Items"
+msgstr ""
+
+#: ../themes/default/items-add.tpl.php:27
+msgid "Add Item"
+msgstr ""
+
+#: ../themes/default/items-edit.tpl.php:27 ../timber/controllers/Items.php:203
+msgid "Edit Item"
+msgstr ""
+
+#: ../themes/default/login.tpl.php:63
+msgid "Username or Email"
+msgstr ""
+
+#: ../themes/default/login.tpl.php:67
+#: ../themes/default/members-add.tpl.php:120
+#: ../themes/default/register.tpl.php:55
+msgid "Password"
+msgstr ""
+
+#: ../themes/default/login.tpl.php:74
+msgid "Remember Me"
+msgstr ""
+
+#: ../themes/default/login.tpl.php:86 ../timber/controllers/Fpwd.php:166
+msgid "Forgot Password"
+msgstr ""
+
+#: ../themes/default/maintenance.tpl.php:8
+msgid "Site Under Maintenance"
+msgstr ""
+
+#: ../themes/default/maintenance.tpl.php:9
+msgid ""
+"Our site is currently under maintenance. We apologize for any inconvenience "
+"and thank you for your patience."
+msgstr ""
+
+#: ../themes/default/maintenance.tpl.php:10
+msgid "Only Administrators Can Access"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:48
+#: ../themes/default/members-edit.tpl.php:54
+#: ../themes/default/profile.tpl.php:60 ../themes/default/settings.tpl.php:41
+msgid "Name"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:59
+#: ../themes/default/members-edit.tpl.php:65
+#: ../themes/default/profile.tpl.php:71 ../themes/default/register.tpl.php:47
+msgid "Username"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:63
+#: ../themes/default/members-edit.tpl.php:69
+#: ../themes/default/profile.tpl.php:75
+msgid "Job Title"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:67
+#: ../themes/default/members-edit.tpl.php:73
+#: ../themes/default/profile.tpl.php:79 ../themes/default/settings.tpl.php:27
+msgid "Company"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:75
+#: ../themes/default/members-edit.tpl.php:81
+#: ../themes/default/members-view.tpl.php:44
+#: ../themes/default/profile.tpl.php:87
+msgid "Website"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:79
+#: ../themes/default/members-edit.tpl.php:85
+#: ../themes/default/profile.tpl.php:91
+msgid "Language"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:87
+#: ../themes/default/members-edit.tpl.php:93
+#: ../themes/default/profile.tpl.php:99 ../themes/default/settings.tpl.php:81
+msgid "Phone Number"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:91
+#: ../themes/default/members-edit.tpl.php:97
+#: ../themes/default/members-view.tpl.php:68
+#: ../themes/default/profile.tpl.php:103 ../themes/default/settings.tpl.php:57
+msgid "Country"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:99
+#: ../themes/default/members-edit.tpl.php:105
+#: ../themes/default/profile.tpl.php:111
+msgid "State / Province / Region"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:103
+#: ../themes/default/members-edit.tpl.php:109
+#: ../themes/default/members-view.tpl.php:60
+#: ../themes/default/profile.tpl.php:115 ../themes/default/settings.tpl.php:71
+msgid "Address Line 1"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:107
+#: ../themes/default/members-edit.tpl.php:113
+#: ../themes/default/members-view.tpl.php:56
+#: ../themes/default/profile.tpl.php:119 ../themes/default/settings.tpl.php:76
+msgid "Address Line 2"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:111
+#: ../themes/default/members-edit.tpl.php:117
+#: ../themes/default/profile.tpl.php:123
+msgid "ZIP Code / Postal Code"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:115
+#: ../themes/default/members-edit.tpl.php:121
+#: ../themes/default/members-view.tpl.php:52
+#: ../themes/default/profile.tpl.php:127 ../themes/default/settings.tpl.php:96
+msgid "VAT Number"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:125
+msgid "Member Rule"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:128
+#: ../themes/default/members-list.tpl.php:43
+#: ../themes/default/realtime.tpl.php:14
+msgid "Administrator"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:129
+#: ../themes/default/members-list.tpl.php:46
+#: ../themes/default/projects-add.tpl.php:71
+#: ../themes/default/projects-edit.tpl.php:72
+#: ../themes/default/realtime.tpl.php:17
+#: ../timber/controllers/Calendar.php:162
+msgid "Staff"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:139
+msgid "Process Type"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:141
+msgid "Invite to Register"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:142
+msgid "Create a New Profile without Alert"
+msgstr ""
+
+#: ../themes/default/members-add.tpl.php:143
+msgid "Create a New Profile with Alert"
+msgstr ""
+
+#: ../themes/default/members-edit.tpl.php:132
+#: ../themes/default/profile.tpl.php:142
+msgid "Change Password"
+msgstr ""
+
+#: ../themes/default/members-view.tpl.php:37
+msgid "Information"
+msgstr ""
+
+#: ../themes/default/members-view.tpl.php:48
+msgid "ZIP Code"
+msgstr ""
+
+#: ../themes/default/members-view.tpl.php:64
+#: ../themes/default/settings.tpl.php:66
+msgid "City"
+msgstr ""
+
+#: ../themes/default/members-view.tpl.php:88
+#: ../themes/default/projects-add.tpl.php:18
+#: ../themes/default/projects-edit.tpl.php:18
+#: ../themes/default/projects-list.tpl.php:18
+#: ../themes/default/projects-view.tpl.php:18
+#: ../themes/default/side-menu.sec.php:20
+#: ../timber/controllers/Projects.php:237
+#: ../timber/controllers/Projects.php:251
+msgid "Projects"
+msgstr ""
+
+#: ../themes/default/members-view.tpl.php:94
+#: ../themes/default/projects-add.tpl.php:128
+#: ../themes/default/projects-edit.tpl.php:129
+#: ../timber/controllers/Calendar.php:155
+msgid "Budget"
+msgstr ""
+
+#: ../themes/default/members-view.tpl.php:123
+#: ../themes/default/projects-view-tasks.sec.php:10
+msgid "Tasks"
+msgstr ""
+
+#: ../themes/default/members-view.tpl.php:213
+#: ../themes/default/projects-view-tickets.sec.php:10
+msgid "Tickets"
+msgstr ""
+
+#: ../themes/default/members-view.tpl.php:218
+#: ../timber/controllers/Calendar.php:152
+msgid "Reference"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:19
+#: ../themes/default/messages-list.tpl.php:19
+#: ../themes/default/messages-view.tpl.php:19
+#: ../themes/default/top-menu.sec.php:15
+#: ../timber/controllers/Messages.php:180
+msgid "Messages"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:31
+#: ../themes/default/messages-list.tpl.php:31
+#: ../themes/default/messages-view.tpl.php:32
+msgid "Compose"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:39
+#: ../themes/default/messages-list.tpl.php:39
+#: ../themes/default/messages-view.tpl.php:40
+msgid "Inbox"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:47
+#: ../themes/default/messages-list.tpl.php:47
+#: ../themes/default/messages-view.tpl.php:48
+#: ../timber/services/MessagesData.php:157
+msgid "Favorite"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:55
+#: ../themes/default/messages-list.tpl.php:55
+#: ../themes/default/messages-view.tpl.php:56
+#: ../timber/services/DashboardData.php:328
+#: ../timber/services/DashboardData.php:628
+#: ../timber/services/EstimatesData.php:111
+#: ../timber/services/EstimatesData.php:252
+#: ../timber/services/EstimatesData.php:416
+#: ../timber/services/MembersData.php:478
+#: ../timber/services/MessagesData.php:157
+msgid "Sent"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:60
+#: ../themes/default/messages-list.tpl.php:60
+#: ../themes/default/messages-view.tpl.php:61
+#: ../timber/services/MessagesData.php:157
+msgid "Trash"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:73
+#: ../timber/controllers/Messages.php:190
+msgid "Compose Message"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:80
+msgid "Receiver:"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:84
+msgid "Select Receiver"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:96
+#: ../themes/default/messages-view.tpl.php:75
+#: ../themes/default/messages-view.tpl.php:234
+#: ../themes/default/messages-view.tpl.php:374
+msgid "Subject:"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:100
+#: ../themes/default/messages-view.tpl.php:200
+#: ../themes/default/messages-view.tpl.php:379
+msgid "Attachments:"
+msgstr ""
+
+#: ../themes/default/messages-add.tpl.php:105
+#: ../themes/default/messages-view.tpl.php:205
+msgid "Message"
+msgstr ""
+
+#: ../themes/default/messages-list.tpl.php:77
+msgid "No Messages Found."
+msgstr ""
+
+#: ../themes/default/messages-view.tpl.php:97
+#: ../themes/default/messages-view.tpl.php:148
+#: ../themes/default/messages-view.tpl.php:237
+#: ../themes/default/messages-view.tpl.php:316
+msgid "Sent:"
+msgstr ""
+
+#: ../themes/default/messages-view.tpl.php:142
+msgid "Reply From:"
+msgstr ""
+
+#: ../themes/default/messages-view.tpl.php:192
+#: ../themes/default/messages-view.tpl.php:359
+msgid "Reply To Message"
+msgstr ""
+
+#: ../themes/default/messages-view.tpl.php:313
+msgid "Reply To:"
+msgstr ""
+
+#: ../themes/default/plugins.tpl.php:18
+#: ../themes/default/side-menu.sec.php:168
+#: ../timber/controllers/Plugins.php:171
+msgid "Plugins"
+msgstr ""
+
+#: ../themes/default/plugins.tpl.php:36 ../themes/default/plugins.tpl.php:41
+#: ../themes/default/themes.tpl.php:56
+msgid "Activate"
+msgstr ""
+
+#: ../themes/default/plugins.tpl.php:38 ../themes/default/plugins.tpl.php:43
+msgid "Deactivate"
+msgstr ""
+
+#: ../themes/default/plugins.tpl.php:45
+#: ../themes/default/projects-view-tickets.sec.php:301
+#: ../themes/default/themes.tpl.php:58
+msgid "Delete"
+msgstr ""
+
+#: ../themes/default/plugins.tpl.php:51 ../themes/default/themes.tpl.php:66
+msgid "Author:"
+msgstr ""
+
+#: ../themes/default/plugins.tpl.php:53 ../themes/default/themes.tpl.php:68
+msgid "Version:"
+msgstr ""
+
+#: ../themes/default/profile.tpl.php:18 ../timber/controllers/Profile.php:169
+msgid "Profile"
+msgstr ""
+
+#: ../themes/default/profile.tpl.php:132
+msgid "Old Password"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:25
+msgid "Add Project"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:42
+#: ../themes/default/projects-edit.tpl.php:43
+#: ../timber/controllers/Calendar.php:154
+msgid "Version"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:49
+#: ../themes/default/projects-edit.tpl.php:50
+#: ../themes/default/projects-view-milestones.sec.php:112
+#: ../themes/default/projects-view-milestones.sec.php:169
+#: ../themes/default/projects-view-tasks.sec.php:162
+#: ../themes/default/projects-view-tasks.sec.php:255
+#: ../themes/default/projects-view-tickets.sec.php:128
+#: ../themes/default/projects-view-tickets.sec.php:194
+#: ../timber/services/CalendarData.php:70
+#: ../timber/services/CalendarData.php:231
+#: ../timber/services/DashboardData.php:243
+#: ../timber/services/DashboardData.php:378
+#: ../timber/services/DashboardData.php:429
+#: ../timber/services/DashboardData.php:462
+#: ../timber/services/DashboardData.php:498
+#: ../timber/services/DashboardData.php:543
+#: ../timber/services/MembersData.php:278
+#: ../timber/services/MembersData.php:330
+#: ../timber/services/MembersData.php:447
+#: ../timber/services/ProjectsData.php:74
+#: ../timber/services/ProjectsData.php:274
+#: ../timber/services/ProjectsData.php:396
+#: ../timber/services/ProjectsData.php:679
+#: ../timber/services/ProjectsData.php:783
+#: ../timber/services/ProjectsData.php:910
+#: ../timber/services/ProjectsData.php:1055
+#: ../timber/services/ProjectsData.php:1198
+#: ../timber/services/ProjectsData.php:1323
+#: ../timber/services/ProjectsData.php:1418
+msgid "Pending"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:50
+#: ../themes/default/projects-edit.tpl.php:51
+#: ../themes/default/projects-view-milestones.sec.php:113
+#: ../themes/default/projects-view-milestones.sec.php:170
+#: ../themes/default/projects-view-tasks.sec.php:163
+#: ../themes/default/projects-view-tasks.sec.php:256
+#: ../timber/services/CalendarData.php:70
+#: ../timber/services/CalendarData.php:231
+#: ../timber/services/DashboardData.php:243
+#: ../timber/services/DashboardData.php:378
+#: ../timber/services/DashboardData.php:462
+#: ../timber/services/DashboardData.php:498
+#: ../timber/services/DashboardData.php:543
+#: ../timber/services/MembersData.php:278
+#: ../timber/services/MembersData.php:330
+#: ../timber/services/ProjectsData.php:74
+#: ../timber/services/ProjectsData.php:274
+#: ../timber/services/ProjectsData.php:396
+#: ../timber/services/ProjectsData.php:679
+#: ../timber/services/ProjectsData.php:783
+#: ../timber/services/ProjectsData.php:1198
+#: ../timber/services/ProjectsData.php:1418
+msgid "In Progress"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:51
+#: ../themes/default/projects-edit.tpl.php:52
+#: ../themes/default/projects-view-milestones.sec.php:114
+#: ../themes/default/projects-view-milestones.sec.php:171
+#: ../themes/default/projects-view-tasks.sec.php:164
+#: ../themes/default/projects-view-tasks.sec.php:257
+#: ../timber/services/CalendarData.php:70
+#: ../timber/services/CalendarData.php:231
+#: ../timber/services/DashboardData.php:243
+#: ../timber/services/DashboardData.php:378
+#: ../timber/services/DashboardData.php:462
+#: ../timber/services/DashboardData.php:498
+#: ../timber/services/DashboardData.php:543
+#: ../timber/services/MembersData.php:278
+#: ../timber/services/MembersData.php:330
+#: ../timber/services/ProjectsData.php:74
+#: ../timber/services/ProjectsData.php:274
+#: ../timber/services/ProjectsData.php:396
+#: ../timber/services/ProjectsData.php:679
+#: ../timber/services/ProjectsData.php:783
+#: ../timber/services/ProjectsData.php:1198
+#: ../timber/services/ProjectsData.php:1418
+msgid "Overdue"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:52
+#: ../themes/default/projects-edit.tpl.php:53
+#: ../themes/default/projects-view-milestones.sec.php:115
+#: ../themes/default/projects-view-milestones.sec.php:172
+#: ../themes/default/projects-view-tasks.sec.php:165
+#: ../themes/default/projects-view-tasks.sec.php:258
+#: ../timber/services/CalendarData.php:70
+#: ../timber/services/CalendarData.php:231
+#: ../timber/services/DashboardData.php:243
+#: ../timber/services/DashboardData.php:378
+#: ../timber/services/DashboardData.php:462
+#: ../timber/services/DashboardData.php:498
+#: ../timber/services/DashboardData.php:543
+#: ../timber/services/MembersData.php:278
+#: ../timber/services/MembersData.php:330
+#: ../timber/services/ProjectsData.php:74
+#: ../timber/services/ProjectsData.php:274
+#: ../timber/services/ProjectsData.php:396
+#: ../timber/services/ProjectsData.php:679
+#: ../timber/services/ProjectsData.php:783
+#: ../timber/services/ProjectsData.php:1198
+#: ../timber/services/ProjectsData.php:1418
+msgid "Done"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:53
+#: ../themes/default/projects-edit.tpl.php:54
+#: ../timber/services/CalendarData.php:70
+#: ../timber/services/DashboardData.php:243
+#: ../timber/services/DashboardData.php:378
+#: ../timber/services/DashboardData.php:543
+#: ../timber/services/MembersData.php:278
+#: ../timber/services/ProjectsData.php:74
+#: ../timber/services/ProjectsData.php:274
+#: ../timber/services/ProjectsData.php:396
+msgid "Archived"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:59
+#: ../themes/default/projects-edit.tpl.php:60
+#: ../timber/controllers/Calendar.php:163
+msgid "Clients"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:61
+#: ../themes/default/projects-edit.tpl.php:62
+msgid "Select Clients"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:73
+#: ../themes/default/projects-edit.tpl.php:74
+#: ../themes/default/projects-view-tasks.sec.php:137
+#: ../themes/default/projects-view-tasks.sec.php:230
+msgid "Select Staff"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:133
+#: ../themes/default/projects-edit.tpl.php:134
+#: ../themes/default/projects-view-tasks.sec.php:170
+#: ../themes/default/projects-view-tasks.sec.php:263
+#: ../timber/controllers/Calendar.php:147
+msgid "Start at"
+msgstr ""
+
+#: ../themes/default/projects-add.tpl.php:138
+#: ../themes/default/projects-edit.tpl.php:139
+#: ../themes/default/projects-view-tasks.sec.php:175
+#: ../themes/default/projects-view-tasks.sec.php:268
+#: ../themes/default/subscriptions-add.tpl.php:45
+#: ../themes/default/subscriptions-edit.tpl.php:46
+#: ../timber/controllers/Calendar.php:148
+msgid "End at"
+msgstr ""
+
+#: ../themes/default/projects-edit.tpl.php:25
+#: ../timber/controllers/Projects.php:272
+msgid "Edit Project"
+msgstr ""
+
+#: ../themes/default/projects-list.tpl.php:43
+#: ../themes/default/projects-view.tpl.php:36
+#: ../themes/default/realtime.tpl.php:89
+msgid "BUDGET"
+msgstr ""
+
+#: ../themes/default/projects-list.tpl.php:47
+#: ../themes/default/projects-view.tpl.php:40
+#: ../themes/default/realtime.tpl.php:93
+msgid "VERSION"
+msgstr ""
+
+#: ../themes/default/projects-list.tpl.php:51
+#: ../themes/default/projects-view.tpl.php:48
+#: ../themes/default/realtime.tpl.php:97
+msgid "DEDLINE"
+msgstr ""
+
+#: ../themes/default/projects-list.tpl.php:55
+#: ../themes/default/projects-view.tpl.php:52
+#: ../themes/default/realtime.tpl.php:101
+msgid "PROGRESS"
+msgstr ""
+
+#: ../themes/default/projects-list.tpl.php:64
+#: ../themes/default/projects-view.tpl.php:78
+#: ../themes/default/realtime.tpl.php:110
+msgid "ADMIN"
+msgstr ""
+
+#: ../themes/default/projects-list.tpl.php:72
+#: ../themes/default/projects-view.tpl.php:94
+#: ../themes/default/realtime.tpl.php:118
+msgid "STAFF"
+msgstr ""
+
+#: ../themes/default/projects-list.tpl.php:80
+#: ../themes/default/projects-view.tpl.php:86
+#: ../themes/default/realtime.tpl.php:126
+msgid "CLIENTS"
+msgstr ""
+
+#: ../themes/default/projects-view-files.sec.php:9
+msgid "Files"
+msgstr ""
+
+#: ../themes/default/projects-view-files.sec.php:42
+msgid "By:"
+msgstr ""
+
+#: ../themes/default/projects-view-files.sec.php:45
+msgid "Remove"
+msgstr ""
+
+#: ../themes/default/projects-view-files.sec.php:59
+msgid "Total Files: "
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:10
+msgid "Milestones"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:23
+#: ../themes/default/projects-view-stats.sec.php:152
+#: ../themes/default/projects-view-tasks.sec.php:124
+#: ../themes/default/projects-view-tasks.sec.php:217
+msgid "Milestone"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:25
+#: ../themes/default/projects-view-milestones.sec.php:100
+#: ../themes/default/projects-view-milestones.sec.php:157
+#: ../themes/default/projects-view-stats.sec.php:153
+#: ../themes/default/projects-view-stats.sec.php:181
+#: ../themes/default/projects-view-tasks.sec.php:25
+#: ../themes/default/projects-view-tasks.sec.php:150
+#: ../themes/default/projects-view-tasks.sec.php:243
+#: ../timber/controllers/Calendar.php:146
+msgid "Priority"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:55
+#: ../themes/default/projects-view-tasks.sec.php:73
+msgid "Description:"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:57
+#: ../themes/default/projects-view-tasks.sec.php:79
+#: ../themes/default/projects-view-tickets.sec.php:85
+msgid "Created:"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:66
+msgid "Total Milestones: "
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:81
+msgid "Add Milestone"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:102
+#: ../themes/default/projects-view-milestones.sec.php:159
+#: ../themes/default/projects-view-tasks.sec.php:152
+#: ../themes/default/projects-view-tasks.sec.php:245
+#: ../timber/services/CalendarData.php:235
+#: ../timber/services/DashboardData.php:466
+#: ../timber/services/DashboardData.php:502
+#: ../timber/services/MembersData.php:334
+#: ../timber/services/ProjectsData.php:683
+#: ../timber/services/ProjectsData.php:787
+#: ../timber/services/ProjectsData.php:1202
+#: ../timber/services/ProjectsData.php:1422
+msgid "Low"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:103
+#: ../themes/default/projects-view-milestones.sec.php:160
+#: ../themes/default/projects-view-tasks.sec.php:153
+#: ../themes/default/projects-view-tasks.sec.php:246
+#: ../timber/services/CalendarData.php:235
+#: ../timber/services/DashboardData.php:466
+#: ../timber/services/DashboardData.php:502
+#: ../timber/services/MembersData.php:334
+#: ../timber/services/ProjectsData.php:683
+#: ../timber/services/ProjectsData.php:787
+#: ../timber/services/ProjectsData.php:1202
+#: ../timber/services/ProjectsData.php:1422
+msgid "Middle"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:104
+#: ../themes/default/projects-view-milestones.sec.php:161
+#: ../themes/default/projects-view-tasks.sec.php:154
+#: ../themes/default/projects-view-tasks.sec.php:247
+#: ../timber/services/CalendarData.php:235
+#: ../timber/services/DashboardData.php:466
+#: ../timber/services/DashboardData.php:502
+#: ../timber/services/MembersData.php:334
+#: ../timber/services/ProjectsData.php:683
+#: ../timber/services/ProjectsData.php:787
+#: ../timber/services/ProjectsData.php:1202
+#: ../timber/services/ProjectsData.php:1422
+msgid "High"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:105
+#: ../themes/default/projects-view-milestones.sec.php:162
+#: ../themes/default/projects-view-tasks.sec.php:155
+#: ../themes/default/projects-view-tasks.sec.php:248
+#: ../timber/services/CalendarData.php:235
+#: ../timber/services/DashboardData.php:466
+#: ../timber/services/DashboardData.php:502
+#: ../timber/services/MembersData.php:334
+#: ../timber/services/ProjectsData.php:683
+#: ../timber/services/ProjectsData.php:787
+#: ../timber/services/ProjectsData.php:1202
+#: ../timber/services/ProjectsData.php:1422
+msgid "Critical"
+msgstr ""
+
+#: ../themes/default/projects-view-milestones.sec.php:137
+msgid "Edit Milestone"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:12
+msgid "Pending Tasks"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:42
+msgid "Done Tasks"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:67
+msgid "Opened Tickets"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:77
+msgid "Closed Tickets"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:91
+msgid "Shared Files"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:105
+msgid "Pending Milestones"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:115
+#: ../themes/default/projects-view-stats.sec.php:146
+msgid "In Progress Milestones"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:125
+msgid "Status Milestones"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:135
+msgid "Done Milestones"
+msgstr ""
+
+#: ../themes/default/projects-view-stats.sec.php:179
+#: ../themes/default/projects-view-tasks.sec.php:23
+msgid "Task"
+msgstr ""
+
+#: ../themes/default/projects-view-tasks.sec.php:75
+msgid "Milestone:"
+msgstr ""
+
+#: ../themes/default/projects-view-tasks.sec.php:76
+msgid "Assign to:"
+msgstr ""
+
+#: ../themes/default/projects-view-tasks.sec.php:77
+msgid "Start at:"
+msgstr ""
+
+#: ../themes/default/projects-view-tasks.sec.php:78
+msgid "End at:"
+msgstr ""
+
+#: ../themes/default/projects-view-tasks.sec.php:89
+msgid "Total Tasks: "
+msgstr ""
+
+#: ../themes/default/projects-view-tasks.sec.php:105
+msgid "Add Task"
+msgstr ""
+
+#: ../themes/default/projects-view-tasks.sec.php:133
+#: ../themes/default/projects-view-tasks.sec.php:226
+msgid "Assign to"
+msgstr ""
+
+#: ../themes/default/projects-view-tasks.sec.php:197
+msgid "Edit Task"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:83
+msgid "Reference:"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:84
+msgid "Opened By :"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:86
+msgid "Updated:"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:96
+msgid "Total Tickets: "
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:112
+msgid "Add Ticket"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:129
+#: ../themes/default/projects-view-tickets.sec.php:195
+#: ../timber/services/DashboardData.php:328
+#: ../timber/services/DashboardData.php:429
+#: ../timber/services/DashboardData.php:628
+#: ../timber/services/EstimatesData.php:111
+#: ../timber/services/EstimatesData.php:252
+#: ../timber/services/EstimatesData.php:416
+#: ../timber/services/MembersData.php:447
+#: ../timber/services/MembersData.php:478
+#: ../timber/services/ProjectsData.php:910
+#: ../timber/services/ProjectsData.php:1055
+#: ../timber/services/ProjectsData.php:1323
+msgid "Opened"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:137
+#: ../themes/default/projects-view-tickets.sec.php:205
+#: ../timber/services/DashboardData.php:433
+#: ../timber/services/MembersData.php:451
+#: ../timber/services/ProjectsData.php:914
+#: ../timber/services/ProjectsData.php:1060
+#: ../timber/services/ProjectsData.php:1327
+msgid "Inquiry"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:138
+#: ../themes/default/projects-view-tickets.sec.php:206
+#: ../timber/services/DashboardData.php:433
+#: ../timber/services/MembersData.php:451
+#: ../timber/services/ProjectsData.php:914
+#: ../timber/services/ProjectsData.php:1060
+#: ../timber/services/ProjectsData.php:1327
+msgid "Suggestion"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:139
+#: ../themes/default/projects-view-tickets.sec.php:207
+#: ../timber/services/DashboardData.php:433
+#: ../timber/services/MembersData.php:451
+#: ../timber/services/ProjectsData.php:914
+#: ../timber/services/ProjectsData.php:1060
+#: ../timber/services/ProjectsData.php:1327
+msgid "Normal Bug"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:140
+#: ../themes/default/projects-view-tickets.sec.php:208
+#: ../timber/services/DashboardData.php:433
+#: ../timber/services/MembersData.php:451
+#: ../timber/services/ProjectsData.php:914
+#: ../timber/services/ProjectsData.php:1060
+#: ../timber/services/ProjectsData.php:1327
+msgid "Critical Bug"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:141
+#: ../themes/default/projects-view-tickets.sec.php:209
+#: ../timber/services/DashboardData.php:433
+#: ../timber/services/MembersData.php:451
+#: ../timber/services/ProjectsData.php:914
+#: ../timber/services/ProjectsData.php:1060
+#: ../timber/services/ProjectsData.php:1327
+msgid "Security Bug"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:146
+#: ../themes/default/projects-view-tickets.sec.php:215
+msgid "Content"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:151
+#: ../themes/default/projects-view-tickets.sec.php:222
+#: ../themes/default/projects-view-tickets.sec.php:337
+msgid "Attach Files"
+msgstr ""
+
+#: ../themes/default/projects-view-tickets.sec.php:173
+msgid "Edit Ticket"
+msgstr ""
+
+#: ../themes/default/projects-view.tpl.php:44
+msgid "START AT"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:19
+#: ../themes/default/quotations-list.tpl.php:20
+#: ../themes/default/quotations-view.tpl.php:19
+#: ../themes/default/side-menu.sec.php:126
+#: ../timber/controllers/Quotations.php:195
+msgid "Quotations"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:27
+msgid "Form Elements"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:29
+msgid "Text"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:30
+msgid "Paragraph"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:31
+msgid "Checkbox"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:32
+msgid "Multiple Choice"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:33
+msgid "Dropdown"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:34
+msgid "Date"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:35
+msgid "Section Break"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:42
+msgid "Form Preview"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:73
+#: ../themes/default/quotations-add.tpl.php:95
+#: ../themes/default/quotations-add.tpl.php:117
+#: ../themes/default/quotations-add.tpl.php:128
+#: ../themes/default/quotations-add.tpl.php:150
+#: ../themes/default/quotations-add.tpl.php:172
+msgid "Label"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:77
+#: ../themes/default/quotations-add.tpl.php:99
+#: ../themes/default/quotations-add.tpl.php:176
+msgid "Placeholder"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:81
+#: ../themes/default/quotations-add.tpl.php:103
+#: ../themes/default/quotations-add.tpl.php:136
+#: ../themes/default/quotations-add.tpl.php:158
+#: ../themes/default/quotations-add.tpl.php:180
+msgid "Required"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:83
+#: ../themes/default/quotations-add.tpl.php:105
+#: ../themes/default/quotations-add.tpl.php:138
+#: ../themes/default/quotations-add.tpl.php:160
+#: ../themes/default/quotations-add.tpl.php:182
+msgid "No"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:84
+#: ../themes/default/quotations-add.tpl.php:106
+#: ../themes/default/quotations-add.tpl.php:139
+#: ../themes/default/quotations-add.tpl.php:161
+#: ../themes/default/quotations-add.tpl.php:183
+msgid "Yes"
+msgstr ""
+
+#: ../themes/default/quotations-add.tpl.php:193
+#: ../themes/default/themes.tpl.php:60 ../themes/default/uploader.sec.php:15
+msgid "Save"
+msgstr ""
+
+#: ../themes/default/quotations-view.tpl.php:30
+msgid "Quotation Details"
+msgstr ""
+
+#: ../themes/default/quotations-view.tpl.php:52
+msgid "Send To"
+msgstr ""
+
+#: ../themes/default/quotations-view.tpl.php:91
+msgid "Submissions"
+msgstr ""
+
+#: ../themes/default/quotations-view.tpl.php:97
+msgid "Client / Email"
+msgstr ""
+
+#: ../themes/default/quotations-view.tpl.php:98
+msgid "Submitted at"
+msgstr ""
+
+#: ../themes/default/register.tpl.php:62
+msgid "I agree to terms of use"
+msgstr ""
+
+#: ../themes/default/register.tpl.php:65
+#: ../timber/controllers/Register.php:160
+msgid "Register"
+msgstr ""
+
+#: ../themes/default/register.tpl.php:74 ../timber/controllers/Login.php:169
+msgid "Login"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:18
+#: ../themes/default/side-menu.sec.php:184
+#: ../timber/controllers/Settings.php:192
+msgid "Settings"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:28
+msgid "Appearance"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:29
+msgid "Rules"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:30
+msgid "Payments"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:31
+msgid "Templates"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:32
+#: ../themes/default/settings.tpl.php:615
+msgid "Backups"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:33
+msgid "About"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:51
+msgid "Logo"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:52
+msgid "Select Image"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:91
+msgid "Emails Sender"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:101
+msgid "Default Currency"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:106
+msgid "Currency Symbol"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:111
+msgid "Tax Rates"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:134
+msgid "Default Language"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:143
+msgid "TimeZone"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:152
+msgid "Maintenance Mode"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:154
+#: ../themes/default/settings.tpl.php:230
+#: ../themes/default/settings.tpl.php:248
+#: ../themes/default/settings.tpl.php:266
+#: ../themes/default/settings.tpl.php:297
+#: ../themes/default/settings.tpl.php:344
+#: ../themes/default/settings.tpl.php:352
+#: ../themes/default/settings.tpl.php:400
+#: ../themes/default/settings.tpl.php:428
+#: ../themes/default/settings.tpl.php:451
+#: ../themes/default/settings.tpl.php:459
+#: ../themes/default/settings.tpl.php:590
+#: ../themes/default/settings.tpl.php:598
+msgid "On"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:174
+msgid "Gravatar Platform"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:176
+msgid "Gravatar"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:177
+msgid "Native"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:182
+msgid "Default Gravatar"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:186
+msgid "Select Gravatar"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:199
+msgid "Custom Styles"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:204
+msgid "Custom Scripts"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:209
+msgid "Google Analytics"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:228
+msgid "Google Login"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:236
+msgid "Google App Key"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:241
+msgid "Google App Secret"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:246
+msgid "Twitter Login"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:254
+msgid "Twitter App Key"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:259
+msgid "Twitter App Secret"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:264
+msgid "Facebook Login"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:272
+msgid "Facebook App Key"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:277
+msgid "Facebook App Secret"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:282
+msgid "Allowed Upload Extensions"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:287
+msgid "Max. Upload Size"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:290
+msgid "MB"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:295
+msgid "Caching"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:303
+msgid "Purge Caching Each"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:306
+#: ../themes/default/settings.tpl.php:607
+#: ../themes/default/subscriptions-add.tpl.php:69
+#: ../themes/default/subscriptions-edit.tpl.php:70
+msgid "Days"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:311
+msgid "Crons Link"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:316
+msgid "Refresh"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:322
+msgid "Client Permissions"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:324
+#: ../themes/default/settings.tpl.php:334
+msgid "Select Permissions"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:332
+msgid "Staff Permissions"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:342
+msgid "SMTP Server Status"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:350
+msgid "SMTP Server Authentication"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:358
+msgid "SMTP Server Secure"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:363
+msgid "SMTP Server Host"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:368
+msgid "SMTP Server Port"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:373
+msgid "SMTP Server Authentication Username"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:378
+msgid "SMTP Server Authentication Password"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:398
+msgid "Bank Transfer"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:406
+msgid "Bank Account Number"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:411
+msgid "Bank Account Country"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:416
+msgid "Bank Swift Code"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:421
+msgid "Additional Data"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:434
+msgid "Paypal Username"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:439
+msgid "Paypal Password"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:444
+msgid "Paypal Signature"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:449
+msgid "Paypal Test Mode"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:465
+msgid "Stripe API Key"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:484
+msgid "Verify Email Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:490
+msgid "Forgot Password Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:496
+msgid "Login Data Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:502
+msgid "Invitation Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:508
+msgid "New Project Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:514
+msgid "New Task Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:520
+msgid "New Milestone Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:526
+msgid "New Ticket Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:532
+msgid "New File Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:538
+msgid "New Message Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:544
+msgid "New Quotation Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:550
+msgid "New Public Quotation Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:556
+msgid "New Subscription Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:562
+msgid "New Invoice Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:568
+msgid "New Estimate Message"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:588
+msgid "Schedule Backups"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:596
+msgid "Compress Backups"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:604
+msgid "Perform Backup Each"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:612
+msgid "Store"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:620
+msgid "Backups Performed"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:631
+#: ../themes/default/settings.tpl.php:635
+msgid "New Backup"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:657
+msgid "App Author"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:660
+msgid "Current Version"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:663
+msgid "Latest Version"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:666
+msgid "Last Updates Check"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:669
+msgid "Need Updates"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:696
+msgid "App Health"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:705
+msgid "Support"
+msgstr ""
+
+#: ../themes/default/settings.tpl.php:707
+msgid "Open Ticket"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:24
+msgid "All Projects"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:28
+#: ../themes/default/side-menu.sec.php:45
+#: ../themes/default/side-menu.sec.php:66
+#: ../themes/default/side-menu.sec.php:83
+#: ../themes/default/side-menu.sec.php:100
+#: ../themes/default/side-menu.sec.php:117
+#: ../themes/default/side-menu.sec.php:134
+#: ../themes/default/side-menu.sec.php:151
+msgid "Add New"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:41
+msgid "All Members"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:58
+msgid "All Invoices"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:79
+msgid "All Estimates"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:96
+msgid "All Expenses"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:113
+msgid "All Items"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:130
+msgid "All Quotations"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:147
+msgid "All Subscriptions"
+msgstr ""
+
+#: ../themes/default/side-menu.sec.php:176 ../themes/default/themes.tpl.php:17
+#: ../timber/controllers/Themes.php:172
+msgid "Themes"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:40
+#: ../themes/default/subscriptions-edit.tpl.php:41
+msgid "Begin at"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:62
+#: ../themes/default/subscriptions-edit.tpl.php:63
+#: ../themes/default/subscriptions-view.tpl.php:49
+msgid "Frequency"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:70
+#: ../themes/default/subscriptions-edit.tpl.php:71
+msgid "Weeks"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:71
+#: ../themes/default/subscriptions-edit.tpl.php:72
+msgid "Months"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:72
+#: ../themes/default/subscriptions-edit.tpl.php:73
+msgid "Years"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:86
+#: ../themes/default/subscriptions-edit.tpl.php:86
+msgid "Subscription To"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:113
+#: ../themes/default/subscriptions-edit.tpl.php:113
+msgid "Subscription Terms and Notes"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:122
+#: ../themes/default/subscriptions-edit.tpl.php:124
+msgid "Subscription Items"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:215
+#: ../themes/default/subscriptions-edit.tpl.php:219
+msgid "Subscription Attachments"
+msgstr ""
+
+#: ../themes/default/subscriptions-add.tpl.php:227
+#: ../themes/default/subscriptions-edit.tpl.php:237
+msgid "Subscription Overall"
+msgstr ""
+
+#: ../themes/default/subscriptions-view.tpl.php:31
+msgid "Subscription Details"
+msgstr ""
+
+#: ../themes/default/subscriptions-view.tpl.php:81
+msgid "New Invoice"
+msgstr ""
+
+#: ../themes/default/themes.tpl.php:37
+msgid "Theme Skin"
+msgstr ""
+
+#: ../themes/default/themes.tpl.php:45
+msgid "Google Font"
+msgstr ""
+
+#: ../themes/default/top-menu.sec.php:14
+msgid "My Profile"
+msgstr ""
+
+#: ../themes/default/top-menu.sec.php:20
+msgid "Logout"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:132
+msgid "ID"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:133
+msgid "Identifier"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:135
+msgid "Milestone ID"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:136
+msgid "Milestone Title"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:137
+msgid "Project ID"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:138
+msgid "Owner ID"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:139
+msgid "Assignee ID"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:140
+msgid "Assignee Name"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:141
+msgid "Assignee Email"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:150
+msgid "Updated at"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:151
+msgid "Currency"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:156
+msgid "Tax Value"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:158
+msgid "Discount Value"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:161
+msgid "Owners"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:164
+msgid "Staff IDs"
+msgstr ""
+
+#: ../timber/controllers/Calendar.php:165
+msgid "Clients IDs"
+msgstr ""
+
+#: ../timber/controllers/Error.php:100
+msgid "Maintenance"
+msgstr ""
+
+#: ../timber/controllers/Estimates.php:192
+msgid "Add New Estimate"
+msgstr ""
+
+#: ../timber/controllers/Estimates.php:202
+msgid "Edit Estimate"
+msgstr ""
+
+#: ../timber/controllers/Estimates.php:212
+msgid "View Estimate"
+msgstr ""
+
+#: ../timber/controllers/Expenses.php:196
+msgid "Add New Expense"
+msgstr ""
+
+#: ../timber/controllers/Expenses.php:216
+msgid "View Expense"
+msgstr ""
+
+#: ../timber/controllers/Fpwd.php:193 ../timber/controllers/Login.php:196
+#: ../timber/controllers/Login.php:800 ../timber/controllers/Register.php:187
+#: ../timber/controllers/Verify.php:169 ../timber/services/Base.php:144
+msgid "App requires cookies to be enabled in your browser."
+msgstr ""
+
+#: ../timber/controllers/Fpwd.php:221 ../timber/controllers/Fpwd.php:222
+#: ../timber/controllers/Fpwd.php:236 ../timber/controllers/Install.php:388
+#: ../timber/controllers/Register.php:225
+msgid "The email is invalid."
+msgstr ""
+
+#: ../timber/controllers/Fpwd.php:262
+msgid "Reset message sent successfully."
+msgstr ""
+
+#: ../timber/controllers/Fpwd.php:266 ../timber/controllers/Fpwd.php:338
+msgid "Something goes wrong! We apologize. try again later."
+msgstr ""
+
+#: ../timber/controllers/Fpwd.php:288 ../timber/controllers/Install.php:397
+#: ../timber/controllers/Register.php:234
+msgid "The password must not be empty."
+msgstr ""
+
+#: ../timber/controllers/Fpwd.php:289 ../timber/controllers/Install.php:398
+#: ../timber/controllers/Register.php:235
+msgid "The password must have a lenght of eight or more."
+msgstr ""
+
+#: ../timber/controllers/Fpwd.php:290 ../timber/controllers/Register.php:236
+msgid ""
+"The password must contain at least two numbers and not contain any invalid "
+"chars."
+msgstr ""
+
+#: ../timber/controllers/Fpwd.php:299 ../timber/controllers/Fpwd.php:300
+#: ../timber/controllers/Fpwd.php:319
+msgid "Invalid request! try to reset password again."
+msgstr ""
+
+#: ../timber/controllers/Fpwd.php:335
+msgid "Password changed successfully."
+msgstr ""
+
+#: ../timber/controllers/Helpers.php:160
+msgid ""
+"Your Email is Pending Approval. Please Visit Your Profile to Send Approval "
+"Message."
+msgstr ""
+
+#: ../timber/controllers/Helpers.php:185
+msgid ""
+"Timber Installation Page should be Blocked for Further Security. Read System "
+"Alerts section in Documentation."
+msgstr ""
+
+#: ../timber/controllers/Helpers.php:193
+msgid "Timber Need to be Updated. Read System Alerts section in Documentation."
+msgstr ""
+
+#: ../timber/controllers/Install.php:152
+msgid "Install | Timber"
+msgstr ""
+
+#: ../timber/controllers/Install.php:236
+msgid "The MySQL host name is invalid."
+msgstr ""
+
+#: ../timber/controllers/Install.php:245
+msgid "The MySQL database name is invalid."
+msgstr ""
+
+#: ../timber/controllers/Install.php:254
+msgid "The MySQL username is invalid."
+msgstr ""
+
+#: ../timber/controllers/Install.php:269 ../timber/controllers/Install.php:270
+msgid "The Home URL is invalid."
+msgstr ""
+
+#: ../timber/controllers/Install.php:299
+msgid "The Client File created successfully."
+msgstr ""
+
+#: ../timber/controllers/Install.php:302
+msgid ""
+"Error during creating client file, Try to make it manually. Read "
+"Documentation for more info!"
+msgstr ""
+
+#: ../timber/controllers/Install.php:323
+#: ../timber/services/SettingsRequests.php:50
+msgid "The site name is invalid."
+msgstr ""
+
+#: ../timber/controllers/Install.php:324
+#: ../timber/services/SettingsRequests.php:51
+msgid "The site name is too short."
+msgstr ""
+
+#: ../timber/controllers/Install.php:333 ../timber/controllers/Install.php:334
+#: ../timber/services/SettingsRequests.php:167
+msgid "The site email is invalid."
+msgstr ""
+
+#: ../timber/controllers/Install.php:351
+msgid "The Site configured successfully."
+msgstr ""
+
+#: ../timber/controllers/Install.php:354
+msgid "Error during configuring site."
+msgstr ""
+
+#: ../timber/controllers/Install.php:376
+msgid "The username must not be empty."
+msgstr ""
+
+#: ../timber/controllers/Install.php:377
+msgid "The username must have a lenght of five or more."
+msgstr ""
+
+#: ../timber/controllers/Install.php:378
+msgid "The username must have only letters and numbers."
+msgstr ""
+
+#: ../timber/controllers/Install.php:387
+#: ../timber/controllers/Register.php:224
+msgid "The email must not be empty."
+msgstr ""
+
+#: ../timber/controllers/Install.php:399
+msgid ""
+"The password must contain at least two numbers and only valid special chars."
+msgstr ""
+
+#: ../timber/controllers/Install.php:408 ../timber/controllers/Install.php:409
+#: ../timber/controllers/Install.php:410
+msgid "The verify password must match password."
+msgstr ""
+
+#: ../timber/controllers/Install.php:421
+msgid "Passwords must match."
+msgstr ""
+
+#: ../timber/controllers/Install.php:433
+msgid "Awesome! You did it. Login now!"
+msgstr ""
+
+#: ../timber/controllers/Install.php:437
+msgid "Error during configuring admin account."
+msgstr ""
+
+#: ../timber/controllers/Invoices.php:198
+msgid "Add New Invoice"
+msgstr ""
+
+#: ../timber/controllers/Invoices.php:208
+msgid "Edit Invoice"
+msgstr ""
+
+#: ../timber/controllers/Invoices.php:218
+msgid "View Invoice"
+msgstr ""
+
+#: ../timber/controllers/Items.php:194
+msgid "Add New Item"
+msgstr ""
+
+#: ../timber/controllers/Login.php:207 ../timber/controllers/Login.php:208
+#: ../timber/controllers/Login.php:209 ../timber/controllers/Login.php:218
+#: ../timber/controllers/Login.php:219 ../timber/controllers/Login.php:220
+#: ../timber/controllers/Login.php:265 ../timber/controllers/Login.php:273
+msgid "Username or password is invalid."
+msgstr ""
+
+#: ../timber/controllers/Login.php:244
+msgid "You logged in successfully."
+msgstr ""
+
+#: ../timber/controllers/Login.php:278 ../timber/controllers/Login.php:812
+msgid "We apologize, your account is disabled."
+msgstr ""
+
+#: ../timber/controllers/Login.php:283 ../timber/controllers/Login.php:809
+#: ../timber/controllers/Register.php:192
+msgid "We apologize, site is under maintainance. Try again later."
+msgstr ""
+
+#: ../timber/controllers/Login.php:803
+msgid "Invalid response, please try again later."
+msgstr ""
+
+#: ../timber/controllers/Login.php:806
+msgid "You need to be invited to log in."
+msgstr ""
+
+#: ../timber/controllers/Login.php:815
+msgid "It seems you visit old URL that become invalid."
+msgstr ""
+
+#: ../timber/controllers/Login.php:838
+msgid "Email verified successfully."
+msgstr ""
+
+#: ../timber/controllers/Members.php:199
+msgid "Add Member"
+msgstr ""
+
+#: ../timber/controllers/Members.php:209
+msgid "Edit Member"
+msgstr ""
+
+#: ../timber/controllers/Members.php:220
+msgid "View Member"
+msgstr ""
+
+#: ../timber/controllers/Messages.php:201
+msgid "View Message"
+msgstr ""
+
+#: ../timber/controllers/Projects.php:262
+msgid "Add New Project"
+msgstr ""
+
+#: ../timber/controllers/Projects.php:282
+msgid "View Project"
+msgstr ""
+
+#: ../timber/controllers/Quotations.php:204
+msgid "Add New Quotation"
+msgstr ""
+
+#: ../timber/controllers/Quotations.php:214
+msgid "View Quotation"
+msgstr ""
+
+#: ../timber/controllers/Quotations.php:224
+#: ../timber/controllers/Quotations.php:230
+msgid "Submit Quotation"
+msgstr ""
+
+#: ../timber/controllers/Register.php:203
+#: ../timber/controllers/Register.php:204
+#: ../timber/controllers/Register.php:249
+#: ../timber/controllers/Register.php:255 ../timber/controllers/Verify.php:186
+#: ../timber/controllers/Verify.php:195 ../timber/controllers/Verify.php:213
+#: ../timber/libraries/Cachier.php:518 ../timber/services/Base.php:139
+#: ../timber/services/Base.php:161
+#: ../timber/services/EstimatesRequests.php:113
+#: ../timber/services/EstimatesRequests.php:235
+#: ../timber/services/EstimatesRequests.php:236
+#: ../timber/services/EstimatesRequests.php:315
+#: ../timber/services/EstimatesRequests.php:322
+#: ../timber/services/EstimatesRequests.php:329
+#: ../timber/services/EstimatesRequests.php:456
+#: ../timber/services/EstimatesRequests.php:461
+#: ../timber/services/ExpensesRequests.php:93
+#: ../timber/services/ExpensesRequests.php:202
+#: ../timber/services/ExpensesRequests.php:203
+#: ../timber/services/ExpensesRequests.php:262
+#: ../timber/services/ExpensesRequests.php:269
+#: ../timber/services/ExpensesRequests.php:276
+#: ../timber/services/ExpensesRequests.php:400
+#: ../timber/services/ExpensesRequests.php:405
+#: ../timber/services/InvoicesRequests.php:112
+#: ../timber/services/InvoicesRequests.php:245
+#: ../timber/services/InvoicesRequests.php:246
+#: ../timber/services/InvoicesRequests.php:325
+#: ../timber/services/InvoicesRequests.php:332
+#: ../timber/services/InvoicesRequests.php:339
+#: ../timber/services/InvoicesRequests.php:476
+#: ../timber/services/InvoicesRequests.php:481
+#: ../timber/services/ItemsRequests.php:78
+#: ../timber/services/ItemsRequests.php:157
+#: ../timber/services/ItemsRequests.php:192
+#: ../timber/services/ItemsRequests.php:197
+#: ../timber/services/MembersRequests.php:224
+#: ../timber/services/MembersRequests.php:229
+#: ../timber/services/MembersRequests.php:351
+#: ../timber/services/MembersRequests.php:352
+#: ../timber/services/MembersRequests.php:508
+#: ../timber/services/MembersRequests.php:515
+#: ../timber/services/MembersRequests.php:520
+#: ../timber/services/MembersRequests.php:633
+#: ../timber/services/MembersRequests.php:638
+#: ../timber/services/MessagesRequests.php:184
+#: ../timber/services/MessagesRequests.php:185
+#: ../timber/services/MessagesRequests.php:309
+#: ../timber/services/MessagesRequests.php:318
+#: ../timber/services/PluginsRequests.php:44
+#: ../timber/services/PluginsRequests.php:70
+#: ../timber/services/PluginsRequests.php:97
+#: ../timber/services/ProjectsRequests.php:263
+#: ../timber/services/ProjectsRequests.php:264
+#: ../timber/services/ProjectsRequests.php:392
+#: ../timber/services/ProjectsRequests.php:460
+#: ../timber/services/ProjectsRequests.php:496
+#: ../timber/services/ProjectsRequests.php:497
+#: ../timber/services/ProjectsRequests.php:599
+#: ../timber/services/ProjectsRequests.php:600
+#: ../timber/services/ProjectsRequests.php:687
+#: ../timber/services/ProjectsRequests.php:688
+#: ../timber/services/ProjectsRequests.php:697
+#: ../timber/services/ProjectsRequests.php:698
+#: ../timber/services/ProjectsRequests.php:771
+#: ../timber/services/ProjectsRequests.php:803
+#: ../timber/services/ProjectsRequests.php:804
+#: ../timber/services/ProjectsRequests.php:940
+#: ../timber/services/ProjectsRequests.php:941
+#: ../timber/services/ProjectsRequests.php:1064
+#: ../timber/services/ProjectsRequests.php:1092
+#: ../timber/services/ProjectsRequests.php:1139
+#: ../timber/services/ProjectsRequests.php:1140
+#: ../timber/services/ProjectsRequests.php:1291
+#: ../timber/services/ProjectsRequests.php:1292
+#: ../timber/services/ProjectsRequests.php:1353
+#: ../timber/services/ProjectsRequests.php:1360
+#: ../timber/services/ProjectsRequests.php:1445
+#: ../timber/services/ProjectsRequests.php:1475
+#: ../timber/services/QuotationsRequests.php:71
+#: ../timber/services/QuotationsRequests.php:118
+#: ../timber/services/QuotationsRequests.php:125
+#: ../timber/services/QuotationsRequests.php:290
+#: ../timber/services/QuotationsRequests.php:336
+#: ../timber/services/QuotationsRequests.php:343
+#: ../timber/services/QuotationsRequests.php:506
+#: ../timber/services/QuotationsRequests.php:551
+#: ../timber/services/QuotationsRequests.php:556
+#: ../timber/services/QuotationsRequests.php:592
+#: ../timber/services/QuotationsRequests.php:608
+#: ../timber/services/SubscriptionsRequests.php:121
+#: ../timber/services/SubscriptionsRequests.php:249
+#: ../timber/services/SubscriptionsRequests.php:250
+#: ../timber/services/SubscriptionsRequests.php:338
+#: ../timber/services/SubscriptionsRequests.php:345
+#: ../timber/services/SubscriptionsRequests.php:474
+#: ../timber/services/SubscriptionsRequests.php:475
+#: ../timber/services/SubscriptionsRequests.php:487
+#: ../timber/services/SubscriptionsRequests.php:494
+#: ../timber/services/SubscriptionsRequests.php:605
+#: ../timber/services/SubscriptionsRequests.php:610
+#: ../timber/services/ThemesRequests.php:43
+#: ../timber/services/ThemesRequests.php:71
+#: ../timber/services/ThemesRequests.php:98
+msgid "Invalid Request."
+msgstr ""
+
+#: ../timber/controllers/Register.php:213
+msgid "Username must not be empty."
+msgstr ""
+
+#: ../timber/controllers/Register.php:214
+msgid "Username must have a lenght of five or more."
+msgstr ""
+
+#: ../timber/controllers/Register.php:215
+msgid "Username must contain only letters and numbers."
+msgstr ""
+
+#: ../timber/controllers/Register.php:266
+msgid "You must accept terms of use."
+msgstr ""
+
+#: ../timber/controllers/Register.php:271
+msgid "The username already exists."
+msgstr ""
+
+#: ../timber/controllers/Register.php:276
+msgid "The email already exists."
+msgstr ""
+
+#: ../timber/controllers/Register.php:290
+msgid "Account created successfully. You can log in."
+msgstr ""
+
+#: ../timber/controllers/Register.php:293 ../timber/controllers/Verify.php:235
+msgid "Something wrong! we apologize, try again later."
+msgstr ""
+
+#: ../timber/controllers/Subscriptions.php:199
+msgid "Add New Subscription"
+msgstr ""
+
+#: ../timber/controllers/Subscriptions.php:209
+msgid "Edit Subscription"
+msgstr ""
+
+#: ../timber/controllers/Subscriptions.php:219
+msgid "View Subscription"
+msgstr ""
+
+#: ../timber/controllers/Verify.php:174 ../timber/controllers/Verify.php:180
+#: ../timber/services/Base.php:149 ../timber/services/Base.php:155
+#: ../timber/services/ProfileRequests.php:206
+msgid "Unauthorized access. Please login again."
+msgstr ""
+
+#: ../timber/controllers/Verify.php:219
+msgid "Invalid request."
+msgstr ""
+
+#: ../timber/controllers/Verify.php:232
+msgid "Verification message sent to your email."
+msgstr ""
+
+#: ../timber/libraries/Access.php:171
+msgid "Message Admins"
+msgstr ""
+
+#: ../timber/libraries/Access.php:172
+msgid "Message Staff"
+msgstr ""
+
+#: ../timber/libraries/Access.php:173
+msgid "Message Clients"
+msgstr ""
+
+#: ../timber/libraries/Access.php:189
+msgid "Add Invoices"
+msgstr ""
+
+#: ../timber/libraries/Access.php:190
+msgid "Edit Invoices"
+msgstr ""
+
+#: ../timber/libraries/Access.php:191
+msgid "View Invoices"
+msgstr ""
+
+#: ../timber/libraries/Access.php:192
+msgid "List Invoices"
+msgstr ""
+
+#: ../timber/libraries/Access.php:193
+msgid "Delete Invoices"
+msgstr ""
+
+#: ../timber/libraries/Access.php:195
+msgid "Add Clients"
+msgstr ""
+
+#: ../timber/libraries/Access.php:196
+msgid "Edit Clients"
+msgstr ""
+
+#: ../timber/libraries/Access.php:197
+msgid "View Clients"
+msgstr ""
+
+#: ../timber/libraries/Access.php:198
+msgid "Delete Clients"
+msgstr ""
+
+#: ../timber/libraries/Access.php:200
+msgid "Add Expenses"
+msgstr ""
+
+#: ../timber/libraries/Access.php:201
+msgid "Edit Expenses"
+msgstr ""
+
+#: ../timber/libraries/Access.php:202
+msgid "View Expenses"
+msgstr ""
+
+#: ../timber/libraries/Access.php:203
+msgid "List Expenses"
+msgstr ""
+
+#: ../timber/libraries/Access.php:204
+msgid "Delete Expenses"
+msgstr ""
+
+#: ../timber/libraries/Access.php:206
+msgid "Add Estimates"
+msgstr ""
+
+#: ../timber/libraries/Access.php:207
+msgid "Edit Estimates"
+msgstr ""
+
+#: ../timber/libraries/Access.php:208
+msgid "View Estimates"
+msgstr ""
+
+#: ../timber/libraries/Access.php:209
+msgid "List Estimates"
+msgstr ""
+
+#: ../timber/libraries/Access.php:210
+msgid "Delete Estimates"
+msgstr ""
+
+#: ../timber/libraries/Access.php:212
+msgid "Add Items"
+msgstr ""
+
+#: ../timber/libraries/Access.php:213
+msgid "Edit Items"
+msgstr ""
+
+#: ../timber/libraries/Access.php:214
+msgid "List Items"
+msgstr ""
+
+#: ../timber/libraries/Access.php:215
+msgid "Delete Items"
+msgstr ""
+
+#: ../timber/libraries/Access.php:217
+msgid "View Calendar"
+msgstr ""
+
+#: ../timber/libraries/Access.php:219
+msgid "Add Subscriptions"
+msgstr ""
+
+#: ../timber/libraries/Access.php:220
+msgid "Edit Subscriptions"
+msgstr ""
+
+#: ../timber/libraries/Access.php:221
+msgid "View Subscriptions"
+msgstr ""
+
+#: ../timber/libraries/Access.php:222
+msgid "List Subscriptions"
+msgstr ""
+
+#: ../timber/libraries/Access.php:223
+msgid "Delete Subscriptions"
+msgstr ""
+
+#: ../timber/libraries/Access.php:225
+msgid "Add Quotations"
+msgstr ""
+
+#: ../timber/libraries/Access.php:226
+msgid "View Quotations"
+msgstr ""
+
+#: ../timber/libraries/Access.php:227
+msgid "Submit Quotations"
+msgstr ""
+
+#: ../timber/libraries/Access.php:228
+msgid "List Quotations"
+msgstr ""
+
+#: ../timber/libraries/Access.php:229
+msgid "Delete Quotations"
+msgstr ""
+
+#: ../timber/libraries/Biller.php:183
+msgid "Page"
+msgstr ""
+
+#: ../timber/libraries/Biller.php:200
+msgid "Estimate No: "
+msgstr ""
+
+#: ../timber/libraries/Biller.php:207
+msgid "Invoice No: "
+msgstr ""
+
+#: ../timber/libraries/Biller.php:242 ../timber/libraries/Biller.php:256
+msgid "VAT: "
+msgstr ""
+
+#: ../timber/libraries/Biller.php:248 ../timber/libraries/Biller.php:262
+msgid "Phone: "
+msgstr ""
+
+#: ../timber/libraries/Biller.php:277
+msgid "Issue Date: "
+msgstr ""
+
+#: ../timber/libraries/Biller.php:282
+msgid "Due Date: "
+msgstr ""
+
+#: ../timber/libraries/Biller.php:304
+msgid "Item"
+msgstr ""
+
+#: ../timber/libraries/Biller.php:326
+msgid "Subtotal"
+msgstr ""
+
+#: ../timber/libraries/Biller.php:338
+msgid "Taxes"
+msgstr ""
+
+#: ../timber/libraries/Biller.php:359
+msgid ""
+"Many thanks for your custom! We look forward to doing business with you "
+"again in due course."
+msgstr ""
+
+#: ../timber/libraries/Cachier.php:521
+msgid "Payment method requested inactive."
+msgstr ""
+
+#: ../timber/libraries/Cachier.php:524
+msgid "Oops! It Looks Like Your Transaction Was Cancelled."
+msgstr ""
+
+#: ../timber/libraries/Cachier.php:527
+msgid "Oops! It Looks Like Your Transaction Was Failed."
+msgstr ""
+
+#: ../timber/libraries/Cachier.php:530
+msgid "Please enter a valid credit card data."
+msgstr ""
+
+#: ../timber/libraries/Cachier.php:533
+msgid "Something goes wrong and failed the transaction."
+msgstr ""
+
+#: ../timber/libraries/Cachier.php:536
+msgid "Thank you! Your Payment was processed successfully."
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:315
+msgid "Afghanistan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:316
+msgid "Albania"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:317
+msgid "Algeria"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:318
+msgid "American Samoa"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:319
+msgid "Andorra"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:320
+msgid "Angola"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:321
+msgid "Anguilla"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:322
+msgid "Antarctica"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:323
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:324
+msgid "Argentina"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:325
+msgid "Armenia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:326
+msgid "Aruba"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:327
+msgid "Australia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:328
+msgid "Austria"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:329
+msgid "Azerbaijan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:330
+msgid "Bahamas"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:331
+msgid "Bahrain"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:332
+msgid "Bangladesh"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:333
+msgid "Barbados"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:334
+msgid "Belarus"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:335
+msgid "Belgium"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:336
+msgid "Belize"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:337
+msgid "Benin"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:338
+msgid "Bermuda"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:339
+msgid "Bhutan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:340
+msgid "Bolivia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:341
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:342
+msgid "Botswana"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:343
+msgid "Bouvet Island"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:344
+msgid "Brazil"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:345
+msgid "British Antarctic Territory"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:346
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:347
+msgid "British Virgin Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:348
+msgid "Brunei"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:349
+msgid "Bulgaria"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:350
+msgid "Burkina Faso"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:351
+msgid "Burundi"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:352
+msgid "Cambodia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:353
+msgid "Cameroon"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:354
+msgid "Canada"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:355
+msgid "Canton and Enderbury Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:356
+msgid "Cape Verde"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:357
+msgid "Cayman Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:358
+msgid "Central African Republic"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:359
+msgid "Chad"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:360
+msgid "Chile"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:361
+msgid "China"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:362
+msgid "Christmas Island"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:363
+msgid "Cocos [Keeling] Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:364
+msgid "Colombia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:365
+msgid "Comoros"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:366
+msgid "Congo - Brazzaville"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:367
+msgid "Congo - Kinshasa"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:368
+msgid "Cook Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:369
+msgid "Costa Rica"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:370
+msgid "Croatia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:371
+msgid "Cuba"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:372
+msgid "Cyprus"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:373
+msgid "Czech Republic"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:374
+msgid "Côte d’Ivoire"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:375
+msgid "Denmark"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:376
+msgid "Djibouti"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:377
+msgid "Dominica"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:378
+msgid "Dominican Republic"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:379
+msgid "Dronning Maud Land"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:380
+msgid "East Germany"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:381
+msgid "Ecuador"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:382
+msgid "Egypt"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:383
+msgid "El Salvador"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:384
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:385
+msgid "Eritrea"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:386
+msgid "Estonia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:387
+msgid "Ethiopia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:388
+msgid "Falkland Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:389
+msgid "Faroe Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:390
+msgid "Fiji"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:391
+msgid "Finland"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:392
+msgid "France"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:393
+msgid "French Guiana"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:394
+msgid "French Polynesia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:395
+msgid "French Southern Territories"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:396
+msgid "French Southern and Antarctic Territories"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:397
+msgid "Gabon"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:398
+msgid "Gambia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:399
+msgid "Georgia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:400
+msgid "Germany"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:401
+msgid "Ghana"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:402
+msgid "Gibraltar"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:403
+msgid "Greece"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:404
+msgid "Greenland"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:405
+msgid "Grenada"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:406
+msgid "Guadeloupe"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:407
+msgid "Guam"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:408
+msgid "Guatemala"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:409
+msgid "Guernsey"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:410
+msgid "Guinea"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:411
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:412
+msgid "Guyana"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:413
+msgid "Haiti"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:414
+msgid "Heard Island and McDonald Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:415
+msgid "Honduras"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:416
+msgid "Hong Kong SAR China"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:417
+msgid "Hungary"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:418
+msgid "Iceland"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:419
+msgid "India"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:420
+msgid "Indonesia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:421
+msgid "Iran"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:422
+msgid "Iraq"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:423
+msgid "Ireland"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:424
+msgid "Isle of Man"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:425
+msgid "Israel"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:426
+msgid "Italy"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:427
+msgid "Jamaica"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:428
+msgid "Japan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:429
+msgid "Jersey"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:430
+msgid "Johnston Island"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:431
+msgid "Jordan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:432
+msgid "Kazakhstan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:433
+msgid "Kenya"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:434
+msgid "Kiribati"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:435
+msgid "Kuwait"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:436
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:437
+msgid "Laos"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:438
+msgid "Latvia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:439
+msgid "Lebanon"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:440
+msgid "Lesotho"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:441
+msgid "Liberia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:442
+msgid "Libya"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:443
+msgid "Liechtenstein"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:444
+msgid "Lithuania"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:445
+msgid "Luxembourg"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:446
+msgid "Macau SAR China"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:447
+msgid "Macedonia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:448
+msgid "Madagascar"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:449
+msgid "Malawi"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:450
+msgid "Malaysia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:451
+msgid "Maldives"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:452
+msgid "Mali"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:453
+msgid "Malta"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:454
+msgid "Marshall Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:455
+msgid "Martinique"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:456
+msgid "Mauritania"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:457
+msgid "Mauritius"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:458
+msgid "Mayotte"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:459
+msgid "Metropolitan France"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:460
+msgid "Mexico"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:461
+msgid "Micronesia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:462
+msgid "Midway Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:463
+msgid "Moldova"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:464
+msgid "Monaco"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:465
+msgid "Mongolia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:466
+msgid "Montenegro"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:467
+msgid "Montserrat"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:468
+msgid "Morocco"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:469
+msgid "Mozambique"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:470
+msgid "Myanmar [Burma]"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:471
+msgid "Namibia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:472
+msgid "Nauru"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:473
+msgid "Nepal"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:474
+msgid "Netherlands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:475
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:476
+msgid "Neutral Zone"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:477
+msgid "New Caledonia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:478
+msgid "New Zealand"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:479
+msgid "Nicaragua"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:480
+msgid "Niger"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:481
+msgid "Nigeria"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:482
+msgid "Niue"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:483
+msgid "Norfolk Island"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:484
+msgid "North Korea"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:485
+msgid "North Vietnam"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:486
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:487
+msgid "Norway"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:488
+msgid "Oman"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:489
+msgid "Pacific Islands Trust Territory"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:490
+msgid "Pakistan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:491
+msgid "Palau"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:492
+msgid "Palestinian Territories"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:493
+msgid "Panama"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:494
+msgid "Panama Canal Zone"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:495
+msgid "Papua New Guinea"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:496
+msgid "Paraguay"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:497
+msgid "People's Democratic Republic of Yemen"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:498
+msgid "Peru"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:499
+msgid "Philippines"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:500
+msgid "Pitcairn Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:501
+msgid "Poland"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:502
+msgid "Portugal"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:503
+msgid "Puerto Rico"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:504
+msgid "Qatar"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:505
+msgid "Romania"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:506
+msgid "Russia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:507
+msgid "Rwanda"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:508
+msgid "Réunion"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:509
+msgid "Saint Barthélemy"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:510
+msgid "Saint Helena"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:511
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:512
+msgid "Saint Lucia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:513
+msgid "Saint Martin"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:514
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:515
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:516
+msgid "Samoa"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:517
+msgid "San Marino"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:518
+msgid "Saudi Arabia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:519
+msgid "Senegal"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:520
+msgid "Serbia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:521
+msgid "Serbia and Montenegro"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:522
+msgid "Seychelles"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:523
+msgid "Sierra Leone"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:524
+msgid "Singapore"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:525
+msgid "Slovakia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:526
+msgid "Slovenia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:527
+msgid "Solomon Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:528
+msgid "Somalia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:529
+msgid "South Africa"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:530
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:531
+msgid "South Korea"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:532
+msgid "Spain"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:533
+msgid "Sri Lanka"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:534
+msgid "Sudan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:535
+msgid "Suriname"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:536
+msgid "Svalbard and Jan Mayen"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:537
+msgid "Swaziland"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:538
+msgid "Sweden"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:539
+msgid "Switzerland"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:540
+msgid "Syria"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:541
+msgid "São Tomé and Príncipe"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:542
+msgid "Taiwan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:543
+msgid "Tajikistan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:544
+msgid "Tanzania"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:545
+msgid "Thailand"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:546
+msgid "Timor-Leste"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:547
+msgid "Togo"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:548
+msgid "Tokelau"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:549
+msgid "Tonga"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:550
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:551
+msgid "Tunisia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:552
+msgid "Turkey"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:553
+msgid "Turkmenistan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:554
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:555
+msgid "Tuvalu"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:556
+msgid "U.S. Minor Outlying Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:557
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:558
+msgid "U.S. Virgin Islands"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:559
+msgid "Uganda"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:560
+msgid "Ukraine"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:561
+msgid "Union of Soviet Socialist Republics"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:562
+msgid "United Arab Emirates"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:563
+msgid "United Kingdom"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:564
+msgid "United States"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:565
+msgid "Unknown or Invalid Region"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:566
+msgid "Uruguay"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:567
+msgid "Uzbekistan"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:568
+msgid "Vanuatu"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:569
+msgid "Vatican City"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:570
+msgid "Venezuela"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:571
+msgid "Vietnam"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:572
+msgid "Wake Island"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:573
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:574
+msgid "Western Sahara"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:575
+msgid "Yemen"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:576
+msgid "Zambia"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:577
+msgid "Zimbabwe"
+msgstr ""
+
+#: ../timber/libraries/Helpers.php:578
+msgid "Åland Islands"
+msgstr ""
+
+#: ../timber/libraries/Time.php:340
+msgid "year"
+msgstr ""
+
+#: ../timber/libraries/Time.php:342
+msgid "years"
+msgstr ""
+
+#: ../timber/libraries/Time.php:347
+msgid "month"
+msgstr ""
+
+#: ../timber/libraries/Time.php:349
+msgid "months"
+msgstr ""
+
+#: ../timber/libraries/Time.php:354
+msgid "day"
+msgstr ""
+
+#: ../timber/libraries/Time.php:356
+msgid "days"
+msgstr ""
+
+#: ../timber/libraries/Time.php:361
+msgid "hour"
+msgstr ""
+
+#: ../timber/libraries/Time.php:363
+msgid "hours"
+msgstr ""
+
+#: ../timber/libraries/Time.php:368
+msgid "minute"
+msgstr ""
+
+#: ../timber/libraries/Time.php:370
+msgid "minutes"
+msgstr ""
+
+#: ../timber/libraries/Time.php:375
+msgid "second"
+msgstr ""
+
+#: ../timber/libraries/Time.php:377
+msgid "seconds"
+msgstr ""
+
+#: ../timber/libraries/Time.php:380
+msgid "ago"
+msgstr ""
+
+#: ../timber/services/CalendarData.php:54
+msgid "Project: "
+msgstr ""
+
+#: ../timber/services/CalendarData.php:194
+msgid "Task: "
+msgstr ""
+
+#: ../timber/services/DashboardData.php:409
+#: ../timber/services/DashboardData.php:449
+#: ../timber/services/DashboardData.php:485
+#: ../timber/services/MembersData.php:315
+#: ../timber/services/MembersData.php:426
+#: ../timber/services/QuotationsData.php:202
+msgid "Not Exist"
+msgstr ""
+
+#: ../timber/services/EstimatesData.php:494
+#: ../timber/services/ExpensesData.php:350
+#: ../timber/services/InvoicesData.php:582
+#: ../timber/services/MembersData.php:544
+#: ../timber/services/MessagesData.php:458
+#: ../timber/services/ProfileData.php:110
+#: ../timber/services/ProjectsData.php:1484
+#: ../timber/services/QuotationsData.php:376
+#: ../timber/services/SettingsData.php:332
+#: ../timber/services/SubscriptionsData.php:525
+msgid "Media Uploader"
+msgstr ""
+
+#: ../timber/services/EstimatesData.php:495
+#: ../timber/services/ExpensesData.php:351
+#: ../timber/services/InvoicesData.php:583
+#: ../timber/services/MembersData.php:545
+#: ../timber/services/MessagesData.php:459
+#: ../timber/services/ProfileData.php:111
+#: ../timber/services/ProjectsData.php:1485
+#: ../timber/services/QuotationsData.php:377
+#: ../timber/services/SettingsData.php:333
+#: ../timber/services/SubscriptionsData.php:526
+#, php-format
+msgid "Allowed extensions (%1$s) and Max file size (%2$s MB)."
+msgstr ""
+
+#: ../timber/services/EstimatesRequests.php:50
+#: ../timber/services/EstimatesRequests.php:51
+#: ../timber/services/EstimatesRequests.php:245
+#: ../timber/services/EstimatesRequests.php:246
+#: ../timber/services/InvoicesRequests.php:49
+#: ../timber/services/InvoicesRequests.php:50
+#: ../timber/services/InvoicesRequests.php:255
+#: ../timber/services/InvoicesRequests.php:256
+#: ../timber/services/SubscriptionsRequests.php:50
+#: ../timber/services/SubscriptionsRequests.php:51
+#: ../timber/services/SubscriptionsRequests.php:259
+#: ../timber/services/SubscriptionsRequests.php:260
+msgid "Please select client."
+msgstr ""
+
+#: ../timber/services/EstimatesRequests.php:68
+#: ../timber/services/EstimatesRequests.php:69
+#: ../timber/services/EstimatesRequests.php:263
+#: ../timber/services/EstimatesRequests.php:264
+#: ../timber/services/InvoicesRequests.php:67
+#: ../timber/services/InvoicesRequests.php:68
+#: ../timber/services/InvoicesRequests.php:273
+#: ../timber/services/InvoicesRequests.php:274
+msgid "Due date is invalid."
+msgstr ""
+
+#: ../timber/services/EstimatesRequests.php:78
+#: ../timber/services/EstimatesRequests.php:79
+#: ../timber/services/EstimatesRequests.php:273
+#: ../timber/services/EstimatesRequests.php:274
+#: ../timber/services/ExpensesRequests.php:57
+#: ../timber/services/ExpensesRequests.php:58
+#: ../timber/services/ExpensesRequests.php:220
+#: ../timber/services/ExpensesRequests.php:221
+#: ../timber/services/InvoicesRequests.php:77
+#: ../timber/services/InvoicesRequests.php:78
+#: ../timber/services/InvoicesRequests.php:283
+#: ../timber/services/InvoicesRequests.php:284
+msgid "Issue date is invalid."
+msgstr ""
+
+#: ../timber/services/EstimatesRequests.php:88
+#: ../timber/services/EstimatesRequests.php:283
+msgid "Invalid estimate items detected or estimate overall data is invalid."
+msgstr ""
+
+#: ../timber/services/EstimatesRequests.php:118
+#: ../timber/services/EstimatesRequests.php:334
+#: ../timber/services/InvoicesRequests.php:117
+#: ../timber/services/InvoicesRequests.php:344
+msgid "Due date must not be less than issue date."
+msgstr ""
+
+#: ../timber/services/EstimatesRequests.php:210
+msgid "Estimate created successfully."
+msgstr ""
+
+#: ../timber/services/EstimatesRequests.php:214
+#: ../timber/services/EstimatesRequests.php:440
+#: ../timber/services/EstimatesRequests.php:473
+#: ../timber/services/EstimatesRequests.php:539
+#: ../timber/services/ExpensesRequests.php:181
+#: ../timber/services/ExpensesRequests.php:383
+#: ../timber/services/ExpensesRequests.php:417
+#: ../timber/services/FilesRequests.php:50
+#: ../timber/services/FilesRequests.php:72
+#: ../timber/services/FilesRequests.php:94
+#: ../timber/services/FilesRequests.php:110
+#: ../timber/services/InvoicesRequests.php:223
+#: ../timber/services/InvoicesRequests.php:459
+#: ../timber/services/InvoicesRequests.php:494
+#: ../timber/services/InvoicesRequests.php:549
+#: ../timber/services/ItemsRequests.php:98
+#: ../timber/services/ItemsRequests.php:175
+#: ../timber/services/ItemsRequests.php:209
+#: ../timber/services/MembersRequests.php:329
+#: ../timber/services/MembersRequests.php:611
+#: ../timber/services/MembersRequests.php:659
+#: ../timber/services/MessagesRequests.php:152
+#: ../timber/services/MessagesRequests.php:290
+#: ../timber/services/MessagesRequests.php:364
+#: ../timber/services/PluginsRequests.php:55
+#: ../timber/services/PluginsRequests.php:82
+#: ../timber/services/PluginsRequests.php:109
+#: ../timber/services/ProjectsRequests.php:242
+#: ../timber/services/ProjectsRequests.php:443
+#: ../timber/services/ProjectsRequests.php:475
+#: ../timber/services/ProjectsRequests.php:578
+#: ../timber/services/ProjectsRequests.php:666
+#: ../timber/services/ProjectsRequests.php:754
+#: ../timber/services/ProjectsRequests.php:782
+#: ../timber/services/ProjectsRequests.php:919
+#: ../timber/services/ProjectsRequests.php:1047
+#: ../timber/services/ProjectsRequests.php:1075
+#: ../timber/services/ProjectsRequests.php:1117
+#: ../timber/services/ProjectsRequests.php:1270
+#: ../timber/services/ProjectsRequests.php:1428
+#: ../timber/services/ProjectsRequests.php:1457
+#: ../timber/services/ProjectsRequests.php:1501
+#: ../timber/services/QuotationsRequests.php:100
+#: ../timber/services/QuotationsRequests.php:318
+#: ../timber/services/QuotationsRequests.php:533
+#: ../timber/services/QuotationsRequests.php:569
+#: ../timber/services/QuotationsRequests.php:661
+#: ../timber/services/SettingsRequests.php:1020
+#: ../timber/services/SettingsRequests.php:1045
+#: ../timber/services/SubscriptionsRequests.php:227
+#: ../timber/services/SubscriptionsRequests.php:453
+#: ../timber/services/SubscriptionsRequests.php:588
+#: ../timber/services/SubscriptionsRequests.php:623
+#: ../timber/services/SubscriptionsRequests.php:664
+#: ../timber/services/ThemesRequests.php:56
+#: ../timber/services/ThemesRequests.php:83
+#: ../timber/services/ThemesRequests.php:109
+msgid "Something goes wrong! Try again later."
+msgstr ""
+
+#: ../timber/services/EstimatesRequests.php:437
+#: ../timber/services/EstimatesRequests.php:536
+msgid "Estimate updated successfully."
+msgstr ""
+
+#: ../timber/services/EstimatesRequests.php:470
+msgid "Estimate deleted successfully."
+msgstr ""
+
+#: ../timber/services/ExpensesRequests.php:67
+#: ../timber/services/ExpensesRequests.php:230
+msgid "Provided expense data are invalid."
+msgstr ""
+
+#: ../timber/services/ExpensesRequests.php:177
+msgid "Expense created successfully."
+msgstr ""
+
+#: ../timber/services/ExpensesRequests.php:380
+msgid "Expense updated successfully."
+msgstr ""
+
+#: ../timber/services/ExpensesRequests.php:414
+msgid "Expense deleted successfully."
+msgstr ""
+
+#: ../timber/services/FilesRequests.php:46
+msgid "Logo uploaded successfully."
+msgstr ""
+
+#: ../timber/services/FilesRequests.php:68
+msgid "Avatar uploaded successfully."
+msgstr ""
+
+#: ../timber/services/FilesRequests.php:90
+msgid "Attachment uploaded successfully."
+msgstr ""
+
+#: ../timber/services/FilesRequests.php:116
+msgid "File deleted successfully."
+msgstr ""
+
+#: ../timber/services/InvoicesRequests.php:87
+#: ../timber/services/InvoicesRequests.php:293
+msgid "Invalid invoice items detected or invoice overall data is invalid."
+msgstr ""
+
+#: ../timber/services/InvoicesRequests.php:219
+msgid "Invoice created successfully."
+msgstr ""
+
+#: ../timber/services/InvoicesRequests.php:456
+msgid "Invoice updated successfully."
+msgstr ""
+
+#: ../timber/services/InvoicesRequests.php:491
+msgid "Invoice deleted successfully."
+msgstr ""
+
+#: ../timber/services/InvoicesRequests.php:523
+msgid "Invoice added to cart."
+msgstr ""
+
+#: ../timber/services/InvoicesRequests.php:542
+msgid "Invoice removed from cart."
+msgstr ""
+
+#: ../timber/services/ItemsRequests.php:50
+#: ../timber/services/ItemsRequests.php:51
+#: ../timber/services/ItemsRequests.php:129
+#: ../timber/services/ItemsRequests.php:130
+msgid "Item title is invalid."
+msgstr ""
+
+#: ../timber/services/ItemsRequests.php:67
+#: ../timber/services/ItemsRequests.php:146
+msgid "Item cost is invalid."
+msgstr ""
+
+#: ../timber/services/ItemsRequests.php:94
+msgid "Item added successfully."
+msgstr ""
+
+#: ../timber/services/ItemsRequests.php:119
+#: ../timber/services/ItemsRequests.php:120
+msgid "Something goes wrong! Refresh page and try again."
+msgstr ""
+
+#: ../timber/services/ItemsRequests.php:172
+msgid "Item updated successfully."
+msgstr ""
+
+#: ../timber/services/ItemsRequests.php:206
+msgid "Item deleted successfully."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:50
+#: ../timber/services/MembersRequests.php:51
+#: ../timber/services/MembersRequests.php:361
+#: ../timber/services/MembersRequests.php:362
+#: ../timber/services/ProfileRequests.php:51
+#: ../timber/services/ProfileRequests.php:52
+msgid "Provided First Name is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:60
+#: ../timber/services/MembersRequests.php:371
+#: ../timber/services/MembersRequests.php:372
+#: ../timber/services/ProfileRequests.php:61
+#: ../timber/services/ProfileRequests.php:62
+msgid "Provided Last Name is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:75
+#: ../timber/services/MembersRequests.php:388
+#: ../timber/services/MembersRequests.php:389
+#: ../timber/services/MembersRequests.php:390
+#: ../timber/services/ProfileRequests.php:78
+#: ../timber/services/ProfileRequests.php:79
+#: ../timber/services/ProfileRequests.php:80
+msgid ""
+"Username must have a lenght of five or more and contain only letters and "
+"numbers."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:83
+#: ../timber/services/MembersRequests.php:399
+#: ../timber/services/ProfileRequests.php:89
+msgid "Provided Job Title is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:91
+#: ../timber/services/MembersRequests.php:407
+#: ../timber/services/ProfileRequests.php:97
+msgid "Provided Company is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:99
+msgid "The provided email must not be empty."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:100
+#: ../timber/services/MembersRequests.php:101
+msgid "The provided email is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:110
+#: ../timber/services/MembersRequests.php:422
+#: ../timber/services/ProfileRequests.php:112
+msgid "Provided URL is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:125
+#: ../timber/services/MembersRequests.php:437
+#: ../timber/services/ProfileRequests.php:127
+msgid "Provided Phone Number is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:140
+#: ../timber/services/MembersRequests.php:452
+#: ../timber/services/ProfileRequests.php:142
+msgid "Provided City is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:148
+#: ../timber/services/MembersRequests.php:460
+#: ../timber/services/ProfileRequests.php:150
+msgid "Provided Address Line 1 is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:156
+#: ../timber/services/MembersRequests.php:468
+#: ../timber/services/ProfileRequests.php:158
+msgid "Provided Address Line 2 is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:164
+#: ../timber/services/MembersRequests.php:476
+#: ../timber/services/ProfileRequests.php:166
+msgid "Provided ZIP code is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:172
+#: ../timber/services/MembersRequests.php:484
+#: ../timber/services/ProfileRequests.php:174
+msgid "Provided VAT Number is invalid."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:187
+#: ../timber/services/MembersRequests.php:219
+msgid ""
+"The password must have a lenght of eight or more with at least two numbers."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:206
+#: ../timber/services/MembersRequests.php:533
+#: ../timber/services/ProfileRequests.php:223
+msgid "Provided username used before. Please use another."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:213
+#: ../timber/services/MembersRequests.php:545
+#: ../timber/services/ProfileRequests.php:235
+msgid "Provided email used before. Please use another."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:326
+msgid "Member account created successfully."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:576
+#: ../timber/services/ProfileRequests.php:249
+msgid ""
+"The new password must have a lenght of eight or more with at least two "
+"numbers."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:608
+msgid "Member account updated successfully."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:628
+msgid "OOps! Super admin can't be deleted."
+msgstr ""
+
+#: ../timber/services/MembersRequests.php:656
+msgid "Member account deleted successfully."
+msgstr ""
+
+#: ../timber/services/MessagesData.php:157
+msgid "Index"
+msgstr ""
+
+#: ../timber/services/MessagesRequests.php:51
+#: ../timber/services/MessagesRequests.php:52
+#: ../timber/services/MessagesRequests.php:174
+#: ../timber/services/MessagesRequests.php:175
+msgid "Please select message receiver."
+msgstr ""
+
+#: ../timber/services/MessagesRequests.php:61
+msgid "The message subject must not be empty."
+msgstr ""
+
+#: ../timber/services/MessagesRequests.php:62
+msgid "The message subject lenght is invalid."
+msgstr ""
+
+#: ../timber/services/MessagesRequests.php:71
+#: ../timber/services/MessagesRequests.php:194
+msgid "The message content must not be empty."
+msgstr ""
+
+#: ../timber/services/MessagesRequests.php:72
+#: ../timber/services/MessagesRequests.php:195
+msgid "The message content lenght is invalid."
+msgstr ""
+
+#: ../timber/services/MessagesRequests.php:148
+msgid "Message sent successfully."
+msgstr ""
+
+#: ../timber/services/MessagesRequests.php:287
+msgid "Reply sent successfully."
+msgstr ""
+
+#: ../timber/services/MessagesRequests.php:361
+msgid "Message updated successfully."
+msgstr ""
+
+#: ../timber/services/PluginsRequests.php:52
+msgid "Plugin activated successfully."
+msgstr ""
+
+#: ../timber/services/PluginsRequests.php:79
+msgid "Plugin deactivated successfully."
+msgstr ""
+
+#: ../timber/services/PluginsRequests.php:106
+msgid "Plugin deleted successfully."
+msgstr ""
+
+#: ../timber/services/ProfileData.php:82
+#, php-format
+msgid ""
+"Your email is pending approval. Please check you email or %1$ssend new "
+"message%2$s."
+msgstr ""
+
+#: ../timber/services/ProfileData.php:86
+msgid "Please provide all required informations."
+msgstr ""
+
+#: ../timber/services/ProfileRequests.php:244
+msgid "You must insert old password to change password."
+msgstr ""
+
+#: ../timber/services/ProfileRequests.php:308
+msgid "Profile updated successfully."
+msgstr ""
+
+#: ../timber/services/ProfileRequests.php:311
+#: ../timber/services/SettingsRequests.php:242
+#: ../timber/services/SettingsRequests.php:324
+#: ../timber/services/SettingsRequests.php:574
+#: ../timber/services/SettingsRequests.php:650
+#: ../timber/services/SettingsRequests.php:837
+#: ../timber/services/SettingsRequests.php:979
+msgid "Internal Server Error! Please try again later."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:51
+#: ../timber/services/ProjectsRequests.php:52
+#: ../timber/services/ProjectsRequests.php:273
+#: ../timber/services/ProjectsRequests.php:274
+msgid "Project title is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:68
+#: ../timber/services/ProjectsRequests.php:69
+#: ../timber/services/ProjectsRequests.php:290
+#: ../timber/services/ProjectsRequests.php:291
+msgid "Project version is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:78
+#: ../timber/services/ProjectsRequests.php:300
+msgid "Project budget is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:101
+#: ../timber/services/ProjectsRequests.php:323
+msgid "Tax value is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:117
+#: ../timber/services/ProjectsRequests.php:339
+msgid "Discount value is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:126
+#: ../timber/services/ProjectsRequests.php:127
+#: ../timber/services/ProjectsRequests.php:348
+#: ../timber/services/ProjectsRequests.php:349
+#: ../timber/services/ProjectsRequests.php:864
+#: ../timber/services/ProjectsRequests.php:865
+#: ../timber/services/ProjectsRequests.php:1001
+#: ../timber/services/ProjectsRequests.php:1002
+msgid "Start date is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:136
+#: ../timber/services/ProjectsRequests.php:137
+#: ../timber/services/ProjectsRequests.php:358
+#: ../timber/services/ProjectsRequests.php:359
+#: ../timber/services/ProjectsRequests.php:874
+#: ../timber/services/ProjectsRequests.php:875
+#: ../timber/services/ProjectsRequests.php:1011
+#: ../timber/services/ProjectsRequests.php:1012
+#: ../timber/services/SubscriptionsRequests.php:78
+#: ../timber/services/SubscriptionsRequests.php:79
+#: ../timber/services/SubscriptionsRequests.php:287
+#: ../timber/services/SubscriptionsRequests.php:288
+msgid "End date is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:146
+#: ../timber/services/ProjectsRequests.php:147
+#: ../timber/services/ProjectsRequests.php:368
+#: ../timber/services/ProjectsRequests.php:369
+msgid "Project staff is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:156
+#: ../timber/services/ProjectsRequests.php:157
+#: ../timber/services/ProjectsRequests.php:378
+#: ../timber/services/ProjectsRequests.php:379
+msgid "Project clients is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:168
+#: ../timber/services/ProjectsRequests.php:397
+#: ../timber/services/ProjectsRequests.php:886
+#: ../timber/services/ProjectsRequests.php:1023
+msgid "End date must not be less than start date."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:238
+msgid "Project created successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:440
+msgid "Project updated successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:472
+msgid "Project deleted successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:575
+msgid "Project files updated successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:609
+#: ../timber/services/ProjectsRequests.php:610
+#: ../timber/services/ProjectsRequests.php:707
+#: ../timber/services/ProjectsRequests.php:708
+msgid "Milestone title is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:662
+msgid "Milestone created successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:751
+msgid "Milestone updated successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:779
+msgid "Milestone deleted successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:813
+#: ../timber/services/ProjectsRequests.php:814
+#: ../timber/services/ProjectsRequests.php:950
+#: ../timber/services/ProjectsRequests.php:951
+msgid "Please select milestone."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:823
+#: ../timber/services/ProjectsRequests.php:824
+#: ../timber/services/ProjectsRequests.php:960
+#: ../timber/services/ProjectsRequests.php:961
+msgid "Please assign task to someone."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:833
+#: ../timber/services/ProjectsRequests.php:834
+#: ../timber/services/ProjectsRequests.php:970
+#: ../timber/services/ProjectsRequests.php:971
+msgid "Task title is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:915
+msgid "Task created successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:1044
+#: ../timber/services/ProjectsRequests.php:1114
+msgid "Task updated successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:1072
+msgid "Task deleted successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:1177
+#: ../timber/services/ProjectsRequests.php:1178
+#: ../timber/services/ProjectsRequests.php:1315
+#: ../timber/services/ProjectsRequests.php:1316
+msgid "Ticket subject is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:1187
+#: ../timber/services/ProjectsRequests.php:1188
+#: ../timber/services/ProjectsRequests.php:1325
+#: ../timber/services/ProjectsRequests.php:1326
+msgid "Ticket content is invalid."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:1261
+msgid "Ticket created successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:1264
+msgid "Reply created successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:1425
+#: ../timber/services/ProjectsRequests.php:1498
+msgid "Ticket updated successfully."
+msgstr ""
+
+#: ../timber/services/ProjectsRequests.php:1454
+msgid "Ticket deleted successfully."
+msgstr ""
+
+#: ../timber/services/QuotationsRequests.php:50
+#: ../timber/services/QuotationsRequests.php:51
+msgid "Quotation title is invalid."
+msgstr ""
+
+#: ../timber/services/QuotationsRequests.php:60
+msgid "Invalid quotation elements detected."
+msgstr ""
+
+#: ../timber/services/QuotationsRequests.php:96
+msgid "Quotation created successfully."
+msgstr ""
+
+#: ../timber/services/QuotationsRequests.php:153
+#: ../timber/services/QuotationsRequests.php:163
+#: ../timber/services/QuotationsRequests.php:164
+#: ../timber/services/QuotationsRequests.php:178
+#: ../timber/services/QuotationsRequests.php:188
+#: ../timber/services/QuotationsRequests.php:189
+#: ../timber/services/QuotationsRequests.php:211
+#: ../timber/services/QuotationsRequests.php:212
+#: ../timber/services/QuotationsRequests.php:371
+#: ../timber/services/QuotationsRequests.php:381
+#: ../timber/services/QuotationsRequests.php:382
+#: ../timber/services/QuotationsRequests.php:396
+#: ../timber/services/QuotationsRequests.php:406
+#: ../timber/services/QuotationsRequests.php:407
+#: ../timber/services/QuotationsRequests.php:429
+#: ../timber/services/QuotationsRequests.php:430
+#, php-format
+msgid "Provided %1$s is invalid."
+msgstr ""
+
+#: ../timber/services/QuotationsRequests.php:315
+#: ../timber/services/QuotationsRequests.php:530
+msgid "Submission created successfully."
+msgstr ""
+
+#: ../timber/services/QuotationsRequests.php:566
+msgid "Quotation deleted successfully."
+msgstr ""
+
+#: ../timber/services/QuotationsRequests.php:602
+msgid "Submission deleted successfully."
+msgstr ""
+
+#: ../timber/services/QuotationsRequests.php:613
+msgid "Please select client or set email."
+msgstr ""
+
+#: ../timber/services/QuotationsRequests.php:654
+msgid "Submitter added successfully."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:60
+msgid "Site description must be short and descriptive."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:118
+msgid "Provided currency is invalid."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:127
+msgid "Provided currency symbol is invalid."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:136
+msgid "Provided tax rates are invalid."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:166
+msgid "The site email must not be empty."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:176
+msgid "The email sender must not be empty."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:177
+msgid "The email sender is invalid."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:239
+#: ../timber/services/SettingsRequests.php:321
+#: ../timber/services/SettingsRequests.php:571
+#: ../timber/services/SettingsRequests.php:647
+#: ../timber/services/SettingsRequests.php:834
+#: ../timber/services/SettingsRequests.php:976
+msgid "Settings updated successfully."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:277
+msgid "Custom styles are too long. Add to stylesheet file instead."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:286
+msgid "Custom scripts are too long. Add to scripts file instead."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:295
+msgid "Google analytics are too long. Add to scripts file instead."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:408
+#: ../timber/services/SettingsRequests.php:409
+msgid "Allowed Extensions has invalid value."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:418
+#: ../timber/services/SettingsRequests.php:419
+msgid "Max. File Size has invalid value."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:435
+#: ../timber/services/SettingsRequests.php:436
+msgid "Purge cache field has invalid value."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:512
+msgid "You must provide google application data."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:519
+msgid "You must provide twitter application data."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:526
+msgid "You must provide facebook application data."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:609
+#: ../timber/services/SettingsRequests.php:610
+msgid "Backups interval field has invalid value."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:619
+#: ../timber/services/SettingsRequests.php:620
+msgid "Backups store field has invalid value."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:671
+msgid "Verify Email template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:680
+msgid "Forgot password template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:689
+msgid "Login info template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:698
+msgid "Register invite template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:707
+msgid "New project template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:716
+msgid "New project task template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:725
+msgid "New project milestone template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:734
+msgid "New project ticket template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:743
+msgid "New project file template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:752
+msgid "New message template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:761
+msgid "New quotation template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:770
+msgid "New public quotation template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:779
+msgid "New subscription template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:788
+msgid "New invoice template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:797
+msgid "New Estimate template is too long."
+msgstr ""
+
+#: ../timber/services/SettingsRequests.php:1042
+msgid "Backup created successfully."
+msgstr ""
+
+#: ../timber/services/SubscriptionsData.php:419
+msgid "Day"
+msgstr ""
+
+#: ../timber/services/SubscriptionsData.php:420
+msgid "Week"
+msgstr ""
+
+#: ../timber/services/SubscriptionsData.php:422
+msgid "Year"
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:68
+#: ../timber/services/SubscriptionsRequests.php:69
+#: ../timber/services/SubscriptionsRequests.php:277
+#: ../timber/services/SubscriptionsRequests.php:278
+msgid "Begin date is invalid."
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:88
+#: ../timber/services/SubscriptionsRequests.php:297
+msgid ""
+"Invalid subscription items detected or subscription overall data is invalid."
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:97
+#: ../timber/services/SubscriptionsRequests.php:306
+msgid "Provided frequency not a valid number."
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:126
+#: ../timber/services/SubscriptionsRequests.php:352
+msgid "End date must not be less than Begin date."
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:223
+msgid "Subscription created successfully."
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:450
+#: ../timber/services/SubscriptionsRequests.php:647
+#: ../timber/services/SubscriptionsRequests.php:657
+msgid "Subscription updated successfully."
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:546
+msgid "Please delete this subscription and create again."
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:556
+msgid "Subscription end date reached. Please update subscription."
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:585
+msgid "Subscription invoiced successfully."
+msgstr ""
+
+#: ../timber/services/SubscriptionsRequests.php:620
+msgid "Subscription deleted successfully."
+msgstr ""
+
+#: ../timber/services/ThemesRequests.php:53
+msgid "Theme updated successfully."
+msgstr ""
+
+#: ../timber/services/ThemesRequests.php:80
+msgid "Theme activated successfully."
+msgstr ""
+
+#: ../timber/services/ThemesRequests.php:106
+msgid "Theme deleted successfully."
+msgstr ""

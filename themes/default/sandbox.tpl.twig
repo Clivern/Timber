@@ -1,0 +1,18 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}
+
+    <section class="main-content-wrapper">
+    	{{ apply_hook('timber.' ~ plugin ~ '.sandbox_page') }}
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}

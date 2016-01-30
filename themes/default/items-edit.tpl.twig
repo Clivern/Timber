@@ -1,0 +1,64 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'items-edit', 'model' : 'items-edit'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'items-edit', 'model' : 'items-edit'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'items-edit', 'model' : 'items-edit'} %}
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="col-lg-12">
+                    <div class="metabox blue">
+                        <div class="metabox-body">
+                            <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-server"></i> {{ __("Items") }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-heading">{{ __("Edit Item") }}</div>
+                    <div class="metabox-body">
+                            <form class="ui form" method="post" action="{{ form_action|e }}">
+                                {{ nonce_form() }}
+                                <input name="item_id" type="hidden" value="{{ it_id|e }}">
+
+                                <div class="field required">
+                                    <label>{{ __("Title")|e }}</label>
+                                    <input name="item_title" type="text" value="{{ title|e }}" required>
+                                </div>
+
+                                <div class="field">
+                                    <label>{{ __("Description")|e }}</label>
+                                    <input name="item_description" type="text" value="{{ description|e }}">
+                                </div>
+
+                                <div class="field required">
+                                    <label>{{ __("Unit Price")|e }} ({{ site_currency|e }})</label>
+                                    <div class="ui action input">
+                                        <input name="item_cost" type="text" value="{{ cost|e }}" required>
+                                        <span class="ui button">{{ site_currency|e }}</span>
+                                    </div>
+                                </div>
+
+                                <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'items-edit', 'model' : 'items-edit'} %}
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'items-edit', 'model' : 'items-edit'} %}

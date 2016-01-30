@@ -1,0 +1,132 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'quotations-submit', 'model' : 'quotations-submit'} %}
+
+<br/><br/><br/>
+
+        <div class="ui stackable grid">
+
+            <div class="one wide column"></div>
+
+            <div class="fourteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-heading">{{ quotation_title|e }}</div>
+                    <div class="metabox-body">
+
+                        <form action="{{ submit_quotation_action|e }}" class="ui form" method="post">
+                            {{ nonce_form() }}
+                            <input type="hidden" name="quotation_id" value="{{ quotation_qu_id|e('html_attr') }}">
+                            {% if submitter_email is defined %}
+                                <input type="hidden" name="email" value="{{ submitter_email|e('html_attr') }}">
+                            {% endif %}
+                            {% for quotation_term in quotation_terms %}
+
+                                {% if quotation_term.type == 'sect_elem' %}
+                                    <div class="hr-line-dashed"></div>
+                                {% endif %}
+
+                                {% if quotation_term.type == 'text_elem' %}
+
+                                    {% if quotation_term.required == 1 %}
+                                        <div class="field">
+                                    {% endif %}
+                                    {% if quotation_term.required == 2 %}
+                                        <div class="field required">
+                                    {% endif %}
+                                        <label>{{ quotation_term.label|e }}</label>
+                                        <input type="text" name="{{ quotation_term.name|e('html_attr') }}" placeholder="{{ quotation_term.data.placeholder|e('html_attr') }}">
+                                    </div>
+
+                                {% endif %}
+
+                                {% if quotation_term.type == 'para_elem' %}
+
+                                    {% if quotation_term.required == 1 %}
+                                        <div class="field">
+                                    {% endif %}
+                                    {% if quotation_term.required == 2 %}
+                                        <div class="field required">
+                                    {% endif %}
+                                        <label>{{ quotation_term.label|e }}</label>
+                                        <textarea name="{{ quotation_term.name|e('html_attr') }}" placeholder="{{ quotation_term.data.placeholder|e('html_attr') }}"></textarea>
+                                    </div>
+
+                                {% endif %}
+
+                                {% if quotation_term.type == 'date_elem' %}
+
+                                    {% if quotation_term.required == 1 %}
+                                        <div class="field">
+                                    {% endif %}
+                                    {% if quotation_term.required == 2 %}
+                                        <div class="field required">
+                                    {% endif %}
+                                        <label>{{ quotation_term.label|e }}</label>
+                                        <input type="text" class="datepicker" name="{{ quotation_term.name|e('html_attr') }}" placeholder="{{ quotation_term.data.placeholder|e('html_attr') }}">
+                                    </div>
+
+                                {% endif %}
+
+                                {% if quotation_term.type == 'mult_elem' %}
+
+                                    {% if quotation_term.required == 1 %}
+                                        <div class="field">
+                                    {% endif %}
+                                    {% if quotation_term.required == 2 %}
+                                        <div class="field required">
+                                    {% endif %}
+                                        <label>{{ quotation_term.label|e }}</label>
+                                        <select multiple="" name="{{ quotation_term.name|e('html_attr') }}" class="ui dropdown pubquo_muli">
+                                            {% for item in quotation_term.data.items %}
+                                                <option value="{{ item|e('html_attr') }}">{{ item|e }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                {% endif %}
+
+                                {% if quotation_term.type == 'drop_elem' %}
+
+                                    {% if quotation_term.required == 1 %}
+                                        <div class="field">
+                                    {% endif %}
+                                    {% if quotation_term.required == 2 %}
+                                        <div class="field required">
+                                    {% endif %}
+                                        <label>{{ quotation_term.label|e }}</label>
+                                        <select name="{{ quotation_term.name|e('html_attr') }}" class="ui dropdown">
+                                            {% for item in quotation_term.data.items %}
+                                                <option value="{{ item|e('html_attr') }}">{{ item|e }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                {% endif %}
+
+                                {% if quotation_term.type == 'chek_elem' %}
+
+                                    <div class="inline field">
+                                        <div class="ui checkbox">
+                                            <input type="checkbox" name="{{ quotation_term.name|e('html_attr') }}" tabindex="0" class="hidden pubquo_check"><label>{{ quotation_term.label|e }}</label>
+                                        </div>
+                                    </div>
+
+                                {% endif %}
+
+                            {% endfor %}
+
+                            <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                            <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="one wide column"></div>
+
+        </div>
+
+<br/><br/><br/>
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'quotations-submit', 'model' : 'quotations-submit'} %}

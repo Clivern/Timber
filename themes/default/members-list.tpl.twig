@@ -1,0 +1,111 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'members-list', 'model' : 'members-list'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'members-list', 'model' : 'members-list'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'members-list', 'model' : 'members-list'} %}
+
+
+	<section class="main-content-wrapper">
+
+        <div id="members_main_container" class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                    	<h4 class="font-light m-b-xs"><i class="fa fa-fw fa-users"></i> {{ __("Members") }}</h4>
+
+                        {% if check_perm('add.clients') %}
+                            <a href="{{ route_to_url('/admin/members/add')|e }}" class="ui circular icon button add_nrecord" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Add Member")|e('html_attr') }}">
+                                <i class="add user icon"></i>
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            {% for member in members %}
+                <div class="four wide column">
+                    <div class="metabox red">
+                        <div class="metabox-body center-align">
+                            <img class="ui circular centered image m-b m-t-md" data-default="{{ gravatar(member.email, member.grav_id, 128)|e }}" src="{{ gravatar(member.email, member.grav_id, 128)|e }}" style="width:76px">
+
+                            <div class="font-bold m-b-xs">{{ member.nice_name|e }}</div>
+
+                            <p>{{ member.job|e }}</p>
+                            {% if member.access_rule == '1' %}
+                                {{ __("Administrator") }}
+                            {% endif %}
+                            {% if member.access_rule == '2' %}
+                                {{ __("Staff") }}
+                            {% endif %}
+                            {% if member.access_rule == '3' %}
+                                {{ __("Client") }}
+                            {% endif %}
+                        </div>
+
+                        {% if member.access_rule == '3' and current_user_access_rule == '2' %}
+                            {% if check_perm('view.clients') or check_perm('edit.clients') or check_perm('delete.clients')  %}
+                                <div class="metabox-footer contact-footer center-align">
+
+                                    {% if check_perm('view.clients') %}
+                                        <a href="{{ member.view_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Member")|e('html_attr') }}">
+                                            <i class="linkify icon"></i>
+                                        </a>
+                                    {% endif %}
+
+                                    {% if check_perm('edit.clients') %}
+                                        <a href="{{ member.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Member")|e('html_attr') }}">
+                                            <i class="write icon"></i>
+                                        </a>
+                                    {% endif %}
+
+                                    {% if check_perm('delete.clients') %}
+                                        <a href="{{ member.delete_link|e }}" class="ui circular icon button delete_member" data-id="{{ member.us_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Member")|e('html_attr') }}">
+                                            <i class="remove user icon"></i>
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if current_user_access_rule == '1' %}
+                                <div class="metabox-footer contact-footer center-align">
+
+                                    <a href="{{ member.view_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Member")|e('html_attr') }}">
+                                        <i class="linkify icon"></i>
+                                    </a>
+
+                                    <a href="{{ member.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Member")|e('html_attr') }}">
+                                        <i class="write icon"></i>
+                                    </a>
+
+                                   <a href="{{ member.delete_link|e }}" class="ui circular icon button delete_member" data-id="{{ member.us_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Member")|e('html_attr') }}">
+                                        <i class="remove user icon"></i>
+                                    </a>
+
+                                </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            {% endfor %}
+
+
+
+        </div>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'members-list', 'model' : 'members-list'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'members-list', 'model' : 'members-list'} %}

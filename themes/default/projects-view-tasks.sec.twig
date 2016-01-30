@@ -1,0 +1,282 @@
+{% if project_sub_tab == 'list' %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="tasks icon"></i>{{ __("Tasks") }}</span>
+                    </h5>
+
+                    {% if current_user_access_rule == '1' %}
+                        <a href="{{ route_to_url('/admin/projects/view/' ~ project_pr_id ~ '?tab=tasks&sub_tab=add')|e }}" class="tiny ui circular icon button add_nrecord" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Add Task")|e('html_attr') }}">
+                            <i class="plus icon"></i>
+                        </a>
+                    {% endif %}
+
+                    <div class="hr-line-dashed"></div>
+                    <table class="ui very basic table">
+                        <thead>
+                            <tr>
+                                <th>{{ __("Task") }}</th>
+                                <th>{{ __("Status") }}</th>
+                                <th>{{ __("Priority") }}</th>
+                                {% if current_user_access_rule == '1' or current_user_access_rule == '2' %}
+                                    <th>{{ __("Actions") }}</th>
+                                {% endif %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for task in tasks %}
+                                <tr data-id="{{ task.ta_id|e }}">
+                                    <td><a href="#" class="task_view">{{ task.title|e }}</a></td>
+                                    <td>
+                                        <div class="ui tiny indicating progress active" data-percent="{{ task.progress|e('html_attr') }}">
+                                            <div class="bar" style="transition-duration: 300ms; width: {{ task.progress|e('html_attr') }}%;"></div>
+                                            <div class="label">{{ task.nice_status|e }} ({{ task.progress|e }}%)</div>
+                                        </div>
+                                    </td>
+                                    <td>{{ task.nice_priority|e }}</td>
+
+                                    <td>
+                                        {% if current_user_access_rule == '1' %}
+
+                                            {% if task.status != 4 %}
+                                                <a href="{{ mark_task_action|e }}" class="ui circular icon button done_task" data-id="{{ task.ta_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Task Done")|e('html_attr') }}">
+                                                    <i class="checkmark icon"></i>
+                                                </a>
+                                            {% endif %}
+
+                                            <a href="{{ task.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Task")|e('html_attr') }}">
+                                                <i class="write icon"></i>
+                                            </a>
+
+                                            <a href="{{ task.trash_link|e }}" class="ui circular icon button delete_task" data-id="{{ task.ta_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Task")|e('html_attr') }}">
+                                                <i class="remove icon"></i>
+                                            </a>
+                                        {% endif %}
+
+                                        {% if current_user_access_rule == '2' and task.assign_to == current_user_us_id %}
+                                            {% if task.status != 4 %}
+                                                <a href="{{ mark_task_action|e }}" class="ui circular icon button done_task" data-id="{{ task.ta_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Task Done")|e('html_attr') }}">
+                                                    <i class="checkmark icon"></i>
+                                                </a>
+                                            {% endif %}
+                                        {% endif %}
+                                    </td>
+
+                                </tr>
+                                <tr data-id="{{ task.ta_id|e }}" data-desc="{{ task.ta_id|e }}" style="display:none">
+                                    <td colspan="4">
+                                        {{ __("Description:") }}<br/>
+                                        {{ task.description|e }}<br/>
+                                        {{ __("Milestone:") }} {{ task.mi_title|e }}<br/>
+                                        {{ __("Assign to:") }} {{ task.assign_to_name|e }}<br/>
+                                        {{ __("Start at:") }} {{ task.start_at|e }}<br/>
+                                        {{ __("End at:") }} {{ task.end_at|e }}<br/>
+                                        {{ __("Created:") }} {{ date_to_diff(task.created_at)|e }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="metabox-footer contact-footer right-align">
+                    {{ __("Total Tasks: ") }} {{ tasks_count|e }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% elseif project_sub_tab == 'add'  %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="lab icon"></i>{{ __("Add Task") }}</span>
+                    </h5>
+                    <div class="hr-line-dashed"></div>
+
+                    <form id="task_form" action="{{ add_task_action|e }}" method="post" class="ui form">
+                        {{ nonce_form() }}
+                        <input name="pro_id" type="hidden" value="{{ project_pr_id|e('html_attr') }}">
+
+                        <div class="field required">
+                            <label>{{ __("Title") }}</label>
+                            <input type="text" name="task_title">
+                        </div>
+
+                        <div class="field">
+                            <label>{{ __("Description") }}</label>
+                            <textarea name="task_description" rows="2"></textarea>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Milestone") }}</label>
+                            <select name="mi_id" class="ui dropdown">
+                                {% for milestone in milestones %}
+                                    <option value="{{ milestone.mi_id|e('html_attr') }}">{{ milestone.title|e }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Assign to") }}</label>
+                            <div class="ui fluid selection search dropdown">
+                                <input type="hidden" name="assign_to">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">{{ __("Select Staff") }}</div>
+                                    <div class="menu">
+                                        {% for member in project_staff_data %}
+                                            <div class="item" data-value="{{ member.us_id|e('html_attr') }}">
+                                                <img class="ui mini avatar image" src="{{ gravatar(member.email, member.grav_id, 128)|e }}">
+                                                {{ member.full_name|e('html_attr') }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Priority") }}</label>
+                            <select name="task_priority" class="ui dropdown">
+                                <option value="1">{{ __("Low") }}</option>
+                                <option value="2">{{ __("Middle") }}</option>
+                                <option value="3">{{ __("High") }}</option>
+                                <option value="4">{{ __("Critical") }}</option>
+                            </select>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Status") }}</label>
+                            <select name="task_status" class="ui dropdown">
+                                <option value="1">{{ __("Pending") }}</option>
+                                <option value="2">{{ __("In Progress") }}</option>
+                                <option value="3">{{ __("Overdue") }}</option>
+                                <option value="4">{{ __("Done") }}</option>
+                            </select>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Start at") }}</label>
+                            <input type="text" class="datepicker" name="task_start_at">
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("End at") }}</label>
+                            <input type="text" class="datepicker" name="task_end_at">
+                        </div>
+
+                        <button class="tiny ui primary button" type="submit">{{ __("Submit") }}</button>
+                        <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% elseif project_sub_tab == 'edit'  %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="lab icon"></i>{{ __("Edit Task") }}</span>
+                    </h5>
+                    <div class="hr-line-dashed"></div>
+
+                    <form id="task_form" action="{{ edit_task_action|e }}" method="post" class="ui form">
+                        {{ nonce_form() }}
+                        <input name="pro_id" type="hidden" value="{{ task_pr_id|e('html_attr') }}">
+                        <input name="ta_id" type="hidden" value="{{ task_ta_id|e('html_attr') }}">
+
+                        <div class="field required">
+                            <label>{{ __("Title") }}</label>
+                            <input type="text" name="task_title" value="{{ task_title|e('html_attr') }}">
+                        </div>
+
+                        <div class="field">
+                            <label>{{ __("Description") }}</label>
+                            <textarea name="task_description" rows="2">{{ task_description|e }}</textarea>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Milestone") }}</label>
+                            <select name="mi_id" class="ui dropdown">
+                                {% for milestone in milestones %}
+                                    <option value="{{ milestone.mi_id|e('html_attr') }}" {{ selected(milestone.mi_id, task_mi_id)|e }}>{{ milestone.title|e }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Assign to") }}</label>
+                            <div class="ui fluid selection search dropdown">
+                                <input type="hidden" name="assign_to" value="{{ task_assign_to|e }}">
+                                <i class="dropdown icon"></i>
+                                <div class="default text">{{ __("Select Staff") }}</div>
+                                    <div class="menu">
+                                        {% for member in project_staff_data %}
+                                            <div class="item" data-value="{{ member.us_id|e('html_attr') }}">
+                                                <img class="ui mini avatar image" src="{{ gravatar(member.email, member.grav_id, 128)|e }}">
+                                                {{ member.full_name|e('html_attr') }}
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                            </div>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Priority") }}</label>
+                            <select name="task_priority" class="ui dropdown">
+                                <option value="1" {{ selected('1', task_priority)|e }}>{{ __("Low") }}</option>
+                                <option value="2" {{ selected('2', task_priority)|e }}>{{ __("Middle") }}</option>
+                                <option value="3" {{ selected('3', task_priority)|e }}>{{ __("High") }}</option>
+                                <option value="4" {{ selected('4', task_priority)|e }}>{{ __("Critical") }}</option>
+                            </select>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Status") }}</label>
+                            <select name="task_status" class="ui dropdown">
+                                <option value="1" {{ selected('1', task_status)|e }}>{{ __("Pending") }}</option>
+                                <option value="2" {{ selected('2', task_status)|e }}>{{ __("In Progress") }}</option>
+                                <option value="3" {{ selected('3', task_status)|e }}>{{ __("Overdue") }}</option>
+                                <option value="4" {{ selected('4', task_status)|e }}>{{ __("Done") }}</option>
+                            </select>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Start at") }}</label>
+                            <input type="text" class="datepicker" name="task_start_at" value="{{ task_start_at|e }}">
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("End at") }}</label>
+                            <input type="text" class="datepicker" name="task_end_at" value="{{ task_end_at|e }}">
+                        </div>
+
+                        <button class="tiny ui primary button" type="submit">{{ __("Submit") }}</button>
+                        <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endif %}

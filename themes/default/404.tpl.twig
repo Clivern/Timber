@@ -1,0 +1,14 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': '404', 'model' : '404'} %}
+
+<div class="error-page-container">
+
+    <i class="bomb icon text-primary big-icon"></i>
+    <h1>{{ __("404")|e }}</h1>
+    <strong>{{ __("Page Not Found")|e }}</strong>
+    <p>{{ __("Sorry, but the page you are looking for has not been found. Try checking the URL for error, then hit the refresh button on your browser or go back to main page.")|e }}</p>
+    <a href="{{ home_url|e }}" class="ui mini button">{{ __("You can go back to main page")|e }}</a>
+</div>
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': '404', 'model' : '404'} %}

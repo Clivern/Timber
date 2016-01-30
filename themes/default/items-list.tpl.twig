@@ -1,0 +1,79 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'items-list', 'model' : 'items-list'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'items-list', 'model' : 'items-list'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'items-list', 'model' : 'items-list'} %}
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-server"></i> {{ __("Items") }}</h4>
+
+                        {% if check_perm('add.items') %}
+                            <a href="{{ route_to_url('/admin/items/add')|e }}" class="ui circular icon button add_nrecord" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Add Item")|e('html_attr') }}">
+                                <i class="plus icon"></i>
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        <table class="ui selectable table stackable data_table">
+                            <thead>
+                                <tr>
+                                    <th>{{ __("Title")|e }}</th>
+                                    <th>{{ __("Unit Price")|e }} ({{ site_currency|e }})</th>
+                                    <th>{{ __("Created at")|e }}</th>
+                                    <th>{{ __("Actions")|e }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in items %}
+                                <tr>
+                                    <td>{{ item.title|e }}</td>
+                                    <td>{{ item.cost|e }}</td>
+                                    <td>{{ date_to_diff(item.created_at)|e }}</td>
+                                    <td>
+                                        {% if check_perm('edit.items') %}
+                                            <a href="{{ item.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Item")|e('html_attr') }}">
+                                                <i class="write icon"></i>
+                                            </a>
+                                        {% endif %}
+
+                                        {% if check_perm('delete.items') %}
+                                            <a href="{{ item.trash_link|e }}" class="ui circular icon button delete_item" data-id="{{ item.it_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Item")|e('html_attr') }}">
+                                                <i class="remove icon"></i>
+                                            </a>
+                                        {% endif %}
+
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'items-list', 'model' : 'items-list'} %}
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'items-list', 'model' : 'items-list'} %}

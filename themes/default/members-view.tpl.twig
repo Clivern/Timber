@@ -1,0 +1,282 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'members-view', 'model' : 'members-view'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'members-view', 'model' : 'members-view'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'members-view', 'model' : 'members-view'} %}
+
+<section class="main-content-wrapper">
+    <div class="ui stackable grid">
+
+        <div class="sixteen wide column">
+             <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-users"></i> {{ __("Members") }}</h4>
+                    </div>
+             </div>
+        </div>
+
+        <div class="four wide column">
+
+            <div class="ui stackable grid">
+                <div class="sixteen wide column">
+                    <div class="metabox green">
+                        <div class="metabox-body center-align">
+                            <img id="profile_image" class="ui circular centered image m-b m-t-md" data-default="{{ gravatar(email, grav_id, 128)|e }}" src="{{ gravatar(email, grav_id, 128)|e }}" style="width:128px">
+                            <h4 class="m-b-xs">{{ nice_name|e }}</h4>
+                            <p>{{ job|e }}</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sixteen wide column">
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Information") }}</div>
+                        <div class="metabox-body">
+                            {% if email != '' %}
+                                <p>{{ __("Email") }}: {{ email|e }}</p>
+                            {% endif %}
+
+                            {% if website != '' %}
+                                <p>{{ __("Website") }}: <a href="{{ website|e }}" target="__blank">Visit</a></p>
+                            {% endif %}
+
+                            {% if zip_code != '' %}
+                                <p>{{ __("ZIP Code") }}: {{ zip_code|e }}</p>
+                            {% endif %}
+
+                            {% if vat_nubmer != '' %}
+                                <p>{{ __("VAT Number") }}: {{ vat_nubmer|e }}</p>
+                            {% endif %}
+
+                            {% if address2 != '' %}
+                                <p>{{ __("Address Line 2") }}: {{ address2|e }}</p>
+                            {% endif %}
+
+                            {% if address1 != '' %}
+                                <p>{{ __("Address Line 1") }}: {{ address1|e }}</p>
+                            {% endif %}
+
+                            {% if city != '' %}
+                                <p>{{ __("City") }}: {{ city|e }}</p>
+                            {% endif %}
+
+                            {% if country != '' %}
+                                <p>{{ __("Country") }}: {{ country|e }}</p>
+                            {% endif %}
+
+                            {% if created_at != '' %}
+                                <p>{{ __("Created") }}: {{ date_to_diff(created_at)|e }}</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="twelve wide column">
+
+            <div class="ui stackable grid">
+
+                {% if projects is defined %}
+                    <div class="sixteen wide column">
+                        <div class="metabox">
+                            <div class="metabox-heading">{{ __("Projects")|e }}</div>
+                            <div class="metabox-body">
+                                <table class="ui selectable table stackable data_table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Title")|e }}</th>
+                                            <th>{{ __("Budget")|e }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Progress")|e }}</th>
+                                            <th>{{ __("Created at")|e }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for project in projects %}
+                                            <tr>
+                                                <td><a href="{{ project.view_link|e }}">{{ project.title|e }}</a></td>
+                                                <td>{{ project.budget|e }}</td>
+                                                <td>
+                                                    <div class="ui tiny indicating progress active" data-percent="{{ project.progress|e('html_attr') }}">
+                                                        <div class="bar" style="transition-duration: 300ms; width: {{ project.progress|e('html_attr') }}%;"></div>
+                                                        <div class="label">{{ project.nice_status|e }} ({{ project.progress|e }}%)</div>
+                                                    </div>
+                                                </td>
+                                                <td>{{ date_to_diff(project.created_at)|e }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if tasks is defined %}
+                    <div class="sixteen wide column">
+                        <div class="metabox">
+                            <div class="metabox-heading">{{ __("Tasks")|e }}</div>
+                            <div class="metabox-body">
+                                <table class="ui selectable table stackable data_table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Title")|e }}</th>
+                                            <th>{{ __("Project")|e }}</th>
+                                            <th>{{ __("Status")|e }}</th>
+                                            <th>{{ __("Created at")|e }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for task in tasks %}
+                                            <tr>
+                                                <td>{{ task.title|e }}</td>
+                                                <td>{{ task.pr_title|e }}</td>
+                                                <td>{{ task.nice_status|e }}</td>
+                                                <td>{{ date_to_diff(task.created_at)|e }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if subscriptions is defined %}
+                    <div class="sixteen wide column">
+                        <div class="metabox">
+                            <div class="metabox-heading">{{ __("Subscriptions")|e }}</div>
+                            <div class="metabox-body">
+                                <table class="ui selectable table stackable data_table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference ID")|e }}</th>
+                                            <th>{{ __("Status")|e }}</th>
+                                            <th>{{ __("Total")|e }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Created at")|e }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for subscription in subscriptions %}
+                                            <tr>
+                                                <td><a href="{{ subscription.view_link|e }}">{{ subscription.ref_id|e }}</a></td>
+                                                <td>{{ subscription.nice_status|e }}</td>
+                                                <td>{{ subscription.total|e }}</td>
+                                                <td>{{ date_to_diff(subscription.created_at)|e }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if invoices is defined %}
+                    <div class="sixteen wide column">
+                        <div class="metabox">
+                            <div class="metabox-heading">{{ __("Invoices")|e }}</div>
+                            <div class="metabox-body">
+                                <table class="ui selectable table stackable data_table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference ID")|e }}</th>
+                                            <th>{{ __("Status")|e }}</th>
+                                            <th>{{ __("Total")|e }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Created at")|e }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for invoice in invoices %}
+                                            <tr>
+                                                <td><a href="{{ invoice.view_link|e }}">{{ invoice.ref_id|e }}</a></td>
+                                                <td>{{ invoice.nice_status|e }}</td>
+                                                <td>{{ invoice.total|e }}</td>
+                                                <td>{{ date_to_diff(invoice.created_at)|e }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if tickets is defined %}
+                    <div class="sixteen wide column">
+                        <div class="metabox">
+                            <div class="metabox-heading">{{ __("Tickets")|e }}</div>
+                            <div class="metabox-body">
+                                <table class="ui selectable table stackable data_table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference")|e }}</th>
+                                            <th>{{ __("Subject") }}</th>
+                                            <th>{{ __("Status") }}</th>
+                                            <th>{{ __("Type") }}</th>
+                                            <th>{{ __("Created at")|e }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for ticket in tickets %}
+                                            <tr>
+                                                <td><a href="{{ ticket.view_link|e }}">{{ ticket.reference|e }}</a></td>
+                                                <td>{{ ticket.subject|e }}</td>
+                                                <td>{{ ticket.nice_status|e }}</td>
+                                                <td>{{ ticket.nice_type|e }}</td>
+                                                <td>{{ date_to_diff(ticket.created_at)|e }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+                {% if estimates is defined %}
+                    <div class="sixteen wide column">
+                        <div class="metabox">
+                            <div class="metabox-heading">{{ __("Estimates")|e }}</div>
+                            <div class="metabox-body">
+                                <table class="ui selectable table stackable data_table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference ID")|e }}</th>
+                                            <th>{{ __("Status")|e }}</th>
+                                            <th>{{ __("Total")|e }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Created at")|e }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for estimate in estimates %}
+                                            <tr>
+                                                <td><a href="{{ estimate.view_link|e }}">{{ estimate.ref_id|e }}</a></td>
+                                                <td>{{ estimate.nice_status|e }}</td>
+                                                <td>{{ estimate.total|e }}</td>
+                                                <td>{{ date_to_diff(estimate.created_at)|e }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'members-view', 'model' : 'members-view'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'members-view', 'model' : 'members-view'} %}

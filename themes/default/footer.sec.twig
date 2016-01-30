@@ -1,0 +1,51 @@
+</section>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/jquery/jquery-1.11.3.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/jquery/jquery-ui.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/semantic-2.1.8/dist/semantic.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/decimaljs/decimal.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/pace-1.0.2/pace.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/dropzone-4.0.1/dist/dropzone.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/wysibb/jquery.wysibb.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/navgoco/jquery.navgoco.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/toastr/toastr.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/datetime/jquery.datetimepicker.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/datatables/js/jquery.dataTables.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/fullcalendar/lib/moment.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/fullcalendar/fullcalendar.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/vendor/alertifyjs/alertify.min.js')|e }}"></script>
+<script type="text/javascript" src="{{ default_theme_assets_url('/js/modules.js')|e }}"></script>
+
+{% if ctrl_scripts is defined %}
+	<script type="text/javascript">
+	{% autoescape false %}
+		{{ ctrl_scripts }}
+	{% endautoescape %}
+	</script>
+{% endif %}
+
+{% if footer_scripts is defined %}
+	<script type="text/javascript">
+	{% autoescape false %}
+		{{ footer_scripts }}
+	{% endautoescape %}
+	</script>
+{% endif %}
+
+{% if site_tracking_codes is defined %}
+	<script type="text/javascript">
+	{% autoescape false %}
+		{{ site_tracking_codes }}
+	{% endautoescape %}
+	</script>
+{% endif %}
+
+{% if site_custom_scripts is defined %}
+	<script type="text/javascript">
+	{% autoescape false %}
+		{{ site_custom_scripts }}
+	{% endautoescape %}
+	</script>
+{% endif %}
+
+</body>
+</html>

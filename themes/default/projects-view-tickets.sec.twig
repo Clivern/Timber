@@ -1,0 +1,348 @@
+{% if project_sub_tab == 'list' %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="ticket icon"></i>{{ __("Tickets") }}</span>
+                    </h5>
+
+                    <a href="{{ route_to_url('/admin/projects/view/' ~ project_pr_id ~ '?tab=tickets&sub_tab=add')|e }}" class="tiny ui circular icon button add_nrecord" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Add Ticket")|e('html_attr') }}">
+                        <i class="plus icon"></i>
+                    </a>
+
+                    <div class="hr-line-dashed"></div>
+                    <table class="ui very basic table">
+                        <thead>
+                            <tr>
+                                <th>{{ __("Subject") }}</th>
+                                <th>{{ __("Status") }}</th>
+                                <th>{{ __("Type") }}</th>
+                                <th>{{ __("Actions") }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for ticket in tickets %}
+                                <tr data-id="{{ ticket.ti_id|e }}">
+                                    <td><a href="#" class="ticket_view">{{ ticket.subject|e }}</a></td>
+                                    <td><a class="ui red label">{{ ticket.nice_status|e }}</a></td>
+                                    <td><a class="ui red label">{{ ticket.nice_type|e }}</a></td>
+                                    <td>
+
+                                        <a href="{{ ticket.view_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Ticket")|e('html_attr') }}">
+                                            <i class="linkify icon"></i>
+                                        </a>
+
+                                        {% if current_user_access_rule == '3' and current_user_us_id == ticket.owner_id %}
+                                            <a href="{{ ticket.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Ticket")|e('html_attr') }}">
+                                                <i class="write icon"></i>
+                                            </a>
+                                            {% if ticket.status != 3 %}
+                                                <a href="{{ mark_ticket_action|e }}" class="ui circular icon button close_ticket" data-id="{{ ticket.ti_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Close Ticket")|e('html_attr') }}">
+                                                    <i class="checkmark icon"></i>
+                                                </a>
+                                            {% endif %}
+                                        {% endif %}
+
+                                        {% if current_user_access_rule == '2' %}
+                                            {% if ticket.status != 3 %}
+                                                <a href="{{ mark_ticket_action|e }}" class="ui circular icon button close_ticket" data-id="{{ ticket.ti_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Close Ticket")|e('html_attr') }}">
+                                                    <i class="checkmark icon"></i>
+                                                </a>
+                                            {% endif %}
+                                            {% if current_user_us_id == ticket.owner_id %}
+                                                <a href="{{ ticket.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Ticket")|e('html_attr') }}">
+                                                    <i class="write icon"></i>
+                                                </a>
+                                            {% endif %}
+                                        {% endif %}
+
+                                        {% if current_user_access_rule == '1' %}
+                                            {% if ticket.status != 3 %}
+                                                <a href="{{ mark_ticket_action|e }}" class="ui circular icon button close_ticket" data-id="{{ ticket.ti_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Close Ticket")|e('html_attr') }}">
+                                                    <i class="checkmark icon"></i>
+                                                </a>
+                                            {% endif %}
+
+                                            <a href="{{ ticket.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Ticket")|e('html_attr') }}">
+                                                <i class="write icon"></i>
+                                            </a>
+
+                                            <a href="{{ ticket.trash_link|e }}" class="ui circular icon button delete_ticket" data-id="{{ ticket.ti_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Ticket")|e('html_attr') }}">
+                                                <i class="remove icon"></i>
+                                            </a>
+                                        {% endif %}
+
+                                    </td>
+                                </tr>
+                                <tr data-id="{{ ticket.ti_id|e }}" data-desc="{{ ticket.ti_id|e }}" style="display:none">
+                                    <td colspan="4">
+                                        {{ __("Reference:") }} {{ ticket.reference|e }}<br/>
+                                        {{ __("Opened By :") }} {{ ticket.name|e }} {{ "<" ~ ticket.email ~ ">"}}<br/>
+                                        {{ __("Created:") }} {{ date_to_diff(ticket.created_at)|e }}<br/>
+                                        {{ __("Updated:") }} {{ date_to_diff(ticket.updated_at)|e }}<br/>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+
+                <div class="metabox-footer contact-footer right-align">
+                    {{ __("Total Tickets: ") }} {{ tickets_count|e }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% elseif project_sub_tab == 'add'  %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="ticket icon"></i>{{ __("Add Ticket") }}</span>
+                    </h5>
+                    <div class="hr-line-dashed"></div>
+
+                    <form id="ticket_form" action="{{ add_ticket_action|e }}" method="post" class="ui form">
+                        {{ nonce_form() }}
+                        <input name="pro_id" type="hidden" value="{{ project_pr_id|e('html_attr') }}">
+
+                        <div class="field required">
+                            <label>{{ __("Subject") }}</label>
+                            <input type="text" name="ticket_subject">
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Status") }}</label>
+                            <select name="ticket_status" class="ui dropdown">
+                                <option value="1">{{ __("Pending") }}</option>
+                                <option value="2">{{ __("Opened") }}</option>
+                                <option value="3">{{ __("Closed") }}</option>
+                            </select>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Type") }}</label>
+                            <select name="ticket_type" class="ui dropdown">
+                                <option value="1">{{ __("Inquiry") }}</option>
+                                <option value="2">{{ __("Suggestion") }}</option>
+                                <option value="3">{{ __("Normal Bug") }}</option>
+                                <option value="4">{{ __("Critical Bug") }}</option>
+                                <option value="5">{{ __("Security Bug") }}</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>{{ __("Content") }}</label>
+                            <textarea name="ticket_content" class="rich-editor" rows="3"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <button type="button" id="attachments_select" class="positive tiny ui button page_uploader" data-target="uploadModal" data-text="{{ __("Attach Files")|e('html_attr') }}">{{ __("Attach Files")|e }}</button>
+                            <input type="hidden" name="tic_attachments" value="">
+                        </div>
+                        <br/>
+                        <button class="tiny ui primary button" type="submit">{{ __("Submit") }}</button>
+                        <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% elseif project_sub_tab == 'edit'  %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="ticket icon"></i>{{ __("Edit Ticket") }}</span>
+                    </h5>
+                    <div class="hr-line-dashed"></div>
+
+                    <form id="ticket_form" action="{{ edit_ticket_action|e }}" method="post" class="ui form">
+                        {{ nonce_form() }}
+                        <input name="ti_id" type="hidden" value="{{ ticket_ti_id|e('html_attr') }}">
+
+                        {% if ticket_depth == '1' %}
+                            <div class="field required">
+                                <label>{{ __("Subject") }}</label>
+                                <input type="text" name="ticket_subject" value="{{ ticket_subject|e('html_attr') }}">
+                            </div>
+                        {% else %}
+                            <input type="hidden" name="ticket_subject" value="__REP__">
+                        {% endif %}
+
+                        {% if ticket_depth == '1' %}
+                            <div class="field required">
+                                <label>{{ __("Status") }}</label>
+                                <select name="ticket_status" class="ui dropdown">
+                                    <option value="1" {{ selected('1', ticket_status)|e }}>{{ __("Pending") }}</option>
+                                    <option value="2" {{ selected('2', ticket_status)|e }}>{{ __("Opened") }}</option>
+                                    <option value="3" {{ selected('3', ticket_status)|e }}>{{ __("Closed") }}</option>
+                                </select>
+                            </div>
+                        {% endif %}
+
+                        {% if ticket_depth == '1' %}
+                            <div class="field required">
+                                <label>{{ __("Type") }}</label>
+                                <select name="ticket_type" class="ui dropdown">
+                                    <option value="1" {{ selected('1', ticket_type)|e }}>{{ __("Inquiry") }}</option>
+                                    <option value="2" {{ selected('2', ticket_type)|e }}>{{ __("Suggestion") }}</option>
+                                    <option value="3" {{ selected('3', ticket_type)|e }}>{{ __("Normal Bug") }}</option>
+                                    <option value="4" {{ selected('4', ticket_type)|e }}>{{ __("Critical Bug") }}</option>
+                                    <option value="5" {{ selected('5', ticket_type)|e }}>{{ __("Security Bug") }}</option>
+                                </select>
+                            </div>
+                        {% endif %}
+
+                        <div class="field">
+                            <label>{{ __("Content") }}</label>
+                            {% autoescape false %}
+                                <textarea name="ticket_content" class="rich-editor edit_content" rows="3">{{ ticket_content }}</textarea>
+                            {% endautoescape %}
+                        </div>
+
+                        <div class="field">
+                            <button type="button" id="attachments_select" class="positive tiny ui button page_uploader" data-target="uploadModal" data-text="{{ __("Attach Files")|e('html_attr') }}">{{ __("Attach Files")|e }}</button>
+                            <input type="hidden" name="tic_attachments" value="">
+                            <input type="hidden" name="tic_old_attachments" value="{{ ticket_attachments_ids|e('html_attr') }}">
+                            <br/><br/>
+                                {% if ticket_attachments_count > 0 %}
+                                    {% for ticket_attachment in ticket_attachments %}
+                                        <a href="{{ download_link(ticket_attachment.fi_id, ticket_attachment.hash)|e }}" target="__blank" class="ui label">{{ ticket_attachment.title|e }} <i data-id="{{ ticket_attachment.fi_id|e }}" class="delete icon delete_file"></i></a>
+                                    {% endfor %}
+                                {% endif %}
+                        </div>
+                        <br/>
+                        <button class="tiny ui primary button" type="submit">{{ __("Submit") }}</button>
+                        <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% elseif project_sub_tab == 'view'  %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="ticket icon"></i>{{ ticket_subject|e }}</span>
+                    </h5>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="ui threaded comments">
+
+                        <div class="comment">
+                            <a class="avatar">
+                                <img src="{{ gravatar(ticket_email, ticket_grav_id, 128)|e }}">
+                            </a>
+                            <div class="content">
+                                <a class="author">{{ ticket_name|e }}</a>
+                                <div class="metadata">
+                                    <span class="date">{{ date_to_diff(ticket_created_at)|e }}</span>
+                                    {% if current_user_us_id == ticket_owner_id or current_user_access_rule == '1' %}
+                                        <span><a href="{{ ticket_edit_link|e }}">{{ __("Edit") }}</a></span>
+                                    {% endif %}
+                                </div>
+
+                                <div class="text">
+                                    {% autoescape false %}
+                                        {{ ticket_content }}
+                                    {% endautoescape %}
+                                </div>
+                                <div class="actions">
+                                    {% if ticket_attachments_count > 0 %}
+                                        {% for ticket_attachment in ticket_attachments %}
+                                            <a href="{{ download_link(ticket_attachment.fi_id, ticket_attachment.hash)|e }}" target="__blank" class="ui label">{{ ticket_attachment.title|e }}</a>
+                                        {% endfor %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+
+                        {% for ticket_reply in ticket_replies %}
+                            <br/>
+                            <div class="comment">
+                                <a class="avatar">
+                                    <img src="{{ gravatar(ticket_reply.email, ticket_reply.grav_id, 128)|e }}">
+                                </a>
+                                <div class="content">
+                                    <a class="author">{{ ticket_reply.name|e }}</a>
+                                    <div class="metadata">
+                                        <span class="date">{{ date_to_diff(ticket_reply.created_at)|e }}</span>
+                                        {% if current_user_us_id == ticket_reply.owner_id or current_user_access_rule == '1' %}
+                                            <span><a href="{{ ticket_reply.edit_link|e }}">{{ __("Edit") }}</a></span>
+                                        {% endif %}
+                                        {% if current_user_access_rule == '1' %}
+                                            <span><a href="{{ ticket_reply.trash_link|e }}" class="delete_reply" data-id="{{ ticket_reply.ti_id|e('html_attr') }}">{{ __("Delete") }}</a></span>
+                                        {% endif %}
+                                    </div>
+                                    <div class="text">
+                                        {% autoescape false %}
+                                            {{ ticket_reply.content }}
+                                        {% endautoescape %}
+                                    </div>
+                                    <div class="actions">
+                                        {% if ticket_reply.attachments_count > 0 %}
+                                            {% for ticket_attachment in ticket_reply.attachments %}
+                                                <a href="{{ download_link(ticket_attachment.fi_id, ticket_attachment.hash)|e }}" target="__blank" class="ui label">{{ ticket_attachment.title|e }}</a>
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
+                    <br/>
+                    <div class="hr-line-dashed"></div>
+                    <form id="ticket_form" action="{{ add_ticket_action|e }}" method="post" class="ui form">
+                        {{ nonce_form() }}
+                        <input name="pro_id" type="hidden" value="{{ project_pr_id|e('html_attr') }}">
+                        <input name="parent_id" type="hidden" value="{{ ticket_ti_id|e('html_attr') }}">
+                        <input name="ticket_subject" type="hidden" value="__REP__">
+                        <input name="ticket_depth" type="hidden" value="2">
+
+
+                        <div class="field">
+                            <textarea name="ticket_content" class="rich-editor" rows="3"></textarea>
+                        </div>
+
+                        <div class="field">
+                            <button type="button" id="attachments_select" class="positive tiny ui button page_uploader" data-target="uploadModal" data-text="{{ __("Attach Files")|e('html_attr') }}">{{ __("Attach Files")|e }}</button>
+                            <input type="hidden" name="tic_attachments" value="">
+                        </div>
+                        <br/>
+                        <button class="tiny ui primary button" type="submit">{{ __("Submit") }}</button>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}

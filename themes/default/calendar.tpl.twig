@@ -1,0 +1,48 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'calendar', 'model' : 'calendar'} %}
+
+{# incluKBde top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'calendar', 'model' : 'calendar'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'calendar', 'model' : 'calendar'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-calendar"></i> {{ __("Calendar") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="schedule_container" class="ui small modal">
+            <div class="header"></div>
+            <div class="content"></div>
+            <div class="actions">
+                <div class="ui negative button">{{ __("Close") }}</div>
+            </div>
+        </div>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'calendar', 'model' : 'calendar'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'calendar', 'model' : 'calendar'} %}

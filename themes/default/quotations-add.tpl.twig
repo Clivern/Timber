@@ -1,0 +1,203 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'quotations-add', 'model' : 'quotations-add'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'quotations-add', 'model' : 'quotations-add'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'quotations-add', 'model' : 'quotations-add'} %}
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="col-lg-12">
+                    <div class="metabox blue">
+                        <div class="metabox-body">
+                            <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-comments"></i> {{ __("Quotations") }}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <div class="metabox">
+                    <div class="metabox-heading">{{ __("Form Elements") }}</div>
+                    <div class="metabox-body">
+                        <button data-id="text_elem" class="fluid tiny ui button new_element">{{ __("Text") }}</button><br/>
+                        <button data-id="para_elem" class="fluid tiny ui button new_element">{{ __("Paragraph") }}</button><br/>
+                        <button data-id="chek_elem" class="fluid tiny ui button new_element">{{ __("Checkbox") }}</button><br/>
+                        <button data-id="mult_elem" class="fluid tiny ui button new_element">{{ __("Multiple Choice") }}</button><br/>
+                        <button data-id="drop_elem" class="fluid tiny ui button new_element">{{ __("Dropdown") }}</button><br/>
+                        <button data-id="date_elem" class="fluid tiny ui button new_element">{{ __("Date") }}</button><br/>
+                        <button data-id="sect_elem" class="fluid tiny ui button new_element">{{ __("Section Break") }}</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="twelve wide column">
+                <div class="metabox">
+                    <div class="metabox-heading">{{ __("Form Preview") }}</div>
+                    <div class="metabox-body">
+
+                        <form action="{{ add_quotation_action|e('html_attr') }}" id="form_preview" class="ui form" method="post">
+                            {{ nonce_form() }}
+
+                            <div class="field required">
+                                <label>{{ __("Title") }}</label>
+                                <input type="text" name="quotation_title">
+                            </div>
+
+                            <span id="elements_preview"></span>
+                            <br/>
+                            <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                            <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="element_settings_container" data-element="" class="ui small modal">
+            <div class="header"></div>
+            <div class="content">
+
+                <span id="text_element">
+
+                    <div class="ui form">
+                        <div class="field required">
+                            <label>{{ __("Label") }}</label>
+                            <input type="text" name="text_element_label">
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Placeholder") }}</label>
+                            <input type="text" name="text_element_placeholder">
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Required") }}</label>
+                            <select name="text_element_required" class="ui dropdown">
+                                <option value="1">{{ __("No") }}</option>
+                                <option value="2">{{ __("Yes") }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </span>
+
+                <span id="para_element">
+
+                    <div class="ui form">
+                        <div class="field required">
+                            <label>{{ __("Label") }}</label>
+                            <input type="text" name="para_element_label">
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Placeholder") }}</label>
+                            <input type="text" name="para_element_placeholder">
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Required") }}</label>
+                            <select name="para_element_required" class="ui dropdown">
+                                <option value="1">{{ __("No") }}</option>
+                                <option value="2">{{ __("Yes") }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </span>
+
+                <span id="chek_element">
+
+                    <div class="ui form">
+                        <div class="field required">
+                            <label>{{ __("Label") }}</label>
+                            <input type="text" name="chek_element_label">
+                        </div>
+                    </div>
+
+                </span>
+
+                <span id="mult_element">
+
+                    <div class="ui form">
+                        <div class="field required">
+                            <label>{{ __("Label") }}</label>
+                            <input type="text" name="mult_element_label">
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Items") }}</label>
+                            <textarea rows="2" name="mult_element_items" placeholder="{{ __("item1,item2,item3") }}"></textarea>
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Required") }}</label>
+                            <select name="mult_element_required" class="ui dropdown">
+                                <option value="1">{{ __("No") }}</option>
+                                <option value="2">{{ __("Yes") }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </span>
+
+                <span id="drop_element">
+
+                    <div class="ui form">
+                        <div class="field required">
+                            <label>{{ __("Label") }}</label>
+                            <input type="text" name="drop_element_label">
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Items") }}</label>
+                            <textarea rows="2" name="drop_element_items" placeholder="{{ __("item1,item2,item3") }}"></textarea>
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Required") }}</label>
+                            <select name="drop_element_required" class="ui dropdown">
+                                <option value="1">{{ __("No") }}</option>
+                                <option value="2">{{ __("Yes") }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </span>
+
+                <span id="date_element">
+
+                    <div class="ui form">
+                        <div class="field required">
+                            <label>{{ __("Label") }}</label>
+                            <input type="text" name="date_element_label">
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Placeholder") }}</label>
+                            <input type="text" name="date_element_placeholder">
+                        </div>
+                        <div class="field required">
+                            <label>{{ __("Required") }}</label>
+                            <select name="date_element_required" class="ui dropdown">
+                                <option value="1">{{ __("No") }}</option>
+                                <option value="2">{{ __("Yes") }}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </span>
+
+            </div>
+            <div class="actions">
+                <div class="ui negative button">{{ __("Close") }}</div>
+                <div class="ui positive right labeled icon button" id="element_save">{{ __("Save") }}<i class="checkmark icon"></i></div>
+            </div>
+        </div>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'quotations-add', 'model' : 'quotations-add'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'quotations-add', 'model' : 'quotations-add'} %}

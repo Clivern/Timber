@@ -1,0 +1,84 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'register', 'model' : 'register'} %}
+
+<div class="login-page-container">
+    <div class="ui grid">
+
+        <div class="sixteen wide column center aligned">
+            <a href="{{ route_to_url('/')|e }}"><img src="{{ file_url(site_logo, default_theme_assets_url('/img/logo.png'))|e }}" width="110" style="opacity:0.7;" /></a>
+        </div>
+
+        <div class="sixteen wide column">
+            <div class="metabox">
+                <div class="metabox-body">
+                    {% if social_login == 'on' %}
+                        <div class="ui grid">
+                            <div class="sixteen wide column center aligned">
+                                {% if facebook_login == 'on' %}
+                                    <a href="{{ route_to_url('/request/frontend/direct/auth/facebook')|e }}" class="ui circular facebook icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Register with Facebook")|e('html_attr') }}">
+                                    <i class="facebook icon"></i>
+                                    </a>
+                                {% endif %}
+
+                                {% if twitter_login == 'on' %}
+                                    <a href="{{ route_to_url('/request/frontend/direct/auth/twitter')|e }}" class="ui circular twitter icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Register with Twitter")|e('html_attr') }}">
+                                    <i class="twitter icon"></i>
+                                    </a>
+                                {% endif %}
+
+                                {% if google_login == 'on' %}
+                                    <a href="{{ route_to_url('/request/frontend/direct/auth/google')|e }}" class="ui circular google plus icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Register with Google")|e('html_attr') }}">
+                                    <i class="google plus icon"></i>
+                                    </a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+
+                        <div class="ui horizontal divider">
+                          {{ __("OR") }}
+                        </div>
+                    {% endif %}
+
+                    <form class="ui form" action="{{ route_to_url('/request/frontend/ajax/register')|e }}" method="post">
+                        <input name="member_hash" value="{{ member_hash|e('html_attr') }}" type="hidden">
+                        <div class="required field">
+                            <label>{{ __("Username") }}</label>
+                            <input type="text" name="user_username" maxlength="20" required>
+                        </div>
+                        <div class="required field">
+                            <label>{{ __("Email") }}</label>
+                            <input type="email" name="user_email" required>
+                        </div>
+                        <div class="required field">
+                            <label>{{ __("Password") }}</label>
+                            <input type="password" name="user_password" required>
+                        </div>
+
+                        <div class="required field">
+                            <div class="ui checkbox">
+                                <input type="checkbox" tabindex="0" name="terms_agreement" value="1" class="hidden">
+                                <label>{{ __("I agree to terms of use")|e }}</label>
+                            </div>
+                        </div>
+                        <button class="tiny ui primary button" type="submit">{{ __("Register") }}</button>
+                        <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+                    </form>
+
+                    <div class="ui horizontal divider">
+                      {{ __("OR") }}
+                    </div>
+                    <div class="ui grid">
+                        <div class="sixteen wide column center aligned">
+                            <a href="{{ route_to_url('/login')|e }}" class="tiny ui button">{{ __("Login") }}</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'register', 'model' : 'register'} %}

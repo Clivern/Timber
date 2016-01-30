@@ -1,0 +1,252 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'invoices-view', 'model' : 'invoices-view'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'invoices-view', 'model' : 'invoices-view'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'invoices-view', 'model' : 'invoices-view'} %}
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-money"></i> {{ __("Invoices") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="ui stackable grid">
+
+            <div class="eight wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+                        <h5>{{ __("From:") }}</h5>
+
+                        {% if company_name != '' %}
+                            <strong>{{ company_name|e }}</strong><br>
+                        {% endif %}
+
+                        {% if company_address_line1 != '' %}
+                            {{ company_address_line1|e }}<br>
+                        {% endif %}
+
+                        {% if company_address_line2 != '' %}
+                            {{ company_address_line2|e }}<br>
+                        {% endif %}
+
+                        {% if company_city != '' %}
+                            {{ company_city|e }}<br>
+                        {% endif %}
+
+                        {% if company_country != '' %}
+                            {{ company_country|e }}<br>
+                        {% endif %}
+
+                        {% if company_vat_number != '' %}
+                            <abbr title="{{ __("VAT")|e }}">{{ __("VAT:") }}</abbr> {{ company_vat_number|e }}<br>
+                        {% endif %}
+
+                        {% if company_phone != '' %}
+                            <abbr title="{{ __("Phone")|e }}">{{ __("P:") }}</abbr> {{ company_phone|e }}<br>
+                        {% endif %}
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="eight wide column">
+
+                <div class="metabox">
+                    <div class="metabox-body right-align">
+                        <h4>{{ __("Invoice No.") }}</h4>
+                        <h4 class="text-navy">{{ invoice_ref_id|e }}</h4>
+                        <br/>
+                        <h5>{{ __("To:") }}</h5>
+
+                        {% if invoice_client_full_name != '' %}
+                            <strong>{{ invoice_client_full_name|e }}</strong><br>
+                        {% endif %}
+
+                        {% if invoice_client_company != '' %}
+                            <strong>{{ invoice_client_company|e }}</strong><br>
+                        {% endif %}
+
+                        {% if invoice_client_address1 != '' %}
+                            {{ invoice_client_address1|e }}<br>
+                        {% endif %}
+
+                        {% if invoice_client_address2 != '' %}
+                            {{ invoice_client_address2|e }}<br>
+                        {% endif %}
+
+                        {% if invoice_client_city != '' %}
+                            {{ invoice_client_city|e }}<br>
+                        {% endif %}
+
+                        {% if invoice_client_country != '' %}
+                            {{ invoice_client_country|e }}<br>
+                        {% endif %}
+
+                        {% if invoice_client_vat_nubmer != '' %}
+                            <abbr title="{{ __("VAT")|e }}">{{ __("VAT:") }}</abbr> {{ invoice_client_vat_nubmer|e }}<br>
+                        {% endif %}
+
+                        {% if invoice_client_phone_num != '' %}
+                            <abbr title="{{ __("Phone")|e }}">{{ __("P:") }}</abbr> {{ invoice_client_phone_num|e }}
+                        {% endif %}
+
+                        <br/><br/>
+                        <p>
+                            <strong>{{ __("Issue Date:") }}</strong> {{ invoice_issue_date|e }}<br>
+                            <strong>{{ __("Due Date:") }}</strong> {{ invoice_due_date|e }}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        {% autoescape false %}
+                          {{ invoice_terms.notes }}
+                        {% endautoescape %}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        <table class="ui very basic celled table">
+                            <thead>
+                                <tr>
+                                    <th>{{ __("Item List") }}</th>
+                                    <th class="center aligned">{{ __("Quantity") }}</th>
+                                    <th class="center aligned">{{ __("Unit Price") }} ({{ site_currency|e }})</th>
+                                    <th class="right aligned">{{ __("Total Price") }} ({{ site_currency|e }})</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for invoice_items in invoice_terms.items %}
+                                <tr>
+                                     <td><div><strong>{{ invoice_items.item_title|e }}</strong></div>
+                                        <small>{{ invoice_items.item_description|e }}</small></td>
+                                    <td class="center aligned">{{ invoice_items.item_quantity|e }}</td>
+                                    <td class="center aligned">{{ invoice_items.item_unit_price|e }}</td>
+                                    <td class="right aligned">{{ invoice_items.item_sub_total|e }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="eleven wide column">
+                {% if invoice_attach == 'on' %}
+                    <div class="metabox">
+                        <div class="metabox-body">
+
+                            <div class="message-attachment">
+                                <p>
+                                    <span><i class="attach icon"></i> {{ invoice_attachments_count|e }} {{ __("Attachments") }}</span>
+                                </p>
+
+                                <div class="attachment">
+                                    {% for invoice_attachment in invoice_attachments %}
+                                        <div class="file-box">
+                                            <div class="file">
+                                                <a href="{{ download_link(invoice_attachment.fi_id, invoice_attachment.hash)|e }}" target="__blank">
+                                                    <span class="corner"></span>
+                                                    <div class="icon">
+                                                        <i class="fa fa-file"></i>
+                                                    </div>
+                                                    <div class="file-name">
+                                                        {{ invoice_attachment.title|e }}
+                                                        <br>
+                                                        <small>{{ __("Added:") }} {{ date_to_diff(invoice_attachment.uploaded_at)|e }}</small>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="five wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        <table class="ui very basic celled table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>{{ __("Sub Total") }} ({{ site_currency|e }}) :</strong></td>
+                                    <td class="right aligned">{{ invoice_terms.overall.sub_total|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Discount") }} ({{ invoice_discount_currency|e }}) :</strong></td>
+                                    <td class="right aligned">{{ invoice_discount|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Tax") }} ({{ invoice_tax_currency|e }}) :</strong></td>
+                                    <td class="right aligned">{{ invoice_tax|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Total") }} ({{ site_currency|e }}) :</strong></td>
+                                    <td class="right aligned">{{ invoice_total|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Paid") }} ({{ site_currency|e }}) :</strong></td>
+                                    <td class="right aligned">{{ invoice_terms.overall.paid_value|e }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="hr-line-dashed"></div>
+                        <a href="{{ download_bill(invoice_in_id, invoice_reference)|e }}" target="__blank" class="mini ui button">
+                        <i class="file outline icon"></i>
+                            {{ __("Download") }}
+                        </a>
+                        {% if check_perm('edit.invoices') %}
+                            <a href="{{ invoice_edit_link|e }}" class="mini ui button">
+                            <i class="write square icon"></i>
+                                {{ __("Edit") }}
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'invoices-view', 'model' : 'invoices-view'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'invoices-view', 'model' : 'invoices-view'} %}

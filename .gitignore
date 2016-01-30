@@ -1,0 +1,14 @@
+vendor/
+storage/public/*
+!storage/public/.gitkeep
+storage/private/*
+!storage/private/.gitkeep
+!storage/private/.htaccess
+cache/*
+!cache/.gitkeep
+logs/*
+!logs/.gitkeep
+backups/*
+!backups/.gitkeep
+!backups/.htaccess
+!themes/default/assets/vendor/

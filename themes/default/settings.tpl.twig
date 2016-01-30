@@ -1,0 +1,722 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'settings', 'model' : 'settings'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'settings', 'model' : 'settings'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'settings', 'model' : 'settings'} %}
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-cogs"></i> {{ __("Settings")|e }}</h4>
+                   </div>
+                </div>
+            </div>
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+
+                    <div class="ui top attached tabular menu">
+                        <a class="active item" data-tab="tab-1">{{ __("Company")|e }}</a>
+                        <a class="item" data-tab="tab-2">{{ __("Appearance")|e }}</a>
+                        <a class="item" data-tab="tab-3">{{ __("Rules")|e }}</a>
+                        <a class="item" data-tab="tab-4">{{ __("Payments")|e }}</a>
+                        <a class="item" data-tab="tab-5">{{ __("Templates")|e }}</a>
+                        <a class="item" data-tab="tab-6">{{ __("Backups")|e }}</a>
+                        <a class="item" data-tab="tab-7">{{ __("About")|e }}</a>
+                    </div>
+
+                    <div class="ui bottom attached active tab segment" data-tab="tab-1">
+                        <div class="metabox-body">
+                            <form id="c_form_action" class="ui form" action="{{ c_form_action|e }}" method="post">
+                                {{ nonce_form() }}
+                                <div class="field">
+                                    <label>{{ __("Name")|e }}</label>
+                                    <input name="c_site_title" type="text" value="{{ c_site_title|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Description")|e }}</label>
+                                    <textarea name="c_site_description" rows="4">{{ c_site_description|e }}</textarea>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Logo")|e }}</label>
+                                    <button type="button" id="logo_select" class="tiny positive ui button page_uploader" data-target="uploadModal" data-text="{{ __("Select Image")|e('html_attr') }}">{{ __("Select Image")|e }}</button>
+                                    <input name="c_site_logo" value="" type="hidden">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Country")|e }}</label>
+                                    <select class="ui search dropdown" name="c_site_country">
+                                        {% for key, value in countries_list %}
+                                            <option value="{{ key|e('html_attr') }}" {{ selected(c_site_country, key)|e }}>{{ value|e }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("City")|e }}</label>
+                                    <input name="c_site_city" type="text" value="{{ c_site_city|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Address Line 1")|e }}</label>
+                                    <input name="c_site_address_line1" type="text" value="{{ c_site_address_line1|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Address Line 2")|e }}</label>
+                                    <input name="c_site_address_line2" type="text" value="{{ c_site_address_line2|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Phone Number")|e }}</label>
+                                    <input name="c_site_phone" type="text" value="{{ c_site_phone|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Email")|e }}</label>
+                                    <input name="c_site_email" type="email" value="{{ c_site_email|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Emails Sender")|e }}</label>
+                                    <input name="c_emails_sender" type="email" value="{{ c_emails_sender|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("VAT Number")|e }}</label>
+                                    <input name="c_site_vat_number" type="text" value="{{ c_site_vat_number|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Default Currency")|e }}</label>
+                                    <input name="c_site_currency" type="text" value="{{ c_site_currency|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Currency Symbol")|e }}</label>
+                                    <input name="c_site_currency_symbol" type="text" value="{{ c_site_currency_symbol|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Tax Rates")|e }}</label>
+                                    <table class="ui padded table" id="c13">
+                                        <tbody>
+                                            {% for tax_rate in c_site_tax_rates %}
+                                                <tr>
+                                                    <td><input name="c_site_tax_rates[title][]" type="text" value="{{ tax_rate.name|e('html_attr') }}"></td>
+                                                    <td><input name="c_site_tax_rates[value][]" type="text" value="{{ tax_rate.value|e('html_attr') }}"></td>
+                                                    <td><a class="tiny ui button red tax_dump"><i class="remove icon tax_dump"></i></a></td>
+                                                </tr>
+                                            {% endfor %}
+                                                <tr class="tax_container" style="display:none">
+                                                    <td><input name="c_site_tax_rates[title][]" type="text" value=""></td>
+                                                    <td><input name="c_site_tax_rates[value][]" type="text" value=""></td>
+                                                    <td><a class="tiny ui button red tax_dump"><i class="remove icon tax_dump"></i></a></td>
+                                                </tr>
+                                                <tr class="add_tax_container">
+                                                    <td colspan="3"><a class="tiny ui primary button tax_add"><i class="plus icon tax_add"></i></a></td>
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Default Language")|e }}</label>
+                                    <select class="ui search dropdown" name="c_site_language">
+                                        {% for language in c_site_languages %}
+                                            <option value="{{ language|e('html_attr') }}" {{ selected(language, c_site_language)|e }}>{{ language|e }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("TimeZone")|e }}</label>
+                                    <select class="ui search dropdown" name="c_site_timezone">
+                                        {% for time_zone in time_zones %}
+                                            <option value="{{ time_zone|e('html_attr') }}" {{ selected(time_zone, c_site_timezone)|e }}>{{ time_zone|e }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Maintenance Mode")|e }}</label>
+                                    <select class="ui fluid dropdown" name="c_maintenance_mode">
+                                        <option value="on" {{ selected('on', c_maintenance_mode)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', c_maintenance_mode)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                            </form>
+                        </div>
+                    </div>
+
+
+                    <div class="ui bottom attached tab segment" data-tab="tab-2">
+                        <div class="metabox-body">
+
+                            <form id="a_form_action" class="ui form" action="{{ a_form_action|e }}" method="post">
+                                {{ nonce_form() }}
+
+                                <div class="field">
+                                    <label>{{ __("Gravatar Platform")|e }}</label>
+                                    <select class="ui fluid dropdown" name="a_gravatar_platform">
+                                        <option value="gravatar" {{ selected('gravatar', a_gravatar_platform)|e }}>{{ __("Gravatar")|e }}</option>
+                                        <option value="native" {{ selected('native', a_gravatar_platform)|e }}>{{ __("Native")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Default Gravatar")|e }}</label>
+                                    <div class="ui fluid selection dropdown">
+                                        <input type="hidden" name="a_site_gravatar" value="{{ a_site_gravatar|e('html_attr') }}">
+                                        <i class="dropdown icon"></i>
+                                        <div class="default text">{{ __("Select Gravatar") }}</div>
+                                        <div class="menu">
+                                            {% for gravatar in gravatars %}
+                                                <div class="item" data-value="{{ gravatar.value|e('html_attr') }}">
+                                                    <img class="ui mini avatar image" src="{{ theme_assets_url(gravatar.src)|e }}">
+                                                    {{ gravatar.value|e('html_attr') }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Custom Styles")|e }}</label>
+                                    <textarea name="a_custom_styles" rows="3">{{ a_custom_styles|e }}</textarea>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Custom Scripts")|e }}</label>
+                                    <textarea name="a_custom_scripts" rows="3">{{ a_custom_scripts|e }}</textarea>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Google Analytics")|e }}</label>
+                                    <textarea name="a_google_analytics" rows="3">{{ a_google_analytics|e }}</textarea>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="ui bottom attached tab segment" data-tab="tab-3">
+                        <div class="metabox-body">
+
+                            <form id="r_form_action" class="ui form" action="{{ r_form_action|e }}" method="post">
+                                {{ nonce_form() }}
+
+                                <div class="field">
+                                    <label>{{ __("Google Login")|e }}</label>
+                                    <select class="ui fluid dropdown" name="r_google_login_status">
+                                        <option value="on" {{ selected('on', r_google_login_status)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', r_google_login_status)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Google App Key")|e }}</label>
+                                    <input name="r_google_login_key" type="text" value="{{ r_google_login_key|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Google App Secret")|e }}</label>
+                                    <input name="r_google_login_secret" type="text" value="{{ r_google_login_secret|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Twitter Login")|e }}</label>
+                                    <select class="ui fluid dropdown" name="r_twitter_login_status">
+                                        <option value="on" {{ selected('on', r_twitter_login_status)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', r_twitter_login_status)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Twitter App Key")|e }}</label>
+                                    <input name="r_twitter_login_key" type="text" value="{{ r_twitter_login_key|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Twitter App Secret")|e }}</label>
+                                    <input name="r_twitter_login_secret" type="text" value="{{ r_twitter_login_secret|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Facebook Login")|e }}</label>
+                                    <select class="ui fluid dropdown" name="r_facebook_login_status">
+                                        <option value="on" {{ selected('on', r_facebook_login_status)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', r_facebook_login_status)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Facebook App Key")|e }}</label>
+                                    <input name="r_facebook_login_key" type="text" value="{{ r_facebook_login_key|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Facebook App Secret")|e }}</label>
+                                    <input name="r_facebook_login_secret" type="text" value="{{ r_facebook_login_secret|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Allowed Upload Extensions")|e }}</label>
+                                    <input name="r_allowed_upload_extensions" type="text" value="{{ r_allowed_upload_extensions|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Max. Upload Size")|e }}</label>
+                                    <div class="ui action input">
+                                        <input name="r_max_upload_size" type="text" value="{{ r_max_upload_size|e('html_attr') }}">
+                                        <span class="ui button">{{ __("MB") }}</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Caching")|e }}</label>
+                                    <select class="ui fluid dropdown" name="r_site_caching_status">
+                                        <option value="on" {{ selected('on', r_site_caching_status)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', r_site_caching_status)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Purge Caching Each")|e }}</label>
+                                    <div class="ui action input">
+                                        <input name="r_site_caching_purge_each" type="text" value="{{ r_site_caching_purge_each|e('html_attr') }}">
+                                        <span class="ui button">{{ __("Days") }}</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Crons Link")|e }}</label>
+                                    <div class="ui action input">
+                                        <input name="r_crons_link" type="text" value="{{ r_crons_link|e('html_attr') }}">
+                                        <button class="ui teal right labeled icon button" id="cron_link_refresh" data-action="{{ settings_different_action|e('html_attr') }}">
+                                            <i class="circle notched icon"></i>
+                                            {{ __("Refresh") }}
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Client Permissions") }}</label>
+                                    <select name="r_client_permissions" multiple="" class="ui fluid dropdown">
+                                        <option value="">{{ __("Select Permissions") }}</option>
+                                        {% for key, value in r_all_client_permissions %}
+                                            <option value="{{ key|e('html_attr') }}" {{ selected(r_client_permissions, key)|e }}>{{ value|e('html_attr') }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Staff Permissions") }}</label>
+                                    <select name="r_staff_permissions" multiple="" class="ui fluid dropdown">
+                                        <option value="">{{ __("Select Permissions") }}</option>
+                                        {% for key, value in r_all_staff_permissions %}
+                                            <option value="{{ key|e('html_attr') }}" {{ selected(r_staff_permissions, key)|e }}>{{ value|e('html_attr') }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("SMTP Server Status")|e }}</label>
+                                    <select class="ui fluid dropdown" name="r_smtp_server_status">
+                                        <option value="on" {{ selected('on', r_smtp_server_status)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', r_smtp_server_status)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("SMTP Server Authentication")|e }}</label>
+                                    <select class="ui fluid dropdown" name="r_smtp_server_auth">
+                                        <option value="on" {{ selected('on', r_smtp_server_auth)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', r_smtp_server_auth)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("SMTP Server Secure")|e }}</label>
+                                    <input name="r_smtp_server_secure" type="text" value="{{ r_smtp_server_secure|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("SMTP Server Host")|e }}</label>
+                                    <input name="r_smtp_server_host" type="text" value="{{ r_smtp_server_host|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("SMTP Server Port")|e }}</label>
+                                    <input name="r_smtp_server_port" type="text" value="{{ r_smtp_server_port|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("SMTP Server Authentication Username")|e }}</label>
+                                    <input name="r_smtp_server_username" type="text" value="{{ r_smtp_server_username|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("SMTP Server Authentication Password")|e }}</label>
+                                    <input name="r_smtp_server_password" type="text" value="{{ r_smtp_server_password|e('html_attr') }}">
+                                </div>
+
+                                <div class="hr-line-dashed"></div>
+                                <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="ui bottom attached tab segment" data-tab="tab-4">
+                        <div class="metabox-body">
+
+                            <form id="p_form_action" class="ui form" action="{{ p_form_action|e }}" method="post">
+                                {{ nonce_form() }}
+
+                                <div class="field">
+                                    <label>{{ __("Bank Transfer")|e }}</label>
+                                    <select name="p_bank_details_status" class="ui fluid dropdown">
+                                        <option value="on" {{ selected('on', p_bank_transfer_details.status)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', p_bank_transfer_details.status)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Bank Account Number")|e }}</label>
+                                    <input name="p_bank_details_account_number" type="text" value="{{ p_bank_transfer_details.account_number|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Bank Account Country")|e }}</label>
+                                    <input name="p_bank_details_country" type="text" value="{{ p_bank_transfer_details.country|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Bank Swift Code")|e }}</label>
+                                    <input name="p_bank_details_swift_code" type="text" value="{{ p_bank_transfer_details.swift_code|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Additional Data")|e }}</label>
+                                    <textarea name="p_bank_details_additional_data" rows="3">{{ p_bank_transfer_details.additional_data|e }}</textarea>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Paypal")|e }}</label>
+                                    <select name="p_paypal_details_status" class="ui fluid dropdown">
+                                        <option value="on" {{ selected('on', p_paypal_transfer_details.status)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', p_paypal_transfer_details.status)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Paypal Username")|e }}</label>
+                                    <input name="p_paypal_details_username" type="text" value="{{ p_paypal_transfer_details.username|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Paypal Password")|e }}</label>
+                                    <input name="p_paypal_details_password" type="text" value="{{ p_paypal_transfer_details.password|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Paypal Signature")|e }}</label>
+                                    <input name="p_paypal_details_signature" type="text" value="{{ p_paypal_transfer_details.signature|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Paypal Test Mode")|e }}</label>
+                                    <select name="p_paypal_details_test_mode" class="ui fluid dropdown">
+                                        <option value="on" {{ selected(true, p_paypal_transfer_details.test_mode)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected(false, p_paypal_transfer_details.test_mode)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Stripe")|e }}</label>
+                                    <select name="p_stripe_details_status" class="ui fluid dropdown">
+                                        <option value="on" {{ selected('on', p_stripe_transfer_details.status)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', p_stripe_transfer_details.status)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Stripe API Key")|e }}</label>
+                                    <input name="p_stripe_details_client_api" type="text" value="{{ p_stripe_transfer_details.client_api|e('html_attr') }}">
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="ui bottom attached tab segment" data-tab="tab-5">
+                        <div class="metabox-body">
+
+                            <form id="t_form_action" class="ui form" action="{{ t_form_action|e }}" method="post">
+                                {{ nonce_form() }}
+
+                                <div class="field">
+                                    <label>{{ __("Verify Email Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_verify_email_tpl" rows="3">{{ t_verify_email_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$verify_url}-{$login_url}-{$home_url}-{$full_name}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Forgot Password Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_fpwd_tpl" rows="3">{{ t_fpwd_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$fpwd_url}-{$login_url}-{$home_url}-{$full_name}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Login Data Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_login_info_tpl" rows="3">{{ t_login_info_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$full_name}-{$first_name}-{$last_name}-{$user_name}-{$email}-{$password}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Invitation Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_register_invite_tpl" rows="3">{{ t_register_invite_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$register_url}-{$login_url}-{$home_url}-{$full_name}-{$first_name}-{$last_name}-{$user_name}-{$email}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Project Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_project_tpl" rows="3">{{ t_new_project_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$site_currency}-{$project_title}-{$project_reference}-{$project_ref_id}-{$project_created_at}-{$project_updated_at}-{$project_start_at}-{$project_end_at}-{$project_budget}-{$full_name}-{$email}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Task Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_project_task_tpl" rows="3">{{ t_new_project_task_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$project_title}-{$project_reference}-{$project_ref_id}-{$project_created_at}-{$project_updated_at}-{$project_start_at}-{$project_end_at}-{$task_title}-{$task_created_at}-{$task_start_at}-{$task_end_at}-{$assign_full_name}-{$assign_email}-{$assign_first_name}-{$assign_last_name}-{$assign_user_name}-{$full_name}-{$email}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Milestone Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_project_milestone_tpl" rows="3">{{ t_new_project_milestone_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$project_title}-{$project_reference}-{$project_ref_id}-{$project_created_at}-{$project_updated_at}-{$project_start_at}-{$project_end_at}-{$milestone_title}-{$milestone_created_at}-{$full_name}-{$email}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Ticket Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_project_ticket_tpl" rows="3">{{ t_new_project_ticket_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$project_title}-{$project_reference}-{$project_ref_id}-{$project_created_at}-{$project_updated_at}-{$project_start_at}-{$project_end_at}-{$ticket_subject}-{$ticket_date}-{$ticket_reference}-{$opened_by_full_name}-{$opened_by_email}-{$opened_by_first_name}-{$opened_by_last_name}-{$opened_by_user_name}-{$full_name}-{$email}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New File Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_project_files_tpl" rows="3">{{ t_new_project_files_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$project_title}-{$project_reference}-{$project_ref_id}-{$project_created_at}-{$project_updated_at}-{$project_start_at}-{$project_end_at}-{$file_name}-{$file_date}-{$uploaded_by_full_name}-{$uploaded_by_email}-{$uploaded_by_first_name}-{$uploaded_by_last_name}-{$uploaded_by_user_name}-{$full_name}-{$email}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Message Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_message_tpl" rows="3">{{ t_new_message_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$to_full_name}-{$to_email}-{$to_first_name}-{$to_last_name}-{$to_user_name}-{$from_full_name}-{$from_email}-{$from_first_name}-{$from_last_name}-{$from_user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Quotation Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_quotation_tpl" rows="3">{{ t_new_quotation_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$quotation_title}-{$quotation_reference}-{$quotation_ref_id}-{$quotation_created_at}-{$full_name}-{$email}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Public Quotation Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_public_quotation_tpl" rows="3">{{ t_new_public_quotation_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$quotation_url}-{$quotation_title}-{$quotation_reference}-{$quotation_ref_id}-{$quotation_created_at}-{$email}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Subscription Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_subscription_tpl" rows="3">{{ t_new_subscription_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$site_currency}-{$subscription_reference}-{$subscription_ref_id}-{$subscription_total}-{$subscription_begin_at}-{$subscription_end_at}-{$subscription_created_at}-{$full_name}-{$email}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Invoice Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_invoice_tpl" rows="3">{{ t_new_invoice_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$site_currency}-{$invoice_reference}-{$invoice_ref_id}-{$invoice_total}-{$invoice_issue_date}-{$invoice_due_date}-{$invoice_created_at}-{$full_name}-{$email}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("New Estimate Message")|e }}</label>
+                                    <textarea class="rich-editor" name="t_new_estimate_tpl" rows="3">{{ t_new_estimate_tpl|e }}</textarea>
+                                    <small>Available Filters: <code>{$login_url}-{$home_url}-{$site_currency}-{$estimate_reference}-{$estimate_ref_id}-{$estimate_total}-{$estimate_issue_date}-{$estimate_due_date}-{$estimate_created_at}-{$full_name}-{$email}-{$first_name}-{$last_name}-{$user_name}</code></small>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="ui bottom attached tab segment" data-tab="tab-6">
+                        <div class="metabox-body">
+
+                            <form id="b_form_action" class="ui form" action="{{ b_form_action|e }}" method="post">
+                                {{ nonce_form() }}
+
+                                <div class="field">
+                                    <label>{{ __("Schedule Backups")|e }}</label>
+                                    <select name="b_backups_status" class="ui fluid dropdown">
+                                        <option value="on" {{ selected('on', b_backups_status)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', b_backups_status)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Compress Backups")|e }}</label>
+                                    <select name="b_backups_compress" class="ui fluid dropdown">
+                                        <option value="on" {{ selected('on', b_backups_compress)|e }}>{{ __("On")|e }}</option>
+                                        <option value="off" {{ selected('off', b_backups_compress)|e }}>{{ __("Off")|e }}</option>
+                                    </select>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Perform Backup Each")|e }}</label>
+                                    <div class="ui action input">
+                                        <input name="b_backups_interval" type="text" value="{{ b_backups_interval|e('html_attr') }}">
+                                        <span class="ui button">{{ __("Days") }}</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Store")|e }}</label>
+                                    <div class="ui action input">
+                                        <input name="b_backups_store" type="text" value="{{ b_backups_store|e('html_attr') }}">
+                                        <span class="ui button">{{ __("Backups") }}</span>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="field">
+                                    <label>{{ __("Backups Performed")|e }}</label>
+                                    <table class="ui padded table">
+                                        <tbody>
+                                            {% if b_backups_performed_status == true %}
+                                                {% for b_backup_performed in b_backups_performed %}
+                                                    <tr>
+                                                        <td>{{ b_backup_performed|e }}</td>
+                                                        <td>{{ sql_to_diff(b_backup_performed)|e }}</td>
+                                                    </tr>
+                                                {% endfor %}
+                                                <tr>
+                                                    <td colspan="2"><a href="{{ settings_different_action|e }}" id="force_new_backup" class="tiny ui primary button">{{ __('New Backup')|e }}</a></td>
+                                                </tr>
+                                            {% else %}
+                                                <tr>
+                                                    <td colspan="2"><a href="{{ settings_different_action|e }}" id="force_new_backup" class="tiny ui primary button">{{ __('New Backup')|e }}</a></td>
+                                                </tr>
+                                            {% endif %}
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+                            </form>
+
+                        </div>
+                    </div>
+
+                    <div class="ui bottom attached tab segment" data-tab="tab-7">
+                        <div class="metabox-body">
+                        <div class="ui stackable grid">
+
+                            <div class="four wide column">{{ __("App Name")|e }}</div>
+                            <div class="twelve wide column">{{ app_name|e }}</div>
+
+                            <div class="four wide column">{{ __("App Author")|e }}</div>
+                            <div class="twelve wide column"><a href="{{ app_author_url|e }}" target="_blank" rel="nofollow">{{ app_author|e }}</a></div>
+
+                            <div class="four wide column">{{ __("Current Version")|e }}</div>
+                            <div class="twelve wide column">{{ h_updates_current_version|e }}</div>
+
+                            <div class="four wide column">{{ __("Latest Version")|e }}</div>
+                            <div class="twelve wide column">{{ h_updates_latest_version|e }}</div>
+
+                            <div class="four wide column">{{ __("Last Updates Check")|e }}</div>
+                            <div class="twelve wide column">{{ stamp_to_diff(h_updates_last_check)|e }}</div>
+
+                            <div class="four wide column">{{ __("Need Updates")|e }}</div>
+                            <div class="twelve wide column">
+                                {% if h_updates_need_updates == true %}
+                                    <i class="ui green checkmark icon"></i>
+                                {% elseif h_updates_need_updates == false %}
+                                    <i class="ui red remove icon"></i>
+                                {% endif %}
+                            </div>
+
+                            <div class="four wide column">{{ __("PHP Version")|e }}</div>
+                            <div class="twelve wide column">{{ h_debug_php_version|e }}</div>
+
+                            <div class="four wide column">{{ __("Required Extensions")|e }}</div>
+                            <div class="twelve wide column">
+                                <ul>
+                                    {% for required_extension in h_debug_required_extensions %}
+                                        <li>
+                                            {{ required_extension.key|e }} {% if required_extension.value == 'on' %}
+                                                <i class="ui green checkmark icon"></i>
+                                            {% else %}
+                                                <i class="ui red remove icon"></i>
+                                            {% endif %}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+
+                            <div class="four wide column">{{ __("App Health")|e }}</div>
+                            <div class="twelve wide column">
+                                    {% if h_debug_app_health %}
+                                        <i class="ui green checkmark icon"></i>
+                                    {% else %}
+                                        <i class="ui red remove icon"></i>
+                                    {% endif %}
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+        {% include 'uploader.sec.twig' with {'tpl': 'settings', 'model' : 'settings'} %}
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'settings', 'model' : 'settings'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'settings', 'model' : 'settings'} %}

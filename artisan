@@ -1,0 +1,57 @@
+#!/usr/bin/env php
+<?php
+/**
+ * Timber - Ultimate Freelancer Platform
+ *
+ * @author      Clivern <support@clivern.com>
+ * @copyright   2015 Clivern
+ * @link        http://clivern.com
+ * @license     http://codecanyon.com/license
+ * @version     1.0
+ * @package     Timber
+ */
+
+/**
+ * App root dir full path
+ *
+ * @since 1.0
+ * @var string
+ */
+define( 'TIMBER_ROOT', dirname(__FILE__) );
+
+/**
+ * load app classes and files
+ */
+require_once TIMBER_ROOT . '/vendor/autoload.php';
+
+/**
+ * whether client file exist
+ *
+ * @since 1.0
+ * @var boolean
+ */
+if( is_file( TIMBER_ROOT . '/timber/client.php' )  && file_exists( TIMBER_ROOT . '/timber/client.php' ) ){
+	//file exist
+	define('APP_CLIENT_FILE_EXIST', true);
+}else{
+	//file not exist
+	define('APP_CLIENT_FILE_EXIST', false);
+}
+
+/**
+ * Include client configs if file exist
+ */
+if( APP_CLIENT_FILE_EXIST ){
+	//include client file
+	require_once TIMBER_ROOT . '/timber/client.php';
+}
+
+/**
+ * get default client configurations
+ */
+require_once TIMBER_ROOT . '/timber/client-default.php';
+
+/**
+ * Fire Artisan class
+ */
+\Timber\Libraries\Artisan::instance()->setArgs($argv)->exec();

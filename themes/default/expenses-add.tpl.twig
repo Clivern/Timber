@@ -1,0 +1,155 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'expenses-add', 'model' : 'expenses-add'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'expenses-add', 'model' : 'expenses-add'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'expenses-add', 'model' : 'expenses-add'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-cart-plus"></i> {{ __("Expenses") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <br/>
+        <form action="{{ add_expense_action|e }}" method="post">
+
+            <div class="ui stackable grid">
+                {{ nonce_form() }}
+
+                <div class="eleven wide column">
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Add Expense") }}</div>
+                        <div class="metabox-body ui form">
+
+                            <div class="field required">
+                              	<label>{{ __("Title")|e }}</label>
+                              	<input name="exp_terms[title]" type="text" required>
+                            </div>
+
+                            <div class="field">
+                              	<label>{{ __("Description")|e }}</label>
+                              	<textarea name="exp_terms[description]"></textarea>
+                            </div>
+
+
+                            <div class="field required">
+                                <label>{{ __("Issue Date")|e }}</label>
+                                <input class="datepicker" name="exp_issue_date" type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>{{ __("Status") }}</label>
+                                <select name="exp_status" class="ui dropdown">
+                                    <option value="1">{{ __("Payment") }}</option>
+                                    <option value="2">{{ __("Refund") }}</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>{{ __("Project") }}</label>
+                                <select name="exp_rec_id" class="ui search dropdown">
+                                    <option value="">{{ __("Select Project") }}</option>
+                                    {% for project in projects_list %}
+                                        <option value="{{ project.pr_id|e('html_attr') }}">{{ project.title|e }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="field required">
+                                <label>{{ __("Sub Total")|e }}</label>
+                                <input name="exp_terms[sub_total]" type="text" value="0">
+                            </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Discount Type")|e }}</label>
+	                            <select name="exp_terms[discount_type]" class="ui dropdown">
+	                                <option value="off" selected>{{ __("Off") }}</option>
+	                                <option value="percent">{{ __("% Discount") }}</option>
+	                                <option value="flat">{{ __("Flat Discount") }}</option>
+	                            </select>
+	                        </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Discount")|e }}</label>
+	                            <input name="exp_terms[discount_value]" type="text" value="0">
+	                        </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Tax Type")|e }}</label>
+	                            <select name="exp_terms[tax_type]" class="ui dropdown">
+	                                <option value="off" selected>{{ __("Off") }}</option>
+	                                <option value="percent">{{ __("% Tax") }}</option>
+	                                <option value="flat">{{ __("Flat Tax") }}</option>
+	                            </select>
+	                        </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Select Tax")|e }}</label>
+	                            <select name="exp_terms[tax_select]" class="ui dropdown">>
+	                                <option value="">{{ __("Select Tax") }}</option>
+	                                {% for tax in taxes_list %}
+	                                    <option value="{{ tax.value|e('html_attr') }}">{{ tax.name|e }}</option>
+	                                {% endfor %}
+	                            </select>
+	                        </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Tax")|e }}</label>
+	                            <input name="exp_terms[tax_value]" type="text" value="0">
+	                        </div>
+
+                            <div class="field required">
+                                <label>{{ __("Total")|e }}</label>
+                                <input name="exp_terms[total_value]" type="text" value="0" readonly>
+                            </div>
+
+                            <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+	                        <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                        </div>
+                    </div>
+                </div>
+
+               <div class="five wide column">
+
+	                <div class="metabox">
+	                    <div class="metabox-heading">{{ __("Attachments") }}</div>
+	                    <div class="metabox-body center-align">
+	                        <br/>
+	                            <button type="button" id="attachments_select" class="positive tiny ui button page_uploader" data-target="uploadModal" data-text="{{ __("Select Files")|e('html_attr') }}">{{ __("Select Files")|e }}</button>
+	                            <input type="hidden" name="exp_attachments" value="">
+	                        <br/><br/>
+	                    </div>
+	                </div>
+
+                </div>
+
+
+
+                {% include 'uploader.sec.twig' with {'tpl': 'expenses-add', 'model' : 'expenses-add'} %}
+            </div>
+        </form>
+        <br/>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'expenses-add', 'model' : 'expenses-add'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'expenses-add', 'model' : 'expenses-add'} %}

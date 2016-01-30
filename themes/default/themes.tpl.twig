@@ -1,0 +1,86 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'themes', 'model' : 'themes'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'themes', 'model' : 'themes'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'themes', 'model' : 'themes'} %}
+
+	<section class="main-content-wrapper">
+
+		<div class="ui stackable grid">
+			<div class="sixteen wide column">
+				<div class="metabox blue">
+					<div class="metabox-body">
+						<h4 class="font-light m-b-xs"><i class="fa fa-fw fa-leaf"></i> {{ __("Themes") }}</h4>
+					</div>
+				</div>
+			</div>
+
+
+
+				{% for theme_data in themes_data %}
+				<div class="four wide column">
+					<div class="metabox{% if theme_data.enabled == true %} green {% else %} red{% endif %}">
+						<img class="metabox-shot" src="{{ themes_url('/' ~ theme_data.theme_slug ~ '/screenshot.png')|e }}" width="100%">
+						<div class="metabox-body center-align">
+
+								<p>
+									<strong>{{ theme_data.theme_name|e }} - {{ theme_data.theme_description|e }}</strong>
+								</p>
+
+								<div class="ui form theme_settings" style="display:none">
+									<br/>
+									<div class="field">
+										<label>{{ __("Theme Skin")|e }}</label>
+										<select name="theme_skin" class="ui dropdown">
+											{% for slug, title in theme_data.skins %}
+												<option value="{{ slug|e('html_attr') }}" {{ selected(slug, current_site_skin)|e }}>{{ title|e }}</option>
+											{% endfor %}
+										</select>
+									</div>
+									<div class="field">
+										<label>{{ __("Google Font")|e }}</label>
+										<select name="theme_font" class="ui search dropdown">
+											{% for google_font in google_fonts %}
+											<option value="{{ google_font.family|e('html_attr') }}" {{ selected(google_font.family, current_google_font)|e }}>{{ google_font.family|e }}</option>
+											{% endfor %}
+										</select>
+									</div>
+									<br/>
+								</div>
+
+								{% if theme_data.enabled == false %}
+									<button class="mini ui green button activate_theme" data-theme="{{ theme_data.theme_slug|e('html_attr') }}" data-url="{{ activate_form_action|e('html_attr') }}">{{ __("Activate")|e }}</button>
+
+									<button class="mini ui red button delete_theme" data-theme="{{ theme_data.theme_slug|e('html_attr') }}" data-url="{{ delete_form_action|e('html_attr') }}">{{ __("Delete")|e }}</button>
+								{% else %}
+									<button class="mini ui green button save_theme" data-theme="{{ theme_data.theme_slug|e('html_attr') }}" data-url="{{ save_form_action|e('html_attr') }}">{{ __("Save")|e }}</button>
+								{% endif %}
+
+						</div>
+						<div class="metabox-footer contact-footer">
+							<div class="ui two column grid no-margin">
+								<div class="column border-right"><div class="contact-stat"><span>{{ __("Author:")|e }} </span> <strong><a href="{{ theme_data.author_url|e}}" target="_blank" rel="nofollow">{{ theme_data.author|e }}</a></strong></div></div>
+
+								<div class="column"> <div class="contact-stat"><span>{{ __("Version:")|e }} </span> <strong>{{ theme_data.theme_version|e }}</strong></div> </div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				{% endfor %}
+
+
+
+			</div>
+
+	</section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'themes', 'model' : 'themes'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'themes', 'model' : 'themes'} %}

@@ -1,0 +1,169 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'members-add', 'model' : 'members-add'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'members-add', 'model' : 'members-add'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'members-add', 'model' : 'members-add'} %}
+
+
+  <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                    	<h4 class="font-light m-b-xs"><i class="fa fa-fw fa-users"></i> {{ __("Members") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+
+
+			<div class="four wide column">
+				<div class="metabox green">
+					<div class="metabox-body center-align">
+
+						<img id="profile_image" class="ui circular centered image m-b m-t-md" data-default="{{ gravatar('', '', 128)|e }}" src="{{ gravatar('', '', 128)|e }}" style="width:128px">
+						{% if gravatar_platform == 'native' %}
+							<button id="avatar_select" data-target="uploadModal" class="circular ui icon button page_uploader"><i class="fa fa-picture-o"></i></button>
+						{% endif %}
+
+					</div>
+				</div>
+			</div>
+
+			<div class="twelve wide column">
+				<div class="metabox red">
+					<div class="metabox-body">
+
+						<form class="ui form" method="post" action="{{ form_action|e }}">
+							{{ nonce_form() }}
+							<input name="profile_avatar" value="" type="hidden">
+
+							<div class="field required">
+								<label>{{ __("Name")|e }}</label>
+								<div class="two fields">
+									<div class="field">
+										<input name="first_name" type="text" placeholder="{{ __("First Name")|e('html_attr') }}" maxlength="60" required>
+									</div>
+									<div class="field">
+										<input name="last_name" type="text" placeholder="{{ __("Last Name")|e('html_attr') }}" maxlength="60" required>
+									</div>
+								</div>
+							</div>
+							<div class="field required">
+								<label>{{ __("Username")|e }}</label>
+								<input name="user_name" type="text" maxlength="20" required>
+							</div>
+							<div class="field">
+								<label>{{ __("Job Title")|e }}</label>
+								<input name="job" type="text" maxlength="250">
+							</div>
+							<div class="field">
+								<label>{{ __("Company")|e }}</label>
+								<input name="company" type="text" maxlength="60">
+							</div>
+							<div class="field required">
+								<label>{{ __("Email")|e }}</label>
+								<input name="email" type="email" maxlength="100" required>
+							</div>
+							<div class="field">
+								<label>{{ __("Website")|e }}</label>
+								<input name="website" type="text" maxlength="150">
+							</div>
+							<div class="field">
+								<label>{{ __("Language")|e }}</label>
+								<select class="ui search dropdown" name="language">
+									{% for key in languages_list %}
+										<option value="{{ key|e('html_attr') }}">{{ key|e }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="field">
+								<label>{{ __("Phone Number")|e }}</label>
+								<input name="phone_num" type="text" maxlength="60">
+							</div>
+							<div class="field">
+								<label>{{ __("Country")|e }}</label>
+									<select class="ui search dropdown" name="country">
+										{% for key, value in countries_list %}
+											<option value="{{ key|e('html_attr') }}">{{ value|e }}</option>
+										{% endfor %}
+									</select>
+							</div>
+							<div class="field">
+								<label>{{ __("State / Province / Region")|e }}</label>
+								<input name="city" type="text" maxlength="60">
+							</div>
+							<div class="field">
+								<label>{{ __("Address Line 1")|e }}</label>
+								<input name="address1" type="text" maxlength="100">
+							</div>
+							<div class="field">
+								<label>{{ __("Address Line 2")|e }}</label>
+								<input name="address2" type="text" maxlength="100">
+							</div>
+							<div class="field">
+								<label>{{ __("ZIP Code / Postal Code")|e }}</label>
+								<input name="zip_code" type="text" maxlength="60">
+							</div>
+							<div class="field">
+								<label>{{ __("VAT Number")|e }}</label>
+								<input name="vat_nubmer" type="text" maxlength="60">
+							</div>
+
+							<div class="field">
+								<label>{{ __("Password")|e }}</label>
+								<input name="user_pwd" type="password" maxlength="20">
+							</div>
+
+							<div class="field required">
+								<label>{{ __("Member Rule")|e }}</label>
+								<select class="ui dropdown" name="access_rule">
+									{% if current_user_access_rule == '1' %}
+										<option value="1">{{ __("Administrator") }}</option>
+										<option value="2">{{ __("Staff") }}</option>
+										<option value="3">{{ __("Client") }}</option>
+									{% endif %}
+									{% if current_user_access_rule == '2' %}
+										<option value="3" selected>{{ __("Client") }}</option>
+									{% endif %}
+								</select>
+							</div>
+
+							<div class="field required">
+								<label>{{ __("Process Type")|e }}</label>
+								<select class="ui dropdown" name="process_type">
+									<option value="1">{{ __("Invite to Register") }}</option>
+									<option value="2">{{ __("Create a New Profile without Alert") }}</option>
+									<option value="3">{{ __("Create a New Profile with Alert") }}</option>
+								</select>
+							</div>
+
+							<button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+							<button class="ui button" type="reset">{{ __("Cancel") }}</button>
+						</form>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+				{% if gravatar_platform == 'native' %}
+				  {% include 'uploader.sec.twig' with {'tpl': 'members-add', 'model' : 'members-add'} %}
+				{% endif %}
+
+
+
+  </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'members-add', 'model' : 'members-add'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'members-add', 'model' : 'members-add'} %}

@@ -1,0 +1,63 @@
+<div class="ui stackable grid">
+    <div class="sixteen wide column">
+
+        <div class="metabox blue">
+            <div class="metabox-body">
+
+                <h5>
+                    <span><i class="folder icon"></i> {{ __("Files") }}</span>
+                </h5>
+
+                <a href="#" class="tiny ui circular icon button add_hrecord page_uploader" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Upload File")|e('html_attr') }}" id="attachments_select" data-target="uploadModal" data-text="{{ __("Select Files")|e('html_attr') }}">
+                    <i class="cloud upload icon"></i>
+                </a>
+
+                <a href="#" class="tiny ui circular icon button add_nrecord store_files" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Store Files")|e('html_attr') }}" style="display:none">
+                    <i class="checkmark icon"></i>
+                </a>
+
+                <div class="hr-line-dashed"></div>
+
+                <form id="files_form" action="{{ sync_files_action|e }}" method="post">
+                    {{ nonce_form() }}
+                    <input name="pro_id" type="hidden" value="{{ project_pr_id|e('html_attr') }}">
+                    <input name="pro_old_attachments" type="hidden" value="{{ project_attachments_ids|e('html_attr') }}">
+                    <input name="pro_attachments" type="hidden" value="">
+                </form>
+
+                <div class="message-attachment">
+                    <div class="attachment">
+                        {% for attachment in project_attachments %}
+                            <div class="file-box">
+                                <div class="file">
+                                    <a href="{{ download_link(attachment.fi_id, attachment.hash)|e }}" target="__blank">
+                                        <span class="corner"></span>
+                                        <div class="icon">
+                                            <i class="fa fa-file"></i>
+                                        </div>
+                                        <div class="file-name">
+                                            {{ attachment.title|e }}
+                                            <br>
+                                            <small>{{ __("By:") }} {{ attachment.owner_full_name|e }}</small><br/>
+                                            <small>{{ __("Added:") }} {{ date_to_diff(attachment.uploaded_at)|e }}</small><br/>
+                                            {% if current_user_access_rule == '1' %}
+                                                <small><a href="#" class="dump_file" data-id="{{ attachment.fi_id|e }}">{{ __("Remove")|e }}</a></small>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        {% endfor %}
+                        <div class="clearfix"></div>
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="metabox-footer contact-footer right-align">
+                {{ __("Total Files: ") }} {{ project_attachments_count|e }}
+            </div>
+        </div>
+
+    </div>
+</div>

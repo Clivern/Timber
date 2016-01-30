@@ -1,0 +1,300 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'estimates-add', 'model' : 'estimates-add'} %}
+
+{# incluKBde top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'estimates-add', 'model' : 'estimates-add'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'estimates-add', 'model' : 'estimates-add'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-calculator"></i> {{ __("Estimates") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <br/>
+        <form action="{{ add_estimate_action|e }}" method="post">
+
+            <div class="ui stackable grid">
+                {{ nonce_form() }}
+
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("General") }}</div>
+                        <div class="metabox-body ui form">
+
+                            <div class="field required">
+                                <label>{{ __("Issue Date")|e }}</label>
+                                <input class="datepicker" name="est_issue_date" type="text">
+                            </div>
+
+                            <div class="field required">
+                                <label>{{ __("Due Date")|e }}</label>
+                                <input class="datepicker" name="est_due_date" type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>{{ __("Status") }}</label>
+                                <select name="est_status" class="ui dropdown">
+                                    <option value="1">{{ __("Open") }}</option>
+                                    <option value="2">{{ __("Send") }}</option>
+                                    <option value="3">{{ __("Accepted") }}</option>
+                                    <option value="4">{{ __("Rejected") }}</option>
+                                    <option value="5">{{ __("Invoiced") }}</option>
+                                    <option value="6">{{ __("Closed") }}</option>
+                                </select>
+                            </div>
+
+                            <div class="field">
+                                <label>{{ __("Project") }}</label>
+                                <select name="invoice_project" class="ui search dropdown">
+                                    <option value="">{{ __("Select Project") }}</option>
+                                    {% for project in projects_list %}
+                                        <option value="{{ project.pr_id|e('html_attr') }}">{{ project.title|e }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Estimate To") }}</div>
+                        <div class="metabox-body ui form">
+
+                            <div class="field">
+                                <label>{{ __("Client") }}</label>
+                                <div class="ui fluid selection search dropdown">
+                                    <input type="hidden" name="est_client_id">
+                                    <i class="dropdown icon"></i>
+                                    <div class="default text">{{ __("Select Client") }}</div>
+                                        <div class="menu">
+                                            {% for member in members_list %}
+                                                <div class="item" data-value="{{ member.us_id|e('html_attr') }}">
+                                                    <img class="ui mini avatar image" src="{{ gravatar(member.email, member.grav_id, 128)|e }}">
+                                                    {{ member.full_name|e('html_attr') }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="sixteen wide column">
+                    <div class="metabox ui form">
+                        <div class="metabox-heading">{{ __("Estimate Terms and Notes") }}</div>
+                        <div class="metabox-body invoice-terms-box">
+                            <textarea name="est_terms[notes]" class="rich-editor"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sixteen wide column">
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Estimate Items") }}</div>
+                        <div class="metabox-body ui form">
+
+                                <div class="inline fields items_proto" style="display:none">
+
+                                    <div class="three wide field">
+                                        <select name="est_terms[items][item_select][]" class="ui search dropdown">
+                                            <option value="">{{ __("Select Item") }}</option>
+                                            {% for item in items_list %}
+                                                <option value="{{ item.it_id|e('html_attr') }} -- {{ item.title|e('html_attr') }} -- {{ item.description|e('html_attr') }} -- {{ item.cost|e('html_attr') }}">{{ item.title|e }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="three wide field">
+                                        <input name="est_terms[items][item_title][]" type="text" placeholder="Title">
+                                    </div>
+
+                                    <div class="three wide field">
+                                        <input name="est_terms[items][item_description][]" type="text" placeholder="Description">
+                                    </div>
+
+                                    <div class="two wide field">
+                                        <input name="est_terms[items][item_quantity][]" type="text" placeholder="Quantity">
+                                    </div>
+
+                                    <div class="two wide field">
+                                        <input name="est_terms[items][item_unit_price][]" type="text" placeholder="Unit Price">
+                                    </div>
+
+                                    <div class="two wide field">
+                                        <input name="est_terms[items][item_sub_total][]" type="text" placeholder="Sub Total" readonly>
+                                    </div>
+
+                                    <div class="one wide field">
+                                        <a href="#" class="ui circular icon button delete_item" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Item")|e('html_attr') }}">
+                                            <i class="remove icon"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <div class="inline fields">
+
+                                    <div class="three wide field">
+                                        <select name="est_terms[items][item_select][]" class="ui search dropdown">
+                                            <option value="">{{ __("Select Item") }}</option>
+                                            {% for item in items_list %}
+                                                <option value="{{ item.it_id|e('html_attr') }} -- {{ item.title|e('html_attr') }} -- {{ item.description|e('html_attr') }} -- {{ item.cost|e('html_attr') }}">{{ item.title|e }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+
+                                    <div class="three wide field">
+                                        <input name="est_terms[items][item_title][]" type="text" placeholder="Title">
+                                    </div>
+
+                                    <div class="three wide field">
+                                        <input name="est_terms[items][item_description][]" type="text" placeholder="Description">
+                                    </div>
+
+                                    <div class="two wide field">
+                                        <input name="est_terms[items][item_quantity][]" type="text" placeholder="Quantity">
+                                    </div>
+
+                                    <div class="two wide field">
+                                        <input name="est_terms[items][item_unit_price][]" type="text" placeholder="Unit Price">
+                                    </div>
+
+                                    <div class="two wide field">
+                                        <input name="est_terms[items][item_sub_total][]" type="text" placeholder="Sub Total" readonly>
+                                    </div>
+
+                                    <div class="one wide field">
+                                        <a href="#" class="ui circular icon button delete_item" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Item")|e('html_attr') }}">
+                                            <i class="remove icon"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                                <div class="center-align">
+                                    <a href="#" class="ui circular icon button add_item" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Add Item")|e('html_attr') }}">
+                                        <i class="add icon"></i>
+                                    </a>
+                                </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="six wide column">
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Estimate Attachments") }}</div>
+                        <div class="metabox-body center-align">
+                            <br/>
+                                <button type="button" id="attachments_select" class="positive tiny ui button page_uploader" data-target="uploadModal" data-text="{{ __("Select Files")|e('html_attr') }}">{{ __("Select Files")|e }}</button>
+                                <input type="hidden" name="est_attachments" value="">
+                            <br/><br/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ten wide column">
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Estimate Overall") }}</div>
+                        <div class="metabox-body ui form">
+
+                            <div class="field required">
+                                <label>{{ __("Sub Total")|e }}</label>
+                                <input name="est_terms[overall][sub_total]" type="text" value="0" readonly>
+                            </div>
+
+                            <div class="field">
+                            <div class="two fields">
+                                <div class="field required">
+                                    <label>{{ __("Discount Type")|e }}</label>
+                                    <select name="est_terms[overall][discount_type]" class="ui dropdown">
+                                        <option value="off" selected>{{ __("Off") }}</option>
+                                        <option value="percent">{{ __("% Discount") }}</option>
+                                        <option value="flat">{{ __("Flat Discount") }}</option>
+                                    </select>
+                                </div>
+
+                                <div class="field required">
+                                    <label>{{ __("Discount")|e }}</label>
+                                    <input name="est_terms[overall][discount_value]" type="text" value="0">
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="field">
+                            <div class="three fields">
+                                <div class="field required">
+                                    <label>{{ __("Tax Type")|e }}</label>
+                                    <select name="est_terms[overall][tax_type]" class="ui dropdown">
+                                        <option value="off" selected>{{ __("Off") }}</option>
+                                        <option value="percent">{{ __("% Tax") }}</option>
+                                        <option value="flat">{{ __("Flat Tax") }}</option>
+                                    </select>
+                                </div>
+
+                                <div class="field required">
+                                    <label>{{ __("Select Tax")|e }}</label>
+                                    <select name="est_terms[overall][tax_select]" class="ui dropdown">>
+                                        <option value="">{{ __("Select Tax") }}</option>
+                                        {% for tax in taxes_list %}
+                                            <option value="{{ tax.value|e('html_attr') }}">{{ tax.name|e }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="field required">
+                                    <label>{{ __("Tax")|e }}</label>
+                                    <input name="est_terms[overall][tax_value]" type="text" value="0">
+                                </div>
+                            </div>
+                            </div>
+
+                            <div class="field required">
+                                <label>{{ __("Total")|e }}</label>
+                                <input name="est_terms[overall][total_value]" type="text" value="0" readonly>
+                            </div>
+
+                            <div class="field required">
+                                <label>{{ __("Paid")|e }}</label>
+                                <input name="est_terms[overall][paid_value]" type="text" value="0">
+                            </div>
+
+                            <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                            <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                {% include 'uploader.sec.twig' with {'tpl': 'estimates-add', 'model' : 'estimates-add'} %}
+            </div>
+        </form>
+        <br/>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'estimates-add', 'model' : 'estimates-add'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'estimates-add', 'model' : 'estimates-add'} %}

@@ -1,0 +1,138 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'estimates-list', 'model' : 'estimates-list'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'estimates-list', 'model' : 'estimates-list'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'estimates-list', 'model' : 'estimates-list'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-calculator"></i> {{ __("Estimates") }}</h4>
+
+                        {% if check_perm('add.estimates') %}
+                            <a href="{{ route_to_url('/admin/estimates/add')|e }}" class="ui circular icon button add_nrecord" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Add Estimate")|e('html_attr') }}">
+                                <i class="plus icon"></i>
+                            </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        {% if current_user_access_rule == '1' or current_user_access_rule == '2' %}
+                            <table class="ui selectable table stackable data_table">
+                                <thead>
+                                    <tr>
+                                        <th>{{ __("Ref. ID")|e }}</th>
+                                        <th>{{ __("Client")|e }}</th>
+                                        <th>{{ __("Status")|e }}</th>
+                                        <th>{{ __("Total")|e }} ({{ site_currency|e }})</th>
+                                        <th>{{ __("Created at")|e }}</th>
+                                        <th>{{ __("Actions")|e }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for estimate in estimates %}
+                                        <tr>
+                                            <td>{{ estimate.ref_id|e }}</td>
+                                            <td>{{ estimate.client_full_name|e }}</td>
+                                            <td>{{ estimate.nice_status|e }}</td>
+                                            <td>{{ estimate.total|e }}</td>
+                                            <td>{{ date_to_diff(estimate.created_at)|e }}</td>
+                                            <td>
+
+                                                {% if check_perm('view.estimates') %}
+                                                    <a href="{{ estimate.view_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Estimate")|e('html_attr') }}">
+                                                        <i class="linkify icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if check_perm('edit.estimates') %}
+                                                    <a href="{{ estimate.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Estimate")|e('html_attr') }}">
+                                                        <i class="write icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if check_perm('view.estimates') %}
+                                                    <a href="{{ download_bill(estimate.in_id, estimate.reference)|e }}" target="__blank" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Download Estimate")|e('html_attr') }}">
+                                                        <i class="file outline icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if check_perm('delete.estimates') %}
+                                                    <a href="{{ estimate.trash_link|e }}" class="ui circular icon button delete_estimate" data-id="{{ estimate.in_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Estimate")|e('html_attr') }}">
+                                                        <i class="remove icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% endif %}
+
+                        {% if current_user_access_rule == '3' %}
+                            <table class="ui selectable table stackable data_table">
+                                <thead>
+                                    <tr>
+                                        <th>{{ __("Ref. ID")|e }}</th>
+                                        <th>{{ __("Status")|e }}</th>
+                                        <th>{{ __("Total")|e }} ({{ site_currency|e }})</th>
+                                        <th>{{ __("Created at")|e }}</th>
+                                        <th>{{ __("Actions")|e }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for estimate in estimates %}
+                                        <tr>
+                                            <td>{{ estimate.ref_id|e }}</td>
+                                            <td>{{ estimate.nice_status|e }}</td>
+                                            <td>{{ estimate.total|e }}</td>
+                                            <td>{{ date_to_diff(estimate.created_at)|e }}</td>
+                                            <td>
+
+                                                <a href="{{ estimate.view_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Estimate")|e('html_attr') }}">
+                                                    <i class="linkify icon"></i>
+                                                </a>
+
+                                                <a href="{{ download_bill(estimate.in_id, estimate.reference)|e }}" target="__blank" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Download Estimate")|e('html_attr') }}">
+                                                    <i class="file outline icon"></i>
+                                                </a>
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'estimates-list', 'model' : 'estimates-list'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'estimates-list', 'model' : 'estimates-list'} %}

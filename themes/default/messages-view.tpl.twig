@@ -1,0 +1,415 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'messages-view', 'model' : 'messages-view'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'messages-view', 'model' : 'messages-view'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'messages-view', 'model' : 'messages-view'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-fw fa-envelope-o"></i> {{ __("Messages") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="four wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        <ul class="messages-list">
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages/add')|e }}">
+                                    <i class="edit icon"></i> {{ __("Compose") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=index')|e }}">
+                                    {% autoescape false %}
+                                        {{ notify_print('messages_index_notif', '/admin/messages?group=index', '<span class="pull-right label label-info">{$VALUE}</span>') }}
+                                    {% endautoescape %}
+                                    <i class="inbox icon"></i> {{ __("Inbox") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=favorite')|e }}">
+                                    {% autoescape false %}
+                                        {{ notify_print('messages_favorite_notif', '/admin/messages?group=favorite', '<span class="pull-right label label-info">{$VALUE}</span>') }}
+                                    {% endautoescape %}
+                                    <i class="star icon"></i> {{ __("Favorite") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=sent')|e }}">
+                                    {% autoescape false %}
+                                        {{ notify_print('messages_sent_notif', '/admin/messages?group=sent', '<span class="pull-right label label-info">{$VALUE}</span>') }}
+                                    {% endautoescape %}
+                                    <i class="send icon"></i> {{ __("Sent") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=trash')|e }}">
+                                    <i class="trash icon"></i> {{ __("Trash") }}
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+                <div class="twelve wide column">
+
+                    <div class="metabox">
+                        <div class="metabox-heading">
+                            {{ __("Subject:") }} {{ subject|e }}
+                        </div>
+
+
+                        <div class="metabox-body">
+                            <div class="ui horizontal list">
+                                <div class="item">
+                                    <img class="ui avatar image" src="{{ gravatar(sender_email, sender_grav_id, 128)|e }}">
+                                    <div class="content">
+                                        <div class="header">{{ __("From:") }}</div>
+                                        {{ sender_name|e }}
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img class="ui avatar image" src="{{ gravatar(receiver_email, receiver_grav_id, 128)|e }}">
+                                    <div class="content">
+                                        <div class="header">{{ __("To:") }}</div>
+                                        {{ receiver_name|e }}
+                                    </div>
+                                </div>
+                            </div>
+                            <br/>
+                            <p>{{ __("Sent:") }} {{ date_to_diff(sent_at)|e }}</p>
+                            <div class="hr-line-dashed"></div>
+                            {% autoescape false %}
+                                {{ content }}
+                            {% endautoescape %}
+
+                            {% if attach == 'on' %}
+                            <div class="hr-line-dashed"></div>
+                            <div class="message-attachment">
+                                <p>
+                                    <span><i class="attach icon"></i> {{ attachments_count|e }} {{ __("Attachments") }}</span>
+                                </p>
+
+                                <div class="attachment">
+                                    {% for attachment in attachments %}
+                                        <div class="file-box">
+                                            <div class="file">
+                                                <a href="{{ download_link(attachment.fi_id, attachment.hash)|e }}" target="__blank">
+                                                    <span class="corner"></span>
+                                                    <div class="icon">
+                                                        <i class="fa fa-file"></i>
+                                                    </div>
+                                                    <div class="file-name">
+                                                        {{ attachment.title|e }}
+                                                        <br>
+                                                        <small>{{ __("Added:") }} {{ date_to_diff(attachment.uploaded_at)|e }}</small>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                        </div>
+                        {########################################}
+                        {% for reply in replies %}
+
+                            <div class="metabox-body">
+                                <div class="ui horizontal list">
+                                    <div class="item">
+                                        <img class="ui avatar image" src="{{ gravatar(reply.sender_email, reply.sender_grav_id, 128)|e }}">
+                                        <div class="content">
+                                            <div class="header">{{ __("Reply From:") }}</div>
+                                            {{ reply.sender_name|e }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <p>{{ __("Sent:") }} {{ date_to_diff(reply.sent_at)|e }}</p>
+                                <div class="hr-line-dashed"></div>
+                                {% autoescape false %}
+                                    {{ reply.content }}
+                                {% endautoescape %}
+
+                                {% if attach == 'on' %}
+                                <div class="hr-line-dashed"></div>
+                                <div class="message-attachment">
+                                    <p>
+                                        <span><i class="attach icon"></i> {{ reply.attachments_count|e }} {{ __("Attachments") }}</span>
+                                    </p>
+
+                                    <div class="attachment">
+                                        {% for reply_attachment in reply.attachments %}
+                                            <div class="file-box">
+                                                <div class="file">
+                                                    <a href="{{ download_link(reply_attachment.fi_id, reply_attachment.hash)|e }}" target="__blank">
+                                                        <span class="corner"></span>
+                                                        <div class="icon">
+                                                            <i class="fa fa-file"></i>
+                                                        </div>
+                                                        <div class="file-name">
+                                                            {{ reply_attachment.title|e }}
+                                                            <br>
+                                                            <small>{{ __("Added:") }} {{ date_to_diff(reply_attachment.uploaded_at)|e }}</small>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                                {% endif %}
+
+                            </div>
+
+                        {% endfor %}
+                        {########################################}
+                    </div>
+
+                    <br/>
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Reply To Message") }}</div>
+                        <div class="metabox-body">
+
+                            <form class="ui form" action="{{ reply_msg_action|e }}" method="post">
+                                {{ nonce_form() }}
+                                <input name="msg_receiver_id" value="{{ sender_receiver_id|e }}" type="hidden">
+                                <input name="msg_parent_id" value="{{ ms_id|e }}" type="hidden">
+                                    <div class="field">
+                                        <label>{{ __("Attachments:") }}</label>
+                                        <button type="button" id="attachments_select" class="positive tiny ui button page_uploader" data-target="uploadModal" data-text="{{ __("Select Files")|e('html_attr') }}">{{ __("Select Files")|e }}</button>
+                                        <input type="hidden" name="msg_attachments" value="">
+                                    </div>
+                                    <div class="field">
+                                        <label>{{ __("Message") }}</label>
+                                        <textarea name="msg_content" class="rich-editor" rows="3"></textarea>
+                                    </div>
+
+                                <button class="ui primary button" type="submit">{{ __("Send") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+                    <br/><br/>
+
+                </div>
+
+                {% include 'uploader.sec.twig' with {'tpl': 'messages-view', 'model' : 'messages-view'} %}
+
+            </div>
+        </section>
+
+
+
+
+
+
+                        {#
+                        <div class="metabox-heading texthead">
+                            <div class="row p-xs">
+                                <div class="col-md-6">
+                                    <h4 class="font-strong m-b-sm">{{ __("Subject:") }} {{ subject|e }}</h4>
+                                    <small>{{ __("From:") }} {{ sender_name|e }}.</small><br/>
+                                    <small>{{ __("To:") }} {{ receiver_name|e }}.</small><br/>
+                                    <small>{{ __("Sent:") }} {{ stamp_to_diff(sent_at)|e }}.</small>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <div class="btn-group" data-action="{{ mark_msg_action|e('html_attr') }}">
+                                        {% if check_button == 'on' %}
+                                            <button class="btn btn-default btn-sm msgs_check"><i class="fa fa-check msgs_check"></i></button>
+                                        {% endif %}
+
+                                        {% if star_button == 'on' %}
+                                            <button class="btn btn-default btn-sm msgs_star"><i class="fa fa-star msgs_star"></i></button>
+                                        {% endif %}
+
+                                        {% if un_star_button == 'on' %}
+                                            <button class="btn btn-default btn-sm msgs_un_star"><i class="fa fa-star msgs_un_star"></i></button>
+                                        {% endif %}
+
+                                        {% if trash_button == 'on' %}
+                                            <button class="btn btn-default btn-sm msgs_trash"><i class="fa fa-trash-o msgs_trash"></i></button>
+                                        {% endif %}
+
+                                        {% if un_trash_button == 'on' %}
+                                            <button class="btn btn-default btn-sm msgs_un_trash"><i class="fa fa-trash-o msgs_un_trash"></i></button>
+                                        {% endif %}
+
+                                        {% if delete_button == 'on' %}
+                                            <button class="btn btn-default btn-sm msgs_delete"><i class="fa fa-times msgs_delete"></i></button>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metabox-body">
+
+                            <div class="message-body">
+                                {% autoescape false %}
+                                    {{ content }}
+                                {% endautoescape %}
+                            </div>
+                            {% if attach == 'on' %}
+                            <div class="message-attachment">
+                                <p>
+                                    <span><i class="fa fa-paperclip"></i>{{ attachments_count|e }} {{ __("Attachments") }}</span>
+                                </p>
+
+                                <div class="attachment">
+                                    {% for attachment in attachments %}
+                                        <div class="file-box">
+                                            <div class="file">
+                                                <a href="{{ download_link(attachment.fi_id, attachment.hash)|e }}" target="__blank">
+                                                    <span class="corner"></span>
+                                                    <div class="icon">
+                                                        <i class="fa fa-file"></i>
+                                                    </div>
+                                                    <div class="file-name">
+                                                        {{ attachment.title|e }}
+                                                        <br>
+                                                        <small>{{ __("Added:") }} {{ stamp_to_diff(attachment.uploaded_at)|e }}</small>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                    {% for reply in replies %}
+                    <div class="metabox">
+
+                        <div class="metabox-heading texthead">
+                            <div class="row p-xs">
+                                <div class="col-md-12">
+                                    <h4 class="font-strong m-b-sm">{{ __("Reply To:") }} {{ subject|e }}</h4>
+                                    <small>{{ __("From:") }} {{ reply.sender_name|e }}.</small><br/>
+                                    <small>{{ __("To:") }} {{ reply.receiver_name|e }}.</small><br/>
+                                    <small>{{ __("Sent:") }} {{ stamp_to_diff(reply.sent_at)|e }}.</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="metabox-body">
+                            <div class="message-body">
+                                {% autoescape false %}
+                                    {{ reply.content }}
+                                {% endautoescape %}
+                            </div>
+                            <div class="message-attachment">
+                                <p>
+                                    <span><i class="fa fa-paperclip"></i>{{ reply.attachments_count|e }} {{ __("Attachments") }}</span>
+                                </p>
+
+                                <div class="attachment">
+                                    {% for reply_attachment in reply.attachments %}
+                                        <div class="file-box">
+                                            <div class="file">
+                                                <a href="{{ download_link(reply_attachment.fi_id, reply_attachment.hash)|e }}" target="__blank">
+                                                    <span class="corner"></span>
+                                                    <div class="icon">
+                                                        <i class="fa fa-file"></i>
+                                                    </div>
+                                                    <div class="file-name">
+                                                        {{ reply_attachment.title|e }}
+                                                        <br>
+                                                        <small>{{ __("Added:") }} {{ stamp_to_diff(reply_attachment.uploaded_at)|e }}</small>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <div class="metabox">
+
+                        <div class="metabox-heading">{{ __("Reply To Message") }}</div>
+
+                        <div class="metabox-body">
+                            <form class="form-horizontal" action="{{ reply_msg_action|e }}" method="post">
+                                {{ nonce_form() }}
+
+                                 <div class="message-body">
+
+                                    <div class="form-group"><label class="col-sm-2 control-label">{{ __("To:") }}</label>
+                                        <div class="col-sm-10">
+                                            <select name="msg_receiver_id" disabled>
+                                                <option value="{{ sender_receiver_id|e('html_attr') }}" selected>{{ sender_receiver_name|e }}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">{{ __("Subject:") }}</label>
+                                         <div class="col-sm-10">
+                                            <input type="text" name="msg_subject" class="form-control" value="{{ __("Reply To") }} {{ subject|e('html_attr') }}" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"><label class="col-sm-2 control-label">{{ __("Attachments:") }}</label>
+                                        <div class="col-sm-10">
+                                            <button type="button" id="attachments_select" class="btn btn-success btn-sm" data-toggle="modal" data-target="#uploadModal" data-text="{{ __("Select Files")|e('html_attr') }}">{{ __("Select Files")|e }}</button>
+                                            <input type="hidden" name="msg_attachments" value="">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                            <div class="message-body message-editor">
+                                <textarea name="msg_content" class="form-control summernote"></textarea>
+                            </div>
+
+                            <div class="message-body text-right">
+                                <div class="form-group">
+                                    <button class="btn btn-primary" id="submit" type="submit"><span id="spinner" class="glyphicon glyphicon-refresh glyphicon-refresh-animate" style="display:none"></span> <i class="fa fa-reply"></i> {{ __("Send")|e }}</button>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                </div>
+
+        </div>
+
+    </section>#}
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'messages-view', 'model' : 'messages-view'} %}
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'messages-view', 'model' : 'messages-view'} %}

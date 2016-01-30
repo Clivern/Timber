@@ -1,0 +1,88 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'fpwd', 'model' : 'fpwd'} %}
+
+
+<div class="login-page-container">
+    <div class="ui grid">
+
+        <div class="sixteen wide column center aligned">
+            <a href="{{ route_to_url('/')|e }}"><img src="{{ file_url(site_logo, default_theme_assets_url('/img/logo.png'))|e }}" width="110" style="opacity:0.7;" /></a>
+        </div>
+
+        <div class="sixteen wide column">
+            <div class="metabox">
+                <div class="metabox-body">
+                    {% if social_login == 'on' %}
+                        <div class="ui grid">
+                            <div class="sixteen wide column center aligned">
+                                {% if facebook_login == 'on' %}
+                                    <a href="{{ route_to_url('/request/frontend/direct/auth/facebook')|e }}" class="ui circular facebook icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Login with Facebook")|e('html_attr') }}">
+                                    <i class="facebook icon"></i>
+                                    </a>
+                                {% endif %}
+
+                                {% if twitter_login == 'on' %}
+                                    <a href="{{ route_to_url('/request/frontend/direct/auth/twitter')|e }}" class="ui circular twitter icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Login with Twitter")|e('html_attr') }}">
+                                    <i class="twitter icon"></i>
+                                    </a>
+                                {% endif %}
+
+                                {% if google_login == 'on' %}
+                                    <a href="{{ route_to_url('/request/frontend/direct/auth/google')|e }}" class="ui circular google plus icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Login with Google")|e('html_attr') }}">
+                                    <i class="google plus icon"></i>
+                                    </a>
+                                {% endif %}
+
+
+                            </div>
+                        </div>
+
+                        <div class="ui horizontal divider">
+                          {{ __("OR") }}
+                        </div>
+                    {% endif %}
+
+                    <span id="realtime_alerts"></span>
+                    <form class="ui form" action="{{ route_to_url('/request/frontend/ajax/fpwd')|e }}" method="post">
+
+                        {% if step == '1' %}
+                            <div class="required field">
+                                <label>{{ __("Email") }}</label>
+                                <input type="email" name="fpwd_email" required>
+                            </div>
+
+                            <button class="tiny ui primary button" type="submit">{{ __("Remember") }}</button>
+                            <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+                        {% endif %}
+
+                        {% if step == '2' %}
+                            <input type="hidden" name="fpwd_hash" value="{{ hash|e('html_attr') }}">
+                            <div class="required field">
+                                <label>{{ __("New Password") }}</label>
+                                <input type="password" name="fpwd_new_password" required>
+                            </div>
+
+                            <button class="tiny ui primary button" type="submit">{{ __("Reset") }}</button>
+                            <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+                        {% endif %}
+
+                    </form>
+                    {{ demo_data() }}
+                    <div class="ui horizontal divider">
+                      {{ __("OR") }}
+                    </div>
+                    <div class="ui grid">
+                        <div class="sixteen wide column center aligned">
+                            <a href="{{ route_to_url('/login')|e }}" class="tiny ui button">{{ __("Login To Account") }}</a>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'fpwd', 'model' : 'fpwd'} %}

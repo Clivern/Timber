@@ -1,0 +1,123 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'expenses-view', 'model' : 'expenses-view'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'expenses-view', 'model' : 'expenses-view'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'expenses-view', 'model' : 'expenses-view'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-cart-plus"></i> {{ __("Expenses") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="ui stackable grid">
+
+            <div class="five wide column">
+                <div class="metabox">
+                    <div class="metabox-heading">{{ __("Expense Details") }}</div>
+                    <div class="metabox-body">
+
+                        <table class="ui very basic celled table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>{{ __("Title") }}:</strong></td>
+                                    <td class="right aligned">{{ expense_terms.title|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Type") }}:</strong></td>
+                                    <td class="right aligned">{{ expense_nice_status|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Sub Total") }} ({{ site_currency|e }}) :</strong></td>
+                                    <td class="right aligned">{{ expense_terms.sub_total|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Discount") }} ({{ expense_discount_currency|e }}) :</strong></td>
+                                    <td class="right aligned">{{ expense_discount|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Tax") }} ({{ expense_tax_currency|e }}) :</strong></td>
+                                    <td class="right aligned">{{ expense_tax|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Total") }} ({{ site_currency|e }}) :</strong></td>
+                                    <td class="right aligned">{{ expense_total|e }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        {% if expense_terms.description != '' %}
+                            <div class="hr-line-dashed"></div>
+                            <strong>{{ __("Description") }}</strong><br/>
+                            {{ expense_terms.description|e }}
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="eleven wide column">
+                {% if expense_attach == 'on' %}
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Attachments") }}</div>
+                        <div class="metabox-body">
+
+                            <div class="message-attachment">
+                                <p>
+                                    <span><i class="attach icon"></i> {{ expense_attachments_count|e }} {{ __("Attachments") }}</span>
+                                </p>
+
+                                <div class="attachment">
+                                    {% for expense_attachment in expense_attachments %}
+                                        <div class="file-box">
+                                            <div class="file">
+                                                <a href="{{ download_link(expense_attachment.fi_id, expense_attachment.hash)|e }}" target="__blank">
+                                                    <span class="corner"></span>
+                                                    <div class="icon">
+                                                        <i class="fa fa-file"></i>
+                                                    </div>
+                                                    <div class="file-name">
+                                                        {{ expense_attachment.title|e }}
+                                                        <br>
+                                                        <small>{{ __("Added:") }} {{ date_to_diff(expense_attachment.uploaded_at)|e }}</small>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+
+        </div>
+
+
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'expenses-view', 'model' : 'expenses-view'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'expenses-view', 'model' : 'expenses-view'} %}

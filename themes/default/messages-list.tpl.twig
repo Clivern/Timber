@@ -1,0 +1,154 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'messages-list', 'model' : 'messages-list'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'messages-list', 'model' : 'messages-list'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'messages-list', 'model' : 'messages-list'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-fw fa-envelope-o"></i> {{ __("Messages") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        <ul class="messages-list">
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages/add')|e }}">
+                                    <i class="edit icon"></i> {{ __("Compose") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=index')|e }}">
+                                    {% autoescape false %}
+                                        {{ notify_print('messages_index_notif', '/admin/messages?group=index', '<span class="pull-right label label-info">{$VALUE}</span>') }}
+                                    {% endautoescape %}
+                                    <i class="inbox icon"></i> {{ __("Inbox") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=favorite')|e }}">
+                                    {% autoescape false %}
+                                        {{ notify_print('messages_favorite_notif', '/admin/messages?group=favorite', '<span class="pull-right label label-info">{$VALUE}</span>') }}
+                                    {% endautoescape %}
+                                    <i class="star icon"></i> {{ __("Favorite") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=sent')|e }}">
+                                    {% autoescape false %}
+                                        {{ notify_print('messages_sent_notif', '/admin/messages?group=sent', '<span class="pull-right label label-info">{$VALUE}</span>') }}
+                                    {% endautoescape %}
+                                    <i class="send icon"></i> {{ __("Sent") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=trash')|e }}">
+                                    <i class="trash icon"></i> {{ __("Trash") }}
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="twelve wide column">
+                    <div class="metabox">
+
+                        <div class="metabox-heading">{{ group_name|e }} ({{ group_count|e }})</div>
+
+                        <div class="metabox-body">
+                            {% if group_count == 0 %}
+                                <p class="center-align">{{ __("No Messages Found.") }}</p>
+                            {% endif %}
+
+                            <table class="ui very basic table">
+                                <tbody>
+                                    {% for message in messages %}
+                                        <tr>
+                                            <td>
+                                                <h5 class="ui image header">
+                                                    <img src="{{ gravatar(message.sender_receiver_email, message.sender_receiver_grav_id, 128)|e }}" class="ui mini rounded image">
+                                                    <div class="content">
+                                                        {{ message.sender_receiver_name|e }}
+                                                        <div class="sub header">{{ message.sender_receiver_job|e }}</div>
+                                                    </div>
+                                                </h5>
+                                            </td>
+                                            <td>
+                                                <a href="{{ route_to_url('/admin/messages/view/' ~ message.ms_id)|e }}">{{ message.subject|e }}</a>
+                                            </td>
+                                            <td>
+                                                {% if message.attach == 'on' %} <i class="fa fa-paperclip"></i> {% endif %}
+                                            </td>
+                                            <td>
+                                                {{ date_to_diff(message.sent_at)|e }}
+                                            </td>
+                                            <td>
+
+                                                <a href="{{ route_to_url('/admin/messages/view/' ~ message.ms_id)|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Message")|e('html_attr') }}">
+                                                    <i class="linkify icon"></i>
+                                                </a>
+
+                                                {% if group != 'favorite' and group != 'trash' and message.favorite == 'off' %}
+                                                    <a href="{{ mark_msg_action|e }}" class="ui circular icon button favorite_message" data-id="{{ message.ms_id|e }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Favorite Message")|e('html_attr') }}">
+                                                        <i class="empty star icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if group == 'favorite' or message.favorite == 'on' %}
+                                                    <a href="{{ mark_msg_action|e }}" class="ui circular icon button unfavorite_message" data-id="{{ message.ms_id|e }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Unfavorite Message")|e('html_attr') }}">
+                                                        <i class="star icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if group != 'trash' %}
+                                                    <a href="{{ mark_msg_action|e }}" class="ui circular icon button trash_message" data-id="{{ message.ms_id|e }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Trash Message")|e('html_attr') }}">
+                                                        <i class="trash icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if group == 'trash' %}
+                                                    <a href="{{ mark_msg_action|e }}" class="ui circular icon button untrash_message" data-id="{{ message.ms_id|e }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Untrash Message")|e('html_attr') }}">
+                                                        <i class="trash outline icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if group == 'trash' %}
+                                                    <a href="{{ mark_msg_action|e }}" class="ui circular icon button delete_message" data-id="{{ message.ms_id|e }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Message")|e('html_attr') }}">
+                                                        <i class="remove icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                              </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+            </div>
+
+        </div>
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'messages-list', 'model' : 'messages-list'} %}
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'messages-list', 'model' : 'messages-list'} %}

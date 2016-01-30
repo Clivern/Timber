@@ -1,0 +1,158 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'quotations-view', 'model' : 'quotations-view'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'quotations-view', 'model' : 'quotations-view'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'quotations-view', 'model' : 'quotations-view'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-comments"></i> {{ __("Quotations") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ui stackable grid">
+
+            <div class="five wide column">
+                <div class="metabox">
+                    <div class="metabox-heading">{{ __("Quotation Details") }}</div>
+                    <div class="metabox-body">
+
+                        <table class="ui very basic celled table">
+                            <tbody>
+                                <tr>
+                                    <td><strong>{{ __("Reference ID") }}:</strong></td>
+                                    <td class="right aligned">{{ quotation_ref_id|e }}</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>{{ __("Title") }}:</strong></td>
+                                    <td class="right aligned">{{ quotation_title|e }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div class="hr-line-dashed"></div>
+                        <form class="ui form" method="post" action="{{ mark_quotation_action|e }}">
+                            {{ nonce_form() }}
+                            <input type="hidden" name="quotation_id" value="{{ quotation_qu_id|e('html_attr') }}">
+                            <input type="hidden" name="action" value="add_submitter">
+                            <div class="field required">
+                                <label>{{ __("Send To")|e }}</label>
+                                <select class="ui dropdown" name="send_to">
+                                    <option value="email_field">{{ __("Email") }}</option>
+                                    <option value="client_field">{{ __("Client") }}</option>
+                                </select>
+                            </div>
+                            <div class="field required" id="email_field">
+                                <label>{{ __("Email")|e }}</label>
+                                <input name="email" type="email" maxlength="100">
+                            </div>
+                            <div class="field required" id="client_field" style="display:none">
+                                <label>{{ __("Client") }}</label>
+                                <div class="ui fluid selection search dropdown">
+                                    <input type="hidden" name="client_id">
+                                    <i class="dropdown icon"></i>
+                                    <div class="default text">{{ __("Select Client") }}</div>
+                                        <div class="menu">
+                                            {% for member in members_list %}
+                                                <div class="item" data-value="{{ member.us_id|e('html_attr') }}">
+                                                    <img class="ui mini avatar image" src="{{ gravatar(member.email, member.grav_id, 128)|e }}">
+                                                    {{ member.full_name|e('html_attr') }}
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+                                </div>
+                            </div>
+                            <button class="tiny ui primary button" type="submit">{{ __("Submit") }}</button>
+                            <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="eleven wide column">
+
+                <div class="sixteen wide column">
+
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Submissions") }}</div>
+                        <div class="metabox-body">
+
+                                <table class="ui selectable table stackable data_table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Client / Email")|e }}</th>
+                                            <th>{{ __("Submitted at")|e }}</th>
+                                            <th>{{ __("Actions")|e }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for submission in quotation_submissions %}
+                                            <tr>
+                                                <td>{{ submission.submitter|e }}</td>
+                                                <td>{{ date_to_diff(submission.created_at)|e }}</td>
+                                                <td>
+
+                                                    <a href="#" class="ui circular icon button view_submission" data-id="{{ submission.id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Submission")|e('html_attr') }}">
+                                                        <i class="linkify icon"></i>
+                                                    </a>
+
+                                                    <a href="{{ mark_quotation_action|e }}" class="ui circular icon button delete_submission" data-qu="{{ quotation_qu_id|e('html_attr') }}" data-id="{{ submission.id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Submission")|e('html_attr') }}">
+                                                        <i class="remove icon"></i>
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+
+                        </div>
+                    </div>
+
+                </div>
+                <br/>
+                <div id="quotations_submissions" class="sixteen wide column">
+                    {% for submission in quotation_submissions %}
+                        <div class="metabox" style="display:none" data-id="{{ submission.id|e('html_attr') }}">
+                            <div class="metabox-body">
+                                <table class="ui very basic celled table">
+                                    <tbody>
+                                        {% for submission_value in submission.values %}
+                                            <tr>
+                                                <td><strong>{{ submission_value.key|e }}:</strong></td>
+                                                <td class="right aligned">{{ submission_value.value|e }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'quotations-view', 'model' : 'quotations-view'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'quotations-view', 'model' : 'quotations-view'} %}

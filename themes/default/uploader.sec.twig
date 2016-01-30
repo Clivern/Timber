@@ -1,0 +1,18 @@
+{% if page_uploaders is defined %}
+    {% for page_uploader in page_uploaders %}
+        <div id="{{ page_uploader.id|e('html_attr') }}" class="ui small modal">
+            <div class="header">
+                {{ page_uploader.title|e }}
+                <br/>
+                <p style="font-size:11px">{{ page_uploader.description|e }}</p>
+            </div>
+            <div class="content {{ page_uploader.uploader_class|e('html_attr') }}" id="{{ page_uploader.uploader_id|e('html_attr') }}"></div>
+            <input name="{{ page_uploader.field_id|e('html_attr') }}" id="{{ page_uploader.field_name|e('html_attr') }}" value="" type="hidden">
+
+            <div class="actions">
+                <div class="ui negative button" id="uploader_close">{{ __("Close") }}</div>
+                <div class="ui positive right labeled icon button" id="uploader_save">{{ __("Save") }}<i class="checkmark icon"></i></div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}

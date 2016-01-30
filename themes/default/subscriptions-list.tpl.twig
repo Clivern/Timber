@@ -1,0 +1,127 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'subscriptions-list', 'model' : 'subscriptions-list'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'subscriptions-list', 'model' : 'subscriptions-list'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'subscriptions-list', 'model' : 'subscriptions-list'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-user-secret"></i> {{ __("Subscriptions") }}</h4>
+
+                        {% if check_perm('add.subscriptions') %}
+                            <a href="{{ route_to_url('/admin/subscriptions/add')|e }}" class="ui circular icon button add_nrecord" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Add Subscription")|e('html_attr') }}">
+                                <i class="plus icon"></i>
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        {% if current_user_access_rule == '1' or current_user_access_rule == '2' %}
+                            <table class="ui selectable table stackable data_table">
+                                <thead>
+                                    <tr>
+                                        <th>{{ __("Ref. ID")|e }}</th>
+                                        <th>{{ __("Client")|e }}</th>
+                                        <th>{{ __("Status")|e }}</th>
+                                        <th>{{ __("Total")|e }} ({{ site_currency|e }})</th>
+                                        <th>{{ __("Created at")|e }}</th>
+                                        <th>{{ __("Actions")|e }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for subscription in subscriptions %}
+                                        <tr>
+                                            <td>{{ subscription.ref_id|e }}</td>
+                                            <td>{{ subscription.client_full_name|e }}</td>
+                                            <td>{{ subscription.nice_status|e }}</td>
+                                            <td>{{ subscription.total|e }}</td>
+                                            <td>{{ date_to_diff(subscription.created_at)|e }}</td>
+                                            <td>
+
+                                                {% if check_perm('view.subscriptions') %}
+                                                    <a href="{{ subscription.view_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Subscription")|e('html_attr') }}">
+                                                        <i class="linkify icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if check_perm('edit.subscriptions') %}
+                                                    <a href="{{ subscription.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Subscription")|e('html_attr') }}">
+                                                        <i class="write icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if check_perm('delete.subscriptions') %}
+                                                    <a href="{{ subscription.trash_link|e }}" class="ui circular icon button delete_subscription" data-id="{{ subscription.su_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Subscription")|e('html_attr') }}">
+                                                        <i class="remove icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% endif %}
+
+                       {% if current_user_access_rule == '3' %}
+                            <table class="ui selectable table stackable data_table">
+                                <thead>
+                                    <tr>
+                                        <th>{{ __("Ref. ID")|e }}</th>
+                                        <th>{{ __("Status")|e }}</th>
+                                        <th>{{ __("Total")|e }} ({{ site_currency|e }})</th>
+                                        <th>{{ __("Created at")|e }}</th>
+                                        <th>{{ __("Actions")|e }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for subscription in subscriptions %}
+                                        <tr>
+                                            <td>{{ subscription.ref_id|e }}</td>
+                                            <td>{{ subscription.nice_status|e }}</td>
+                                            <td>{{ subscription.total|e }}</td>
+                                            <td>{{ date_to_diff(subscription.created_at)|e }}</td>
+                                            <td>
+                                                <a href="{{ subscription.view_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Subscription")|e('html_attr') }}">
+                                                    <i class="linkify icon"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'subscriptions-list', 'model' : 'subscriptions-list'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'subscriptions-list', 'model' : 'subscriptions-list'} %}

@@ -1,0 +1,122 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'quotations-list', 'model' : 'quotations-list'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'quotations-list', 'model' : 'quotations-list'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'quotations-list', 'model' : 'quotations-list'} %}
+
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-comments"></i> {{ __("Quotations") }}</h4>
+
+                        {% if check_perm('add.quotations') %}
+                            <a href="{{ route_to_url('/admin/quotations/add')|e }}" class="ui circular icon button add_nrecord" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Add Quotation")|e('html_attr') }}">
+                                <i class="plus icon"></i>
+                            </a>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        {% if current_user_access_rule == '1' or current_user_access_rule == '2' %}
+                            <table class="ui selectable table stackable data_table">
+                                <thead>
+                                    <tr>
+                                        <th>{{ __("Ref. ID")|e }}</th>
+                                        <th>{{ __("Title")|e }}</th>
+                                        <th>{{ __("Created at")|e }}</th>
+                                        <th>{{ __("Actions")|e }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for quotation in quotations %}
+                                        <tr>
+                                            <td>{{ quotation.ref_id|e }}</td>
+                                            <td>{{ quotation.title|e }}</td>
+                                            <td>{{ date_to_diff(quotation.created_at)|e }}</td>
+                                            <td>
+                                                {% if check_perm('view.quotations') %}
+                                                    <a href="{{ quotation.view_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("View Submissions")|e('html_attr') }}">
+                                                        <i class="linkify icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if check_perm('submit.quotations') %}
+                                                    <a href="{{ quotation.submit_link|e }}" target="_blank" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Submit Quotation")|e('html_attr') }}">
+                                                        <i class="write icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                                {% if check_perm('delete.quotations') %}
+                                                    <a href="{{ quotation.trash_link|e }}" class="ui circular icon button delete_quotation" data-id="{{ quotation.qu_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Quotation")|e('html_attr') }}">
+                                                        <i class="remove icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% endif %}
+
+                        {% if current_user_access_rule == '3' %}
+                            <table class="ui selectable table stackable data_table">
+                                <thead>
+                                    <tr>
+                                        <th>{{ __("Ref. ID")|e }}</th>
+                                        <th>{{ __("Title")|e }}</th>
+                                        <th>{{ __("Created at")|e }}</th>
+                                        <th>{{ __("Actions")|e }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for quotation in quotations %}
+                                        <tr>
+                                            <td>{{ quotation.ref_id|e }}</td>
+                                            <td>{{ quotation.title|e }}</td>
+                                            <td>{{ date_to_diff(quotation.created_at)|e }}</td>
+                                            <td>
+
+                                                {% if check_perm('submit.quotations') %}
+                                                    <a href="{{ quotation.submit_link|e }}" target="_blank" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Submit Quotation")|e('html_attr') }}">
+                                                        <i class="write icon"></i>
+                                                    </a>
+                                                {% endif %}
+
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'quotations-list', 'model' : 'quotations-list'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'quotations-list', 'model' : 'quotations-list'} %}

@@ -1,0 +1,651 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}
+
+    <section class="main-content-wrapper">
+
+        <div class="ui grid">
+             <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="m-b-xs"><i class="fa fa-fw fa-tachometer"></i> {{ __("Dashboard") }}</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# Admin Stats #}
+        {% if current_user_access_rule == '1' %}
+
+            <div class="ui grid">
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="folder open outline icon"></i> {{ in_progress_projects_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("In Progress Projects") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="shop icon"></i> {{ unpaid_invoices_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("Unpaid Invoices") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="cubes icon"></i> {{ subscriptions_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("Subscriptions") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <img src="{{ default_theme_assets_url('/img/joe.jpg') }}" class="ui circular inline image"> {{ total_members_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("Members") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="folder open outline icon"></i>{{ __("In Progress Projects") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if in_progress_projects_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Title") }}</th>
+                                            <th>{{ __("Progress") }}</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for project in in_progress_projects_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ project.view_link }}">{{ project.title }}</a></td>
+                                                <td>
+                                                    <br/>
+                                                    <div class="ui tiny indicating progress active" data-percent="{{ project.progress|e('html_attr') }}">
+                                                        <div class="bar" style="transition-duration: 300ms; width: {{ project.progress|e('html_attr') }}%;"></div>
+                                                    </div>
+                                                </td>
+                                                <td>{{ date_to_diff(project.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No projects found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="shop icon"></i>{{ __("Unpaid Invoices") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if unpaid_invoices_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference ID") }}</th>
+                                            <th>{{ __("Total") }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for invoice in unpaid_invoices_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ invoice.view_link }}">{{ invoice.ref_id }}</a></td>
+                                                <td>{{ invoice.total }}</td>
+                                                <td>{{ date_to_diff(invoice.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No invoices found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="cubes icon"></i>{{ __("Latest Subscriptions") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if subscriptions_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference ID") }}</th>
+                                            <th>{{ __("Total") }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for subscription in subscriptions_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ subscription.view_link }}">{{ subscription.ref_id }}</a></td>
+                                                <td>{{ subscription.total }}</td>
+                                                <td>{{ date_to_diff(subscription.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No subscriptions found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="shop icon"></i>{{ __("Latest Estimates") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if estimates_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference ID") }}</th>
+                                            <th>{{ __("Total") }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for estimate in estimates_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ estimate.view_link }}">{{ estimate.ref_id }}</a></td>
+                                                <td>{{ estimate.total }}</td>
+                                                <td>{{ date_to_diff(estimate.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No estimates found.") }}</p>
+                            {% endif %}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {# /Admin Stats #}
+
+
+        {# Staff Stats #}
+        {% if current_user_access_rule == '2' %}
+
+            <div class="ui grid">
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="folder open outline icon"></i> {{ in_progress_projects_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("In Progress Projects") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="ticket icon"></i> {{ pending_tickets_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("Pending Tickets") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="tasks icon"></i> {{ in_progress_tasks_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("In Progress Tasks") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="tasks icon"></i> {{ overdue_tasks_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("Overdue Tasks") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="folder open outline icon"></i>{{ __("In Progress Projects") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if in_progress_projects_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Title") }}</th>
+                                            <th>{{ __("Progress") }}</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for project in in_progress_projects_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ project.view_link }}">{{ project.title }}</a></td>
+                                                <td>
+                                                    <br/>
+                                                    <div class="ui tiny indicating progress active" data-percent="{{ project.progress|e('html_attr') }}">
+                                                        <div class="bar" style="transition-duration: 300ms; width: {{ project.progress|e('html_attr') }}%;"></div>
+                                                    </div>
+                                                </td>
+                                                <td>{{ date_to_diff(project.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No projects found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="ticket icon"></i>{{ __("Pending Tickets") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if pending_tickets_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Subject") }}</th>
+                                            <th>{{ __("Type") }}</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for ticket in pending_tickets_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ ticket.view_link }}">{{ ticket.subject }}</a></td>
+                                                <td>{{ ticket.nice_type }}</td>
+                                                <td>{{ date_to_diff(ticket.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No tickets found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="tasks icon"></i>{{ __("In Progress Tasks") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if in_progress_tasks_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Title") }}</th>
+                                            <th>{{ __("Progress") }}</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for task in in_progress_tasks_mini_list %}
+                                            <tr>
+                                                <td>{{ task.title }}</td>
+                                                <td>
+                                                    <br/>
+                                                    <div class="ui tiny indicating progress active" data-percent="{{ task.progress|e('html_attr') }}">
+                                                        <div class="bar" style="transition-duration: 300ms; width: {{ task.progress|e('html_attr') }}%;"></div>
+                                                    </div>
+                                                </td>
+                                                <td>{{ date_to_diff(task.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No tasks found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="tasks icon"></i>{{ __("Overdue Tasks") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if overdue_tasks_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Title") }}</th>
+                                            <th>{{ __("Progress") }}</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for task in overdue_tasks_mini_list %}
+                                            <tr>
+                                                <td>{{ task.title }}</td>
+                                                <td>
+                                                    <br/>
+                                                    <div class="ui tiny indicating progress active" data-percent="{{ task.progress|e('html_attr') }}">
+                                                        <div class="bar" style="transition-duration: 300ms; width: {{ task.progress|e('html_attr') }}%;"></div>
+                                                    </div>
+                                                </td>
+                                                <td>{{ date_to_diff(task.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No tasks found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {# /Staff Stats #}
+
+
+        {# Client Stats #}
+        {% if current_user_access_rule == '3' %}
+
+            <div class="ui grid">
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="folder open outline icon"></i> {{ in_progress_projects_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("In Progress Projects") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="shop icon"></i> {{ unpaid_invoices_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("Unpaid Invoices") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="cubes icon"></i> {{ subscriptions_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("Subscriptions") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="four wide column">
+                    <div class="ui statistics">
+                        <div class="statistic">
+                            <div class="value">
+                                <i class="shop icon"></i> {{ total_estimates_count }}
+                            </div>
+                            <div class="label">
+                                {{ __("Estimates") }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="folder open outline icon"></i>{{ __("In Progress Projects") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if in_progress_projects_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Title") }}</th>
+                                            <th>{{ __("Progress") }}</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for project in in_progress_projects_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ project.view_link }}">{{ project.title }}</a></td>
+                                                <td>
+                                                    <br/>
+                                                    <div class="ui tiny indicating progress active" data-percent="{{ project.progress|e('html_attr') }}">
+                                                        <div class="bar" style="transition-duration: 300ms; width: {{ project.progress|e('html_attr') }}%;"></div>
+                                                    </div>
+                                                </td>
+                                                <td>{{ date_to_diff(project.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No projects found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="shop icon"></i>{{ __("Unpaid Invoices") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if unpaid_invoices_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference ID") }}</th>
+                                            <th>{{ __("Total") }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for invoice in unpaid_invoices_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ invoice.view_link }}">{{ invoice.ref_id }}</a></td>
+                                                <td>{{ invoice.total }}</td>
+                                                <td>{{ date_to_diff(invoice.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No invoices found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui grid">
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="cubes icon"></i>{{ __("Subscriptions") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if subscriptions_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference ID") }}</th>
+                                            <th>{{ __("Total") }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for subscription in subscriptions_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ subscription.view_link }}">{{ subscription.ref_id }}</a></td>
+                                                <td>{{ subscription.total }}</td>
+                                                <td>{{ date_to_diff(subscription.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No subscriptions found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <div class="eight wide column">
+                    <div class="metabox">
+                        <div class="metabox-body">
+                            <h5>
+                                <span><i class="shop icon"></i>{{ __("Estimates") }}</span>
+                            </h5>
+
+                            <div class="hr-line-dashed"></div>
+                            {% if estimates_mini_list %}
+                                <table class="ui very basic table">
+                                    <thead>
+                                        <tr>
+                                            <th>{{ __("Reference ID") }}</th>
+                                            <th>{{ __("Total") }} ({{ site_currency|e }})</th>
+                                            <th>{{ __("Created") }}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for estimate in estimates_mini_list %}
+                                            <tr>
+                                                <td><a href="{{ estimate.view_link }}">{{ estimate.ref_id }}</a></td>
+                                                <td>{{ estimate.total }}</td>
+                                                <td>{{ date_to_diff(estimate.created_at) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            {% else %}
+                                <p>{{ __("No estimates found.") }}</p>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {# /Client Stats #}
+
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'dashboard', 'model' : 'dashboard'} %}

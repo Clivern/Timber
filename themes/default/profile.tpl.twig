@@ -1,0 +1,166 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'profile', 'model' : 'profile'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'profile', 'model' : 'profile'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'profile', 'model' : 'profile'} %}
+
+	<section class="main-content-wrapper">
+
+
+		<div class="ui stackable grid">
+			<div class="sixteen wide column">
+				<div class="metabox blue">
+					<div class="metabox-body">
+						<h4 class="font-light m-b-xs"><i class="fa fa-fw fa-fw fa-flash"></i> {{ __("Profile") }}</h4>
+					</div>
+				</div>
+			</div>
+
+			<div class="four wide column">
+				<div class="metabox green">
+					<div class="metabox-body center-align">
+
+						<img id="profile_image" class="ui circular centered image m-b m-t-md" data-default="{{ gravatar(email, grav_id, 128)|e }}" src="{{ gravatar(email, grav_id, 128)|e }}" style="width:128px">
+						<h4 class="m-b-xs">{{ nice_name|e }}</h4>
+						<p>{{ job|e }}</p>
+						{% if gravatar_platform == 'native' %}
+							<button id="avatar_select" data-target="uploadModal" class="circular ui icon button page_uploader"><i class="fa fa-picture-o"></i></button>
+						{% endif %}
+
+					</div>
+				</div>
+			</div>
+
+			<div class="twelve wide column">
+				<div class="metabox red">
+					<div class="metabox-body">
+
+						<span id="realtime_alerts">
+							{% if profile_alert is defined %}
+								<div id="realtime_alert" class="ui info small message">
+									<i class="close icon"></i>
+									<div class="header">
+										{% autoescape false %}
+											{{ profile_alert }}
+										{% endautoescape %}
+									</div>
+								</div>
+							{% endif %}
+						</span>
+
+						<form class="ui form" method="post" action="{{ form_action|e }}">
+							{{ nonce_form() }}
+							<input name="profile_avatar" value="" type="hidden">
+
+							<div class="field required">
+								<label>{{ __("Name")|e }}</label>
+								<div class="two fields">
+									<div class="field">
+										<input name="first_name" type="text" placeholder="{{ __("First Name")|e('html_attr') }}" value="{{ first_name|e('html_attr') }}" maxlength="60" required>
+									</div>
+									<div class="field">
+										<input name="last_name" type="text" placeholder="{{ __("Last Name")|e('html_attr') }}" value="{{ last_name|e('html_attr') }}" maxlength="60" required>
+									</div>
+								</div>
+							</div>
+							<div class="field required">
+								<label>{{ __("Username")|e }}</label>
+								<input name="user_name" type="text" value="{{ user_name|e('html_attr') }}" maxlength="20" required>
+							</div>
+							<div class="field">
+								<label>{{ __("Job Title")|e }}</label>
+								<input name="job" type="text" value="{{ job|e('html_attr') }}" maxlength="250">
+							</div>
+							<div class="field">
+								<label>{{ __("Company")|e }}</label>
+								<input name="company" type="text" value="{{ company|e('html_attr') }}" maxlength="60">
+							</div>
+							<div class="field required">
+								<label>{{ __("Email")|e }}</label>
+								<input name="email" type="email" value="{{ email|e('html_attr') }}" maxlength="100" required>
+							</div>
+							<div class="field">
+								<label>{{ __("Website")|e }}</label>
+								<input name="website" type="text" value="{{ website|e('html_attr') }}" maxlength="150">
+							</div>
+							<div class="field">
+								<label>{{ __("Language")|e }}</label>
+								<select class="ui dropdown" name="language">
+									{% for key in languages_list %}
+										<option value="{{ key|e('html_attr') }}" {{ selected(language, key)|e }}>{{ key|e }}</option>
+									{% endfor %}
+								</select>
+							</div>
+							<div class="field">
+								<label>{{ __("Phone Number")|e }}</label>
+								<input name="phone_num" type="text" value="{{ phone_num|e('html_attr') }}" maxlength="60">
+							</div>
+							<div class="field">
+								<label>{{ __("Country")|e }}</label>
+									<select class="ui search dropdown" name="country">
+										{% for key, value in countries_list %}
+											<option value="{{ key|e('html_attr') }}" {{ selected(country, key)|e }}>{{ value|e }}</option>
+										{% endfor %}
+									</select>
+							</div>
+							<div class="field">
+								<label>{{ __("State / Province / Region")|e }}</label>
+								<input name="city" type="text" value="{{ city|e('html_attr') }}" maxlength="60">
+							</div>
+							<div class="field">
+								<label>{{ __("Address Line 1")|e }}</label>
+								<input name="address1" type="text" value="{{ address1|e('html_attr') }}" maxlength="100">
+							</div>
+							<div class="field">
+								<label>{{ __("Address Line 2")|e }}</label>
+								<input name="address2" type="text" value="{{ address2|e('html_attr') }}" maxlength="100">
+							</div>
+							<div class="field">
+								<label>{{ __("ZIP Code / Postal Code")|e }}</label>
+								<input name="zip_code" type="text" value="{{ zip_code|e('html_attr') }}" maxlength="60">
+							</div>
+							<div class="field">
+								<label>{{ __("VAT Number")|e }}</label>
+								<input name="vat_nubmer" type="text" value="{{ vat_nubmer|e('html_attr') }}" maxlength="60">
+							</div>
+							{% if social_login == 'off' %}
+								<div class="field">
+									<label>{{ __("Old Password")|e }}</label>
+									<input name="user_old_pwd" type="password" maxlength="20" disabled="disabled">
+								</div>
+								<div class="field">
+									<label>{{ __("New Password")|e }}</label>
+									<input name="user_new_pwd" type="password" maxlength="20" disabled="disabled">
+									</div>
+									<div class="inline field">
+									      <div class="ui checkbox">
+									        <input type="checkbox" name="change_pwd" tabindex="0" class="hidden" value="1">
+									        <label>{{ __("Change Password")|e }}</label>
+									      </div>
+									</div>
+							{% endif %}
+
+							<button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+							<button class="ui button" type="reset">{{ __("Cancel") }}</button>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+				{% if gravatar_platform == 'native' %}
+				  {% include 'uploader.sec.twig' with {'tpl': 'profile', 'model' : 'profile'} %}
+				{% endif %}
+
+		</section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'profile', 'model' : 'profile'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'profile', 'model' : 'profile'} %}

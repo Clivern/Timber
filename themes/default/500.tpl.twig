@@ -1,0 +1,13 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': '500', 'model' : '500'} %}
+
+<div class="error-page-container">
+    <i class="bomb icon text-primary big-icon"></i>
+    <h1>{{ __("500")|e }}</h1>
+    <strong>{{ __("Something Goes Wrong")|e }}</strong>
+    <p>{{ __("The server encountered something unexpected that didn't allow it to complete your request. We apologize.")|e }}</p>
+   	<a href="{{ home_url|e }}" class="ui mini button">{{ __("You can go back to main page")|e }}</a>
+</div>
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': '500', 'model' : '500'} %}

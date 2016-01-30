@@ -1,0 +1,23 @@
+<header id="header" class="ui small menu">
+    <div class="brand">
+        <a href="{{ route_to_url('/')|e }}" class="logo">
+       {# <span>{{ site_title|striptags|upper }}</span> #}
+        <img src="{{ file_url(site_logo, default_theme_assets_url('/img/logo.png'))|e }}" width="30" style="opacity:0.7;">
+    </a>
+    </div>
+    <a class="item sidebar-toggle"><i class="fa fa-bars"></i></a>
+    <div class="right menu">
+        <div class="ui dropdown item">
+            <img class="ui avatar image" src="{{ gravatar(current_user_email, current_user_grav_id, 128)|e }}"> <i class="dropdown icon"></i>
+            <div class="menu">
+                <a href="{{ route_to_url('/admin/profile')|e }}" class="item">{{ __("My Profile")|e }}</a>
+                <a href="{{ route_to_url('/admin/messages')|e }}" class="item">{{ __("Messages")|e }}
+                    {% autoescape false %}
+                        {{ notify_print('messages_notif', '/admin/messages', '({$VALUE})') }}
+                    {% endautoescape %}
+                </a>
+                <a href="{{ nonce_url(route_to_url('/admin/logout'))|e }}" class="item">{{ __("Logout")|e }}</a>
+            </div>
+        </div>
+    </div>
+</header>

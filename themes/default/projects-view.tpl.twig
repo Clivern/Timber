@@ -1,0 +1,126 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'projects-view', 'model' : 'projects-view'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'projects-view', 'model' : 'projects-view'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'projects-view', 'model' : 'projects-view'} %}
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-folder"></i> {{ __("Projects") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="four wide column">
+
+                    <div class="metabox red">
+                        <div class="metabox-body project_item">
+
+                            <div class="ui stackable grid">
+                                <div class="sixteen wide column">
+
+                                    <h4><a>{{ project_title|e }}</a></h4>
+                                    <p>{{ project_description|e }}</p>
+
+                                    <div class="ui stackable grid">
+                                        <div class="eight wide column">
+                                            <div class="project-label">{{ __("BUDGET") }}</div>
+                                            <p>{{ site_currency|e }}{{ project_budget|e }}</p>
+                                        </div>
+                                        <div class="eight wide column">
+                                            <div class="project-label">{{ __("VERSION") }}</div>
+                                            <p>{{ project_version|e }}</p>
+                                        </div>
+                                        <div class="eight wide column">
+                                            <div class="project-label">{{ __("START AT") }}</div>
+                                            <p>{{ project_start_at|e }}</p>
+                                        </div>
+                                        <div class="eight wide column">
+                                            <div class="project-label">{{ __("DEDLINE") }}</div>
+                                            <p>{{ project_end_at|e }}</p>
+                                        </div>
+                                        <div class="sixteen wide column">
+                                            <div class="project-label">{{ __("PROGRESS") }}</div>
+                                            <div class="ui tiny indicating progress active" data-percent="{{ project_progress|e('html_attr') }}">
+                                                <div class="bar" style="transition-duration: 300ms; width: {{ project_progress|e('html_attr') }}%;"></div>
+                                                <div class="label">{{ project_nice_status|e }} ({{ project_progress|e }}%)</div>
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column">
+                                            <a href="{{ project_stats_url|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Statistics")|e('html_attr') }}">
+                                                <i class="bar chart icon"></i>
+                                            </a>
+                                            <a href="{{ project_milestones_url|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Milestones")|e('html_attr') }}">
+                                                <i class="idea icon"></i>
+                                            </a>
+                                            <a href="{{ project_tasks_url|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Tasks")|e('html_attr') }}">
+                                                <i class="tasks icon"></i>
+                                            </a>
+                                            <a href="{{ project_files_url|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Files")|e('html_attr') }}">
+                                                <i class="folder outline icon"></i>
+                                            </a>
+                                            <a href="{{ project_tickets_url|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Tickets")|e('html_attr') }}">
+                                                <i class="ticket icon"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="ui stackable grid">
+                                        <div class="sixteen wide column">
+                                            <div class="project-label">{{ __("ADMIN") }}</div>
+                                            <div class="project-people">
+                                                {% for owner in project_owners %}
+                                                    <img class="ui avatar image" title="{{ owner.full_name|e('html_attr') }}" src="{{ gravatar(owner.email, owner.grav_id, 128)|e }}">
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column">
+                                            <div class="project-label">{{ __("CLIENTS") }}</div>
+                                            <div class="project-people">
+                                                {% for client in project_clients %}
+                                                    <img class="ui avatar image" title="{{ client.full_name|e('html_attr') }}" src="{{ gravatar(client.email, client.grav_id, 128)|e }}">
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                        <div class="sixteen wide column">
+                                            <div class="project-label">{{ __("STAFF") }}</div>
+                                            <div class="project-people">
+                                                {% for staff in project_staff %}
+                                                    <img class="ui avatar image" title="{{ staff.full_name|e('html_attr') }}" src="{{ gravatar(staff.email, staff.grav_id, 128)|e }}">
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+            </div>
+            <div class="twelve wide column">
+                {% include 'projects-view-' ~ project_tab ~ '.sec.twig' with {'tpl': 'projects-view', 'model' : 'projects-view'} %}
+            </div>
+
+        </div>
+        <br/><br/>
+
+        {% include 'uploader.sec.twig' with {'tpl': 'projects-view', 'model' : 'projects-view'} %}
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'projects-view', 'model' : 'projects-view'} %}
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'projects-view', 'model' : 'projects-view'} %}

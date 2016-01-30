@@ -1,0 +1,192 @@
+<aside class="sidebar sidebar-left">
+    <nav>
+        <br/>
+        <ul class="nav nav-pills nav-stacked">
+
+            {{ apply_hook('timber.top_menu') }}
+
+            {% if check_perm('view.dashboard') %}
+               <li {% if active_route('dashboard') == true %}class="active"{% endif %}>
+                   <a href="{{ route_to_url('/admin/dashboard')|e }}">
+                       <i class="fa fa-fw fa-tachometer"></i> {{ __("Dashboard")|e }} {{ notify_print('dashboard_notif', '/admin/dashboard', '({$VALUE})')|e }}
+                   </a>
+               </li>
+            {% endif %}
+
+            {% if check_perm('add.projects') or check_perm('list.projects') %}
+               <li class="nav-dropdown {% if active_route('projects') == true %}active{% endif %}">
+                   <a href="#">
+                       <i class="fa fa-fw fa-folder"></i> {{ __("Projects")|e }} {{ notify_print('projects_notif', '/admin/projects', '({$VALUE})')|e }}
+                   </a>
+                   <ul class="nav-sub">
+                        {% if check_perm('list.projects') %}
+                            <li><a href="{{ route_to_url('/admin/projects')|e }}">{{ __("All Projects")|e }}</a></li>
+                        {% endif %}
+
+                        {% if check_perm('add.projects') %}
+                            <li><a href="{{ route_to_url('/admin/projects/add')|e }}">{{ __("Add New")|e }}</a></li>
+                        {% endif %}
+                   </ul>
+               </li>
+            {% endif %}
+
+            {% if check_perm('add.clients') or check_perm('list.members') %}
+               <li class="nav-dropdown {% if active_route('members') == true %}active{% endif %}">
+                   <a href="#">
+                       <i class="fa fa-fw fa-users"></i> {{ __("Members")|e }} {{ notify_print('members_notif', '/admin/members')|e }}
+                   </a>
+                   <ul class="nav-sub">
+                        {% if check_perm('list.members') %}
+                            <li><a href="{{ route_to_url('/admin/members')|e }}">{{ __("All Members")|e }}</a></li>
+                        {% endif %}
+
+                        {% if check_perm('add.clients') %}
+                            <li><a href="{{ route_to_url('/admin/members/add')|e }}">{{ __("Add New")|e }}</a></li>
+                        {% endif %}
+                   </ul>
+               </li>
+            {% endif %}
+
+            {% if check_perm('add.invoices') or check_perm('list.invoices') %}
+               <li class="nav-dropdown {% if active_route('invoices') == true %}active{% endif %}">
+                   <a href="#">
+                       <i class="fa fa-fw fa-money"></i> {{ __("Invoices")|e }} {{ notify_print('invoices_notif', '/admin/invoices', '({$VALUE})')|e }}
+                   </a>
+                   <ul class="nav-sub">
+                        {% if check_perm('list.invoices') %}
+                            <li><a href="{{ route_to_url('/admin/invoices')|e }}">{{ __("All Invoices")|e }}</a></li>
+                        {% endif %}
+
+                        {% if invoices_checkout_menu == true %}
+                            <li><a href="{{ route_to_url('/admin/invoices/checkout')|e }}">{{ __("Checkout")|e }}</a></li>
+                        {% endif %}
+
+                        {% if check_perm('add.invoices') %}
+                            <li><a href="{{ route_to_url('/admin/invoices/add')|e }}">{{ __("Add New")|e }}</a></li>
+                        {% endif %}
+                   </ul>
+               </li>
+            {% endif %}
+
+            {% if check_perm('add.estimates') or check_perm('list.estimates') %}
+               <li class="nav-dropdown {% if active_route('estimates') == true %}active{% endif %}">
+                   <a href="#">
+                       <i class="fa fa-fw fa-calculator"></i> {{ __("Estimates")|e }} {{ notify_print('estimates_notif', '/admin/estimates', '({$VALUE})')|e }}
+                   </a>
+                   <ul class="nav-sub">
+                        {% if check_perm('list.estimates') %}
+                            <li><a href="{{ route_to_url('/admin/estimates')|e }}">{{ __("All Estimates")|e }}</a></li>
+                        {% endif %}
+
+                        {% if check_perm('add.estimates') %}
+                            <li><a href="{{ route_to_url('/admin/estimates/add')|e }}">{{ __("Add New")|e }}</a></li>
+                        {% endif %}
+                   </ul>
+               </li>
+            {% endif %}
+
+            {% if check_perm('add.expenses') or check_perm('list.expenses') %}
+               <li class="nav-dropdown {% if active_route('expenses') == true %}active{% endif %}">
+                   <a href="#">
+                       <i class="fa fa-fw fa-cart-plus"></i> {{ __("Expenses")|e }} {{ notify_print('expenses_notif', '/admin/expenses', '({$VALUE})')|e }}
+                   </a>
+                   <ul class="nav-sub">
+                        {% if check_perm('list.expenses') %}
+                            <li><a href="{{ route_to_url('/admin/expenses')|e }}">{{ __("All Expenses")|e }}</a></li>
+                        {% endif %}
+
+                        {% if check_perm('add.expenses') %}
+                            <li><a href="{{ route_to_url('/admin/expenses/add')|e }}">{{ __("Add New")|e }}</a></li>
+                        {% endif %}
+                   </ul>
+               </li>
+            {% endif %}
+
+            {% if check_perm('add.items') or check_perm('list.items') %}
+               <li class="nav-dropdown {% if active_route('items') == true %}active{% endif %}">
+                   <a href="#">
+                       <i class="fa fa-fw fa-server"></i> {{ __("Items")|e }} {{ notify_print('items_notif', '/admin/items', '({$VALUE})')|e }}
+                   </a>
+                   <ul class="nav-sub">
+                        {% if check_perm('list.items') %}
+                            <li><a href="{{ route_to_url('/admin/items')|e }}">{{ __("All Items")|e }}</a></li>
+                        {% endif %}
+
+                        {% if check_perm('add.items') %}
+                            <li><a href="{{ route_to_url('/admin/items/add')|e }}">{{ __("Add New")|e }}</a></li>
+                        {% endif %}
+                   </ul>
+               </li>
+            {% endif %}
+
+            {% if check_perm('add.quotations') or check_perm('list.quotations') %}
+               <li class="nav-dropdown {% if active_route('quotations') == true %}active{% endif %}">
+                   <a href="#">
+                       <i class="fa fa-fw fa-comments"></i> {{ __("Quotations")|e }} {{ notify_print('quotations_notif', '/admin/quotations', '({$VALUE})')|e }}
+                   </a>
+                   <ul class="nav-sub">
+                        {% if check_perm('list.quotations') %}
+                            <li><a href="{{ route_to_url('/admin/quotations')|e }}">{{ __("All Quotations")|e }}</a></li>
+                        {% endif %}
+
+                        {% if check_perm('add.quotations') %}
+                            <li><a href="{{ route_to_url('/admin/quotations/add')|e }}">{{ __("Add New")|e }}</a></li>
+                        {% endif %}
+                   </ul>
+               </li>
+            {% endif %}
+
+            {% if check_perm('add.subscriptions') or check_perm('list.subscriptions') %}
+               <li class="nav-dropdown {% if active_route('subscriptions') == true %}active{% endif %}">
+                   <a href="#">
+                       <i class="fa fa-fw fa-user-secret"></i> {{ __("Subscriptions")|e }} {{ notify_print('subscriptions_notif', '/admin/subscriptions', '({$VALUE})')|e }}
+                   </a>
+                   <ul class="nav-sub">
+                        {% if check_perm('list.subscriptions') %}
+                            <li><a href="{{ route_to_url('/admin/subscriptions')|e }}">{{ __("All Subscriptions")|e }}</a></li>
+                        {% endif %}
+
+                        {% if check_perm('add.subscriptions') %}
+                            <li><a href="{{ route_to_url('/admin/subscriptions/add')|e }}">{{ __("Add New")|e }}</a></li>
+                        {% endif %}
+                   </ul>
+               </li>
+            {% endif %}
+
+            {% if check_perm('view.calendar') %}
+               <li {% if active_route('calendar') == true %}class="active"{% endif %}>
+                   <a href="{{ route_to_url('/admin/calendar')|e }}">
+                       <i class="fa fa-fw fa-calendar"></i> {{ __("Calendar")|e }} {{ notify_print('calendar_notif', '/admin/calendar', '({$VALUE})')|e }}
+                   </a>
+               </li>
+            {% endif %}
+
+            {% if check_perm('view.plugins') %}
+               <li {% if active_route('plugins') == true %}class="active"{% endif %}>
+                   <a href="{{ route_to_url('/admin/plugins')|e }}">
+                       <i class="fa fa-fw fa-plug"></i> {{ __("Plugins")|e }}
+                   </a>
+               </li>
+            {% endif %}
+
+            {% if check_perm('view.themes') %}
+               <li {% if active_route('themes') == true %}class="active"{% endif %}>
+                   <a href="{{ route_to_url('/admin/themes')|e }}">
+                       <i class="fa fa-fw fa-leaf"></i> {{ __("Themes")|e }}
+                   </a>
+               </li>
+            {% endif %}
+
+            {% if check_perm('view.settings') %}
+                <li {% if active_route('settings') == true %}class="active"{% endif %}>
+                    <a href="{{ route_to_url('/admin/settings')|e }}">
+                        <i class="fa fa-fw fa-cogs"></i> {{ __("Settings")|e }}
+                    </a>
+                </li>
+            {% endif %}
+
+            {{ apply_hook('timber.bottom_menu') }}
+
+        </ul>
+    </nav>
+</aside>

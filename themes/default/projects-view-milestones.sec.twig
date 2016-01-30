@@ -1,0 +1,186 @@
+{% if project_sub_tab == 'list' %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="idea icon"></i>{{ __("Milestones") }}</span>
+                    </h5>
+
+                    {% if current_user_access_rule == '1' %}
+                        <a href="{{ route_to_url('/admin/projects/view/' ~ project_pr_id ~ '?tab=milestones&sub_tab=add')|e }}" class="tiny ui circular icon button add_nrecord" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Add Milestone")|e('html_attr') }}">
+                            <i class="plus icon"></i>
+                        </a>
+                    {% endif %}
+
+                    <div class="hr-line-dashed"></div>
+                    <table class="ui very basic table">
+                        <thead>
+                            <tr>
+                                <th>{{ __("Milestone") }}</th>
+                                <th>{{ __("Status") }}</th>
+                                <th>{{ __("Priority") }}</th>
+                                {% if current_user_access_rule == '1' %}
+                                    <th>{{ __("Actions") }}</th>
+                                {% endif %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for milestone in milestones %}
+                                <tr data-id="{{ milestone.mi_id|e }}">
+                                    <td><a href="#" class="milestone_view">{{ milestone.title|e }}</a></td>
+                                    <td>
+                                        {{ milestone.nice_status|e }}
+                                    </td>
+                                    <td>{{ milestone.nice_priority|e }}</td>
+                                    {% if current_user_access_rule == '1' %}
+                                        <td>
+
+                                            <a href="{{ milestone.edit_link|e }}" class="ui circular icon button" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Edit Milestone")|e('html_attr') }}">
+                                                <i class="write icon"></i>
+                                            </a>
+
+                                            <a href="{{ milestone.trash_link|e }}" class="ui circular icon button delete_milestone" data-id="{{ milestone.mi_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Delete Milestone")|e('html_attr') }}">
+                                                <i class="remove icon"></i>
+                                            </a>
+
+                                        </td>
+                                    {% endif %}
+                                </tr>
+                                <tr data-id="{{ milestone.mi_id|e }}" data-desc="{{ milestone.mi_id|e }}" style="display:none">
+                                    <td colspan="4">
+                                        {{ __("Description:") }}<br/>
+                                        {{ milestone.description|e }}<br/>
+                                        {{ __("Created:") }} {{ date_to_diff(milestone.created_at)|e }}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="metabox-footer contact-footer right-align">
+                    {{ __("Total Milestones: ") }} {{ milestones_count|e }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% elseif project_sub_tab == 'add'  %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="idea icon"></i>{{ __("Add Milestone") }}</span>
+                    </h5>
+                    <div class="hr-line-dashed"></div>
+
+                    <form id="milestone_form" action="{{ add_milestone_action|e }}" method="post" class="ui form">
+                        {{ nonce_form() }}
+                        <input name="pro_id" type="hidden" value="{{ project_pr_id|e('html_attr') }}">
+
+                        <div class="field required">
+                            <label>{{ __("Title") }}</label>
+                            <input type="text" name="milestone_title">
+                        </div>
+
+                        <div class="field">
+                            <label>{{ __("Description") }}</label>
+                            <textarea name="milestone_description" rows="2"></textarea>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Priority") }}</label>
+                            <select name="milestone_priority" class="ui dropdown">
+                                <option value="1">{{ __("Low") }}</option>
+                                <option value="2">{{ __("Middle") }}</option>
+                                <option value="3">{{ __("High") }}</option>
+                                <option value="4">{{ __("Critical") }}</option>
+                            </select>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Status") }}</label>
+                            <select name="milestone_status" class="ui dropdown">
+                                <option value="1">{{ __("Pending") }}</option>
+                                <option value="2">{{ __("In Progress") }}</option>
+                                <option value="3">{{ __("Overdue") }}</option>
+                                <option value="4">{{ __("Done") }}</option>
+                            </select>
+                        </div>
+
+                        <button class="tiny ui primary button" type="submit">{{ __("Submit") }}</button>
+                        <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% elseif project_sub_tab == 'edit'  %}
+
+    <div class="ui stackable grid">
+        <div class="sixteen wide column">
+            <div class="metabox blue">
+
+                <div class="metabox-body">
+                    <h5>
+                        <span><i class="idea icon"></i>{{ __("Edit Milestone") }}</span>
+                    </h5>
+                    <div class="hr-line-dashed"></div>
+
+                    <form id="milestone_form" action="{{ edit_milestone_action|e }}" method="post" class="ui form">
+                        {{ nonce_form() }}
+                        <input name="pro_id" type="hidden" value="{{ milestone_pr_id|e('html_attr') }}">
+                        <input name="mi_id" type="hidden" value="{{ milestone_mi_id|e('html_attr') }}">
+
+                        <div class="field required">
+                            <label>{{ __("Title") }}</label>
+                            <input type="text" name="milestone_title" value="{{ milestone_title|e('html_attr') }}">
+                        </div>
+
+                        <div class="field">
+                            <label>{{ __("Description") }}</label>
+                            <textarea name="milestone_description" rows="2">{{ milestone_description|e }}</textarea>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Priority") }}</label>
+                            <select name="milestone_priority" class="ui dropdown">
+                                <option value="1" {{ selected('1', milestone_priority)|e }}>{{ __("Low") }}</option>
+                                <option value="2" {{ selected('2', milestone_priority)|e }}>{{ __("Middle") }}</option>
+                                <option value="3" {{ selected('3', milestone_priority)|e }}>{{ __("High") }}</option>
+                                <option value="4" {{ selected('4', milestone_priority)|e }}>{{ __("Critical") }}</option>
+                            </select>
+                        </div>
+
+                        <div class="field required">
+                            <label>{{ __("Status") }}</label>
+                            <select name="milestone_status" class="ui dropdown">
+                                <option value="1" {{ selected('1', milestone_status)|e }}>{{ __("Pending") }}</option>
+                                <option value="2" {{ selected('2', milestone_status)|e }}>{{ __("In Progress") }}</option>
+                                <option value="3" {{ selected('3', milestone_status)|e }}>{{ __("Overdue") }}</option>
+                                <option value="4" {{ selected('4', milestone_status)|e }}>{{ __("Done") }}</option>
+                            </select>
+                        </div>
+
+                        <button class="tiny ui primary button" type="submit">{{ __("Submit") }}</button>
+                        <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endif %}

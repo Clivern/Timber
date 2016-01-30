@@ -1,0 +1,164 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'expenses-edit', 'model' : 'expenses-edit'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'expenses-edit', 'model' : 'expenses-edit'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'expenses-edit', 'model' : 'expenses-edit'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-cart-plus"></i> {{ __("Expenses") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <br/>
+        <form action="{{ edit_expense_action|e }}" method="post">
+
+            <div class="ui stackable grid">
+                {{ nonce_form() }}
+
+                <input name="exp_id" type="hidden" value="{{ expense_in_id|e('html_attr') }}">
+
+                <div class="eleven wide column">
+                    <div class="metabox">
+                        <div class="metabox-heading">{{ __("Edit Expense") }}</div>
+                        <div class="metabox-body ui form">
+
+                            <div class="field required">
+                              	<label>{{ __("Title")|e }}</label>
+                              	<input name="exp_terms[title]" type="text" value="{{ expense_terms.title|e('html_attr') }}" required>
+                            </div>
+
+                            <div class="field">
+                              	<label>{{ __("Description")|e }}</label>
+                              	<textarea name="exp_terms[description]">{{ expense_terms.description|e }}</textarea>
+                            </div>
+
+
+                            <div class="field required">
+                                <label>{{ __("Issue Date")|e }}</label>
+                                <input class="datepicker" name="exp_issue_date" value="{{ expense_issue_date|e('html_attr') }}" type="text">
+                            </div>
+
+                            <div class="field">
+                                <label>{{ __("Status") }}</label>
+                                <select name="exp_status" class="ui dropdown">
+                                    <option value="1" {{ selected('1', expense_status)|e }}>{{ __("Payment") }}</option>
+                                    <option value="2" {{ selected('2', expense_status)|e }}>{{ __("Refund") }}</option>
+                                </select>
+                            </div>
+
+                            {% if expense_rec_type != 8 %}
+                                <div class="field">
+                                    <label>{{ __("Project") }}</label>
+                                    <select name="exp_rec_id" class="ui search dropdown">
+                                        <option value="">{{ __("Select Project") }}</option>
+                                        {% for project in projects_list %}
+                                            <option value="{{ project.pr_id|e('html_attr') }}" {{ selected(project.pr_id, expense_rec_id)|e }}>{{ project.title|e }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            {% endif %}
+
+                            <div class="field required">
+                                <label>{{ __("Sub Total")|e }}</label>
+                                <input name="exp_terms[sub_total]" type="text" value="{{ expense_terms.sub_total|e('html_attr') }}">
+                            </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Discount Type")|e }}</label>
+	                            <select name="exp_terms[discount_type]" class="ui dropdown">
+	                                <option value="off" {{ selected('off', expense_terms.discount_type)|e }}>{{ __("Off") }}</option>
+	                                <option value="percent" {{ selected('percent', expense_terms.discount_type)|e }}>{{ __("% Discount") }}</option>
+	                                <option value="flat" {{ selected('flat', expense_terms.discount_type)|e }}>{{ __("Flat Discount") }}</option>
+	                            </select>
+	                        </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Discount")|e }}</label>
+	                            <input name="exp_terms[discount_value]" type="text" value="{{ expense_terms.discount_value|e('html_attr') }}">
+	                        </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Tax Type")|e }}</label>
+	                            <select name="exp_terms[tax_type]" class="ui dropdown">
+	                                <option value="off" {{ selected('off', expense_terms.tax_type)|e }}>{{ __("Off") }}</option>
+	                                <option value="percent" {{ selected('percent', expense_terms.tax_type)|e }}>{{ __("% Tax") }}</option>
+	                                <option value="flat" {{ selected('flat', expense_terms.tax_type)|e }}>{{ __("Flat Tax") }}</option>
+	                            </select>
+	                        </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Select Tax")|e }}</label>
+	                            <select name="exp_terms[tax_select]" class="ui dropdown">>
+	                                <option value="">{{ __("Select Tax") }}</option>
+	                                {% for tax in taxes_list %}
+	                                    <option value="{{ tax.value|e('html_attr') }}" {{ selected('tax.value', expense_terms.tax_select)|e }}>{{ tax.name|e }}</option>
+	                                {% endfor %}
+	                            </select>
+	                        </div>
+
+	                        <div class="field required">
+	                            <label>{{ __("Tax")|e }}</label>
+	                            <input name="exp_terms[tax_value]" type="text" value="{{ expense_terms.tax_value|e('html_attr') }}">
+	                        </div>
+
+                            <div class="field required">
+                                <label>{{ __("Total")|e }}</label>
+                                <input name="exp_terms[total_value]" type="text" value="{{ expense_terms.total_value|e('html_attr') }}" readonly>
+                            </div>
+
+                            <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+	                        <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                        </div>
+                    </div>
+                </div>
+
+               <div class="five wide column">
+
+	                <div class="metabox">
+	                    <div class="metabox-heading">{{ __("Attachments") }}</div>
+                        <div class="metabox-body center-align">
+                            <br/>
+                                <button type="button" id="attachments_select" class="positive tiny ui button page_uploader" data-target="uploadModal" data-text="{{ __("Select Files")|e('html_attr') }}">{{ __("Select Files")|e }}</button>
+                                <input type="hidden" name="exp_attachments" value="">
+                                <input type="hidden" name="exp_old_attachments" value="{{ expense_attachments_ids|e('html_attr') }}">
+                            <br/><br/>
+                                {% if expense_attachments_count > 0 %}
+                                    {% for expense_attachment in expense_attachments %}
+                                        <a href="{{ download_link(expense_attachment.fi_id, expense_attachment.hash)|e }}" target="__blank" class="ui label">{{ expense_attachment.title|e }} <i data-id="{{ expense_attachment.fi_id|e }}" class="delete icon delete_file"></i></a>
+                                    {% endfor %}
+                                {% endif %}
+                        </div>
+	                </div>
+
+                </div>
+
+
+
+                {% include 'uploader.sec.twig' with {'tpl': 'expenses-edit', 'model' : 'expenses-edit'} %}
+            </div>
+        </form>
+        <br/>
+
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'expenses-edit', 'model' : 'expenses-edit'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'expenses-edit', 'model' : 'expenses-edit'} %}

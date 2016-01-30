@@ -1,0 +1,158 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'checkout', 'model' : 'checkout'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'checkout', 'model' : 'checkout'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'checkout', 'model' : 'checkout'} %}
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox blue">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-shopping-cart"></i> {{ __("Checkout") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="eight wide column">
+                <div class="metabox">
+                    <div class="metabox-heading">{{ __("Invoices") }}</div>
+                    <div class="metabox-body">
+
+                        <table class="ui very basic celled table">
+                            <thead>
+                                <tr>
+                                    <th>{{ __("Invoice ID") }}</th>
+                                    <th class="center aligned">{{ __("Price") }}</th>
+                                    <th class="center aligned">{{ __("Actions") }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for invoice in invoices %}
+                                    <tr>
+                                        <td><strong>{{ invoice.ref_id|e }}</strong></td>
+                                        <td class="center aligned">{{ site_currency|e }} {{ invoice.total|e }}</td>
+                                        <td class="center aligned">
+                                            <a href="{{ mark_invoice_action|e }}" class="ui circular icon button un_checkout" data-id="{{ invoice.in_id|e('html_attr') }}" data-toggle="popup" data-variation="small" data-position="top center" data-content="{{ __("Remove from Cart")|e('html_attr') }}">
+                                                <i class="remove circle icon"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                        <br/>
+                        <table class="ui very basic table">
+                            <tbody>
+                                <tr>
+                                    <td style="width:30%"></td>
+                                    <td class="right aligned"><strong>{{ __("Total :") }}</strong></td>
+                                    <td class="center aligned">{{ site_currency|e }} {{ total_price|e }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="eight wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        <div class="ui top attached tabular menu">
+                            <a class="active item" data-tab="paypal">{{ __("Paypal") }}</a>
+                            <a class="item" data-tab="stripe">{{ __("Stripe") }}</a>
+                            <a class="item" data-tab="bank_transfer">{{ __("Wire Transfer") }}</a>
+                        </div>
+                        <div class="ui bottom attached active tab segment center aligned" data-tab="paypal">
+                            <br/><br/>
+                            <a href="{{ route_to_url('/request/backend/direct/pay/paypal')|e }}">
+                                <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/checkout-logo-medium.png" alt="{{ __("Check out with PayPal") }}" />
+                            </a>
+                            <br/><br/>
+                        </div>
+                        <div class="ui bottom attached tab segment" data-tab="stripe">
+
+                            <form method="post" action="{{ route_to_url('/request/backend/direct/pay/stripe')|e }}" class="ui form">
+
+                                <div class="field">
+                                    <label>{{ __("Card Name") }}</label>
+                                    <div class="field">
+                                        <input type="text" name="credit_card_name" placeholder="{{ __("Card Name") }}">
+                                    </div>
+                                </div>
+
+                                <div class="fields">
+                                    <div class="ten wide field">
+                                        <label>{{ __("Card Number") }}</label>
+                                        <input type="text" name="credit_card_number" maxlength="16" placeholder="{{ __("Card #") }}">
+                                    </div>
+                                    <div class="six wide field">
+                                        <label>{{ __("CVC") }}</label>
+                                        <input type="text" name="credit_card_cvv" maxlength="3" placeholder="{{ __("CVC") }}">
+                                    </div>
+                                </div>
+
+                                <div class="fields">
+                                    <div class="sixteen wide field">
+                                        <label>{{ __("Expiration") }}</label>
+                                        <div class="two fields">
+                                            <div class="field">
+                                                <select class="ui fluid search dropdown" name="credit_card_expiry_month">
+                                                    <option value="">{{ __("Month") }}</option>
+                                                    <option value="1">{{ __("January") }}</option>
+                                                    <option value="2">{{ __("February") }}</option>
+                                                    <option value="3">{{ __("March") }}</option>
+                                                    <option value="4">{{ __("April") }}</option>
+                                                    <option value="5">{{ __("May") }}</option>
+                                                    <option value="6">{{ __("June") }}</option>
+                                                    <option value="7">{{ __("July") }}</option>
+                                                    <option value="8">{{ __("August") }}</option>
+                                                    <option value="9">{{ __("September") }}</option>
+                                                    <option value="10">{{ __("October") }}</option>
+                                                    <option value="11">{{ __("November") }}</option>
+                                                    <option value="12">{{ __("December") }}</option>
+                                                </select>
+                                            </div>
+                                            <div class="field">
+                                                <input type="text" name="credit_card_expiry_year" maxlength="4" placeholder="{{ __("Year") }}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button class="ui primary button" type="submit">{{ __("Submit") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                            </form>
+                            {# STRIPE #}
+                        </div>
+                        <div class="ui bottom attached tab segment" data-tab="bank_transfer">
+                            <br/>
+                            <strong>{{ __("Account Number:") }} {{ bank_transfer_details.account_number|e('html_attr') }}</strong> <br/>
+                            <strong>{{ __("Country:") }} {{ bank_transfer_details.country|e('html_attr') }}</strong> <br/>
+                            <strong>{{ __("Swift Code:") }} {{ bank_transfer_details.swift_code|e('html_attr') }}</strong> <br/>
+                            <strong>{{ __("Additional Data:") }} {{ bank_transfer_details.additional_data|e('html_attr') }}</strong>
+                            <br/><br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'checkout', 'model' : 'checkout'} %}
+
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'checkout', 'model' : 'checkout'} %}

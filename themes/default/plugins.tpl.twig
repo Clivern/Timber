@@ -1,0 +1,75 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'plugins', 'model' : 'plugins'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'plugins', 'model' : 'plugins'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'plugins', 'model' : 'plugins'} %}
+
+	<section class="main-content-wrapper">
+
+
+		<div class="ui stackable grid">
+			<div class="sixteen wide column">
+				<div class="metabox blue">
+					<div class="metabox-body">
+						<h4 class="font-light m-b-xs"><i class="fa fa-fw fa-plug"></i> {{ __("Plugins") }}</h4>
+					</div>
+				</div>
+			</div>
+
+
+
+			{% for plugin_data in plugins_data %}
+				<div class="four wide column" id="{{ plugin_data.plugin_slug|e('html_attr') }}">
+
+	                <div class="metabox{% if plugin_data.enabled == true %} green {% else %} red{% endif %}">
+	                	<img class="metabox-shot" src="{{ plugin_url('/' ~ plugin_data.plugin_slug ~ '/screenshot.png')|e }}" width="100%">
+	                    <div class="metabox-body center-align">
+
+	                            <p>
+	                                <strong>{{ plugin_data.plugin_name|e }} - {{ plugin_data.plugin_description|e }}</strong>
+	                            </p>
+	                            {% if plugin_data.enabled == true %}
+	                            	<button class="mini ui green button activate_plugin" style="display:none" data-plugin="{{ plugin_data.plugin_slug|e('html_attr') }}" data-url="{{ activate_form_action|e('html_attr') }}">{{ __("Activate")|e }}</button>
+
+	                            	<button class="mini ui yellow button deactivate_plugin" data-plugin="{{ plugin_data.plugin_slug|e('html_attr') }}" data-url="{{ deactivate_form_action|e('html_attr') }}">{{ __("Deactivate")|e }}</button>
+
+	                            {% else %}
+	                            	<button class="mini ui green button activate_plugin"  data-plugin="{{ plugin_data.plugin_slug|e('html_attr') }}" data-url="{{ activate_form_action|e('html_attr') }}">{{ __("Activate")|e }}</button>
+
+	                            	<button class="mini ui yellow button deactivate_plugin" style="display:none" data-plugin="{{ plugin_data.plugin_slug|e('html_attr') }}" data-url="{{ deactivate_form_action|e('html_attr') }}">{{ __("Deactivate")|e }}</button>
+	                            {% endif %}
+	                            <button class="mini ui red button delete_plugin" data-plugin="{{ plugin_data.plugin_slug|e('html_attr') }}" data-url="{{ delete_form_action|e('html_attr') }}">{{ __("Delete")|e }}</button>
+
+	                    </div>
+
+						<div class="metabox-footer contact-footer">
+                			<div class="ui two column grid no-margin">
+                    			<div class="column border-right"><div class="contact-stat"><span>{{ __("Author:")|e }} </span> <strong><a href="{{ plugin_data.author_url|e}}" target="_blank" rel="nofollow">{{ plugin_data.author|e }}</a></strong></div></div>
+
+                    			<div class="column"> <div class="contact-stat"><span>{{ __("Version:")|e }} </span> <strong>{{ plugin_data.plugin_version|e }}</strong></div> </div>
+                			</div>
+            			</div>
+
+	                </div>
+
+				</div>
+			{% endfor %}
+
+
+
+
+		</div>
+
+
+    	</section>
+
+
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'plugins', 'model' : 'plugins'} %}
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'plugins', 'model' : 'plugins'} %}

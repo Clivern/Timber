@@ -1,0 +1,229 @@
+<div class="ui stackable grid">
+
+    <div class="four wide column">
+        <div class="ui statistics">
+            {% if tasks_stats.random == 1 %}
+              <div class="statistic">
+                <div class="value">
+                  <i class="tasks icon"></i> {{ tasks_stats.status_pending_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('Pending Tasks') }}
+                </div>
+              </div>
+            {% endif %}
+            {% if tasks_stats.random == 2 %}
+              <div class="statistic">
+                <div class="value">
+                  <i class="tasks icon"></i> {{ tasks_stats.status_in_progress_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('In Progress Tasks') }}
+                </div>
+              </div>
+            {% endif %}
+            {% if tasks_stats.random == 3 %}
+              <div class="statistic">
+                <div class="value">
+                  <i class="tasks icon"></i> {{ tasks_stats.status_overdue_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('Overdue Tasks') }}
+                </div>
+              </div>
+            {% endif %}
+            {% if tasks_stats.random == 4 %}
+              <div class="statistic">
+                <div class="value">
+                  <i class="tasks icon"></i> {{ tasks_stats.status_done_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('Done Tasks') }}
+                </div>
+              </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="four wide column">
+        <div class="ui statistics">
+            {% if tickets_stats.random == 1 %}
+              <div class="statistic">
+                <div class="value">
+                  <i class="ticket icon"></i> {{ tickets_stats.status_pending_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('Pending Tickets') }}
+                </div>
+              </div>
+            {% endif %}
+            {% if tickets_stats.random == 2 %}
+              <div class="statistic">
+                <div class="value">
+                  <i class="ticket icon"></i> {{ tickets_stats.status_opened_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('Opened Tickets') }}
+                </div>
+              </div>
+            {% endif %}
+            {% if tickets_stats.random == 3 %}
+              <div class="statistic">
+                <div class="value">
+                  <i class="ticket icon"></i> {{ tickets_stats.status_closed_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('Closed Tickets') }}
+                </div>
+              </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="four wide column">
+        <div class="ui statistics">
+          <div class="statistic">
+            <div class="value">
+              <i class="folder icon"></i> {{ files_stats.files_count|e }}
+            </div>
+            <div class="label">
+                {{ __('Shared Files') }}
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <div class="four wide column">
+        <div class="ui statistics">
+            {% if milestones_stats.random == 1 %}
+              <div class="statistic">
+                <div class="value">
+                    <i class="idea icon"></i> {{ milestones_stats.status_pending_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('Pending Milestones') }}
+                </div>
+              </div>
+            {% endif %}
+            {% if milestones_stats.random == 2 %}
+              <div class="statistic">
+                <div class="value">
+                    <i class="idea icon"></i> {{ milestones_stats.status_in_progress_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('In Progress Milestones') }}
+                </div>
+              </div>
+            {% endif %}
+            {% if milestones_stats.random == 3 %}
+              <div class="statistic">
+                <div class="value">
+                    <i class="idea icon"></i> {{ milestones_stats.status_overdue_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('Status Milestones') }}
+                </div>
+              </div>
+            {% endif %}
+            {% if milestones_stats.random == 4 %}
+              <div class="statistic">
+                <div class="value">
+                    <i class="idea icon"></i> {{ milestones_stats.status_done_count|e }}
+                </div>
+                <div class="label">
+                    {{ __('Done Milestones') }}
+                </div>
+              </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="sixteen wide column">
+        <div class="metabox">
+            <div class="metabox-body">
+                <h5>
+                    <span><i class="idea icon"></i>{{ __("In Progress Milestones") }}</span>
+                </h5>
+                <div class="hr-line-dashed"></div>
+                <table class="ui very basic table">
+                    <thead>
+                        <tr>
+                            <th>{{ __("Milestone") }}</th>
+                            <th>{{ __("Priority") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for milestone in milestones_stats.status_in_progress_items %}
+                            <tr>
+                                <td>{{ milestone.title|e }}</td>
+                                <td>{{ milestone.nice_priority|e }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="sixteen wide column">
+        <div class="metabox">
+            <div class="metabox-body">
+                <h5>
+                    <span><i class="tasks icon"></i>{{ __("In Progress Tasks") }}</span>
+                </h5>
+                <div class="hr-line-dashed"></div>
+                <table class="ui very basic table">
+                    <thead>
+                        <tr>
+                            <th>{{ __("Task") }}</th>
+                            <th>{{ __("Status") }}</th>
+                            <th>{{ __("Priority") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for task in tasks_stats.status_in_progress_items %}
+                            <tr data-id="{{ task.ta_id|e }}">
+                                <td>{{ task.title|e }}</td>
+                                <td>
+                                    <div class="ui tiny indicating progress active" data-percent="{{ task.progress|e('html_attr') }}">
+                                        <div class="bar" style="transition-duration: 300ms; width: {{ task.progress|e('html_attr') }}%;"></div>
+                                        <div class="label">{{ task.nice_status|e }} ({{ task.progress|e }}%)</div>
+                                    </div>
+                                </td>
+                                <td>{{ task.nice_priority|e }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="sixteen wide column">
+        <div class="metabox">
+            <div class="metabox-body">
+                <h5>
+                    <span><i class="ticket icon"></i>{{ __("Pending Tickets") }}</span>
+                </h5>
+                <div class="hr-line-dashed"></div>
+                <table class="ui very basic table">
+                    <thead>
+                        <tr>
+                            <th>{{ __("Subject") }}</th>
+                            <th>{{ __("Type") }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ticket in tickets_stats.status_pending_items %}
+                            <tr data-id="{{ ticket.ti_id|e }}">
+                                <td><a href="{{ ticket.view_link|e }}">{{ ticket.subject|e }}</a></td>
+                                <td><a class="ui red label">{{ ticket.nice_type|e }}</a></td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

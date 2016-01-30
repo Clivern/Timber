@@ -1,0 +1,126 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'messages-add', 'model' : 'messages-add'} %}
+
+{# include top menu template #}
+{% include 'top-menu.sec.twig' with {'tpl': 'messages-add', 'model' : 'messages-add'} %}
+
+{# include side menu template #}
+{% include 'side-menu.sec.twig' with {'tpl': 'messages-add', 'model' : 'messages-add'} %}
+
+
+    <section class="main-content-wrapper">
+
+        <div class="ui stackable grid">
+
+            <div class="sixteen wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+                        <h4 class="font-light m-b-xs"><i class="fa fa-fw fa-fw fa-envelope-o"></i> {{ __("Messages") }}</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div class="four wide column">
+                <div class="metabox">
+                    <div class="metabox-body">
+
+                        <ul class="messages-list">
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages/add')|e }}">
+                                    <i class="edit icon"></i> {{ __("Compose") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=index')|e }}">
+                                    {% autoescape false %}
+                                        {{ notify_print('messages_index_notif', '/admin/messages?group=index', '<span class="pull-right label label-info">{$VALUE}</span>') }}
+                                    {% endautoescape %}
+                                    <i class="inbox icon"></i> {{ __("Inbox") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=favorite')|e }}">
+                                    {% autoescape false %}
+                                        {{ notify_print('messages_favorite_notif', '/admin/messages?group=favorite', '<span class="pull-right label label-info">{$VALUE}</span>') }}
+                                    {% endautoescape %}
+                                    <i class="star icon"></i> {{ __("Favorite") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=sent')|e }}">
+                                    {% autoescape false %}
+                                        {{ notify_print('messages_sent_notif', '/admin/messages?group=sent', '<span class="pull-right label label-info">{$VALUE}</span>') }}
+                                    {% endautoescape %}
+                                    <i class="send icon"></i> {{ __("Sent") }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route_to_url('/admin/messages?group=trash')|e }}">
+                                    <i class="trash icon"></i> {{ __("Trash") }}
+                                </a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="twelve wide column">
+                    <div class="metabox">
+
+                        <div class="metabox-heading">{{ __("Compose Message") }}</div>
+
+                        <div class="metabox-body">
+
+                            <form class="ui form" action="{{ add_msg_action|e }}" method="post">
+                                {{ nonce_form() }}
+                                    <div class="field">
+                                        <label>{{ __("Receiver:") }}</label>
+                                        <div class="ui fluid selection search dropdown">
+                                            <input type="hidden" name="msg_receiver_id">
+                                            <i class="dropdown icon"></i>
+                                            <div class="default text">{{ __("Select Receiver") }}</div>
+                                            <div class="menu">
+                                                {% for member in members_list %}
+                                                    <div class="item" data-value="{{ member.us_id|e('html_attr') }}">
+                                                        <img class="ui mini avatar image" src="{{ gravatar(member.email, member.grav_id, 128)|e }}">
+                                                        {{ member.full_name|e('html_attr') }}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label>{{ __("Subject:") }}</label>
+                                        <input type="text" name="msg_subject" value="">
+                                    </div>
+                                    <div class="field">
+                                        <label>{{ __("Attachments:") }}</label>
+                                        <button type="button" id="attachments_select" class="positive tiny ui button page_uploader" data-target="uploadModal" data-text="{{ __("Select Files")|e('html_attr') }}">{{ __("Select Files")|e }}</button>
+                                        <input type="hidden" name="msg_attachments" value="">
+                                    </div>
+                                    <div class="field">
+                                        <label>{{ __("Message") }}</label>
+                                        <textarea name="msg_content" class="rich-editor" rows="3"></textarea>
+                                    </div>
+
+                                <button class="ui primary button" type="submit">{{ __("Send") }}</button>
+                                <button class="ui button" type="reset">{{ __("Cancel") }}</button>
+
+                            </form>
+
+                        </div>
+                    </div>
+            </div>
+
+            {% include 'uploader.sec.twig' with {'tpl': 'messages-add', 'model' : 'messages-add'} %}
+
+        </div>
+    </section>
+
+{# include bottom menu template #}
+{% include 'bottom-menu.sec.twig' with {'tpl': 'messages-add', 'model' : 'messages-add'} %}
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'messages-add', 'model' : 'messages-add'} %}

@@ -1,0 +1,13 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'maintenance', 'model' : 'maintenance'} %}
+
+<div class="error-page-container">
+    <i class="pe-7s-server text-success big-icon"></i>
+    <h1>{{ __("500")|e }}</h1>
+    <strong>{{ __("Site Under Maintenance")|e }}</strong>
+    <p>{{ __("Our site is currently under maintenance. We apologize for any inconvenience and thank you for your patience.")|e }}</p>
+    <a href="{{ route_to_url('/login')|e }}" class="btn btn-xs btn-success">{{ __("Only Administrators Can Access")|e }}</a>
+</div>
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'maintenance', 'model' : 'maintenance'} %}

@@ -1,0 +1,153 @@
+{# include header template #}
+{% include 'header.sec.twig' with {'tpl': 'install', 'model' : 'install'} %}
+
+
+<div class="install-page-container">
+	<div class="ui grid">
+		<div class="sixteen wide column center aligned">
+			<a href="{{ route_to_url('/install')|e }}"><img src="{{ file_url(site_logo, default_theme_assets_url('/img/logo.png'))|e }}" width="110" style="opacity:0.7;" /></a>
+		</div>
+
+		<div class="sixteen wide column">
+			<div class="metabox">
+				<div class="metabox-body">
+
+				<div class="ui two column middle aligned very relaxed stackable grid">
+				  <div class="column">
+				  	<span id="realtime_alerts"></span>
+					<form class="ui form" action="{{ route_to_url('/request/frontend/ajax/install')|e }}" method="post">
+						{% if step == '1' %}
+							<h3>{{ __("Application Configurations") }}</h3>
+							<br/>
+	                        <div class="field">
+	                            <label>{{ __("MySQL Host Name")|e }} *</label>
+	                            <input type="text" name="mysql_host_name" placeholder="localhost" required>
+	                        </div>
+                        	<div class="field">
+	                            <label>{{ __("MySQL Database Name")|e }} *</label>
+	                            <input type="text" name="mysql_db_name" placeholder="timber" required>
+	                        </div>
+	                        <div class="field">
+	                            <label>{{ __("MySQL Database Username")|e }} *</label>
+	                            <input type="text" name="mysql_db_username" placeholder="root" required>
+	                        </div>
+                        	<div class="field">
+	                            <label>{{ __("MySQL Database Password")|e }} *</label>
+	                            <input type="text" name="mysql_db_pwd">
+	                        </div>
+                        	<div class="field">
+	                            <label>{{ __("Home URL")|e }} *</label>
+	                            <input type="text" name="app_home_url" value="{{ home_url|e('html_attr') }}" required>
+	                        </div>
+						{% endif %}
+
+						{% if step == '2' %}
+							<h3>{{ __("Application Tables and Options") }}</h3>
+							<br/>
+	                        <div class="field">
+	                            <label>{{ __("App Name")|e }} *</label>
+	                            <input type="text" name="site_name" placeholder="Timber" required>
+	                        </div>
+                        	<div class="field">
+	                            <label>{{ __("App Email")|e }} *</label>
+	                            <input type="email" name="site_email" placeholder="hello@domain.com" required>
+	                        </div>
+						{% endif %}
+
+						{% if step == '3' %}
+							<h3>{{ __("Administrator Account") }}</h3>
+							<br/>
+	                        <div class="field">
+	                            <label>{{ __("Admin Username")|e }} *</label>
+	                            <input type="text" name="admin_username" maxlength="20" placeholder="admin" required>
+	                        </div>
+                        	<div class="field">
+	                            <label>{{ __("Admin Email")|e }} *</label>
+	                            <input type="email" name="admin_email" placeholder="admin@domain.com" required>
+	                        </div>
+	                        <div class="field">
+	                            <label>{{ __("Admin Password")|e }} *</label>
+	                            <input type="password" name="admin_pwd" maxlength="20" required>
+	                        </div>
+	                        <div class="field">
+	                            <label>{{ __("Verify Password Again")|e }} *</label>
+	                            <input type="password" name="admin_pwd_config" maxlength="20" required>
+	                        </div>
+						{% endif %}
+
+                        <button class="tiny ui primary button" type="submit">{{ __("Submit") }}</button>
+                        <button class="tiny ui button" type="reset">{{ __("Cancel") }}</button>
+                    </form>
+
+					  </div>
+					  <div class="ui vertical divider">
+					    {{ __("Info") }}
+					  </div>
+					  <div class="column">
+					  <h3>{{ __("System Informations") }}</h3>
+					  <br/>
+					  	<ul>
+					  		<li>{{ __("PHP Version")|e }}: {{ debug_php_version|e }}</li>
+					  		<li>{{ __("Required Extensions")|e }}: <ul>
+					  			{% for required_extension in debug_required_extensions %}
+					  				<li>{{ required_extension.key|e }}: {% if required_extension.value == 'on' %} <span class="text-success">{{ __("success") }}</span> {% else %} <span class="text-danger">{{ __("failed") }}</span> {% endif %}</li>
+					  			{% endfor %}
+					  		</ul></li>
+					  		<li>{{ __("Client File")|e }}:
+								{% if debug_client_file == true %}
+									<span class="text-success">{{ __("success") }}</span>
+								{% elseif debug_client_file == false %}
+									<span class="text-danger">{{ __("failed") }}</span>
+								{% endif %}
+					  		</li>
+					  		<li>{{ __("Database Connection")|e }}:
+								{% if debug_db_connection == true %}
+									<span class="text-success">{{ __("success") }}</span>
+								{% elseif debug_db_connection == false %}
+									<span class="text-danger">{{ __("failed") }}</span>
+								{% endif %}
+					  		</li>
+					  		<li>{{ __("Database Tables")|e }}:
+								{% if debug_db_tables == true %}
+									<span class="text-success">{{ __("success") }}</span>
+								{% elseif debug_db_tables == false %}
+									<span class="text-danger">{{ __("failed") }}</span>
+								{% endif %}
+					  		</li>
+					  		<li>{{ __("App Options")|e }}:
+								{% if debug_options == true %}
+									<span class="text-success">{{ __("success") }}</span>
+								{% elseif debug_options == false %}
+									<span class="text-danger">{{ __("failed") }}</span>
+								{% endif %}
+					  		</li>
+					  		<li>{{ __("Admin Account")|e }}:
+								{% if debug_admin_account == true %}
+									<span class="text-success">{{ __("success") }}</span>
+								{% elseif debug_admin_account == false %}
+									<span class="text-danger">{{ __("failed") }}</span>
+								{% endif %}
+					  		</li>
+					  		<li>{{ __("App Installed")|e }}:
+								{% if debug_app_installed == true %}
+									<span class="text-success">{{ __("success") }}</span>
+								{% elseif debug_app_installed == false %}
+									<span class="text-danger">{{ __("failed") }}</span>
+								{% endif %}
+					  		</li>
+					  	</ul>
+
+					  </div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+<br/><br/><br/>
+
+{# include footer template #}
+{% include 'footer.sec.twig' with {'tpl': 'install', 'model' : 'install'} %}
