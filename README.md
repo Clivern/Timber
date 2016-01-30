@@ -220,6 +220,48 @@ return array(
 * Timber `default` theme is the base theme so Read its code to fully understand everything. Also you are free to use it to build your theme.
 
 
+Payments Gateways
+=================
+To Activate `Paypal` and/or `Stripe`, You will need to get needed credentials.
+
+Paypal
+------
+To get needed credentials, Follow these steps:
+
+* Log in to your PayPal account.
+* Click the My Account tab.
+* Click the Profile tab. If you haven't already done so, you need to verify your account before requesting API credentials.
+* Click Request API credentials under Account information.
+* Click Set up PayPal API credentials and permissions under Option 1.
+* Click Request API Credentials.
+* Click Request API signature.
+* Click Agree and Submit.
+* Copy and paste the `API username`, `Password`, and `Signature` into timber settings page.
+
+![Capture](assets/img/pay1.png)
+
+![Capture](assets/img/pay2.png)
+
+![Capture](assets/img/pay3.png)
+
+Stripe
+------
+To get needed credentials, Follow these steps:
+
+* Log in to your Stripe account.
+* You can switch between live and test mode.
+* Click the Your Account tab.
+* Then Click Account Settings.
+* Click API keys.
+* Copy `Live Secret Key` and paste in timber settings page.
+
+![Capture](assets/img/str1.png)
+
+![Capture](assets/img/str2.png)
+
+![Capture](assets/img/str3.png)
+
+
 Social Login
 ============
 

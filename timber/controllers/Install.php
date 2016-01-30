@@ -543,7 +543,7 @@ class Install {
             ),
             array(
                 'op_key' => '_site_country',
-                'op_value' => '',
+                'op_value' => 'US',
                 'autoload' => 'on',
             ),
             array(
@@ -585,7 +585,7 @@ class Install {
                 'op_key' => '_site_tax_rates',
                 'op_value' => serialize(array(
                     array('name' => 'VAT', 'value' => '10.00'),
-                    array('name' => 'EXT', 'value' => '20.00'),
+                    array('name' => 'GST', 'value' => '20.00'),
                 )),
                 'autoload' => 'on',
             ),
@@ -646,7 +646,7 @@ class Install {
             # Rules Settings
             array(
                 'op_key' => '_site_caching',
-                'op_value' => serialize(array('status' => 'off', 'purge_each' => '7', 'last_run' => time() )),
+                'op_value' => serialize(array('status' => 'off', 'purge_each' => '30', 'last_run' => time() )),
                 'autoload' => 'on',
             ),
             array(
@@ -716,11 +716,11 @@ class Install {
             array(
                 'op_key' => '_paypal_details',
                 'op_value' => serialize(array(
-                    'status' => 'on',
-                    'username' => 'info_api1.clivern.com',
-                    'password' => 'NWWGVKFEUY7CKYBM',
-                    'signature' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31AAIyxSGoFGfqwupzcxPwbqwytLuT',
-                    'test_mode' => true,
+                    'status' => 'off',
+                    'username' => '',
+                    'password' => '',
+                    'signature' => '',
+                    'test_mode' => false,
                 )),
                 'autoload' => 'on',
             ),
@@ -892,12 +892,6 @@ class Install {
             array(
                 'op_key' => '_client_permissions',
                 'op_value' => serialize(array(
-                    'project.stats',
-                    'project.files',
-                    'project.tickets',
-                    'project.tasks',
-                    'project.milestones',
-                    'project.members',
                     'message.staff',
                     'message.clients'
                 )),
