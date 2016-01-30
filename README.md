@@ -337,6 +337,20 @@ RewriteRule . /index.php [L]
 # END Timber
 ```
 
+### How To Deactivate Pretty URLs?
+* Open `timber/client.php` file and set `TIMBER_MOD_REWRITE` to `false`. It must be look like the following:
+```
+/**
+ * Mod Rewrite
+ *
+ * @since 1.0
+ * @var boolean
+ */
+define('TIMBER_MOD_REWRITE', false);
+```
+
+* Also delete `.htaccess` file exist in app root.
+
 ### How to fix timber folders and files permissions?
 On computer filesystems, different files and directories have permissions that specify who and what can read, write, modify and access them. This is important because Timber may need access to write to files in your `cache`, `storage`, `plugins`, `backups`, `themes` and `logs` directory to enable certain functions also to edit `timber/client.php`, `timber/client-sample.php` and `timber/client-default.php` files.
 

@@ -474,7 +474,7 @@ if(!defined('TIMBER_INSTALLED')){
  * @var boolean
  */
 if(!defined('TIMBER_MOD_REWRITE')){
-	define('TIMBER_MOD_REWRITE', false);
+	define('TIMBER_MOD_REWRITE', true);
 }
 
 /**

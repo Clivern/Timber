@@ -248,4 +248,4 @@ define('TIMBER_DEBUG_MODE', false);
  * @since 1.0
  * @var boolean
  */
-define('TIMBER_MOD_REWRITE', false);
+define('TIMBER_MOD_REWRITE', true);
