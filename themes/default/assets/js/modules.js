@@ -61,7 +61,7 @@ timber.utils = (function (window, document, $) {
 
             $.fn.DataTable.ext.pager.numbers_length = 5;
             $('table.data_table').dataTable({
-                "searching": false,
+                "searching": true,
                 "lengthChange": false,
                 "responsive": true,
                 "language": {
