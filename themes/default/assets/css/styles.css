@@ -2794,7 +2794,9 @@ div.metabox-body.small_datatable select.input-sm{
     height: 25px;
     padding: 2px 2px;
 }
-
+div.dataTables_filter{
+    margin-bottom: 15px;
+}
 /*---- Profile Pic ----*/
 .profile-picture {
     padding: 20px 20px;
