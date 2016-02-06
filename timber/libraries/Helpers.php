@@ -89,15 +89,26 @@ class Helpers {
      */
     public function measureProgressByDates($start_data, $end_date, $today = false)
     {
-        if( !$today ){
-            $today_time = time();
+        try {
+
+            if( !$today ){
+                $today_time = time();
+            }
+            $start_time = strtotime($start_data);
+            $end_time = strtotime($end_date);
+
+            if( $start_time >= $end_time ){
+                return 100;
+            }
+
+            $result = (($today_time - $start_time) / ($end_time - $start_time)) * 100;
+            $result = ($result > 100) ? 100 : $result;
+            $result = ($result <= 0) ? 0 : $result;
+            return round($result);
+
+        } catch (Exception $e) {
+            return 100;
         }
-        $start_time = strtotime($start_data);
-        $end_time = strtotime($end_date);
-        $result = (($today_time - $start_time) / ($end_time - $start_time)) * 100;
-        $result = ($result > 100) ? 100 : $result;
-        $result = ($result <= 0) ? 0 : $result;
-        return round($result);
     }
 
     /**
