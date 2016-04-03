@@ -1029,7 +1029,8 @@ class ProjectsData extends \Timber\Services\Base {
             $data['tickets'] = array();
 
             $tickets = $this->timber->ticket_model->getTicketsBy(array(
-                'depth' => '1'
+                'depth' => '1',
+                'pr_id' => $project_id
             ));
 
             $i = 1;
