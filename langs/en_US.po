@@ -1934,7 +1934,7 @@ msgstr ""
 #: ../themes/default/projects-list.tpl.php:51
 #: ../themes/default/projects-view.tpl.php:48
 #: ../themes/default/realtime.tpl.php:97
-msgid "DEDLINE"
+msgid "DEADLINE"
 msgstr ""
 
 #: ../themes/default/projects-list.tpl.php:55
