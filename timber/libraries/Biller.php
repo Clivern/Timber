@@ -384,10 +384,10 @@ class Biller {
 		$data['ref_id'] = ($invoice['type'] == 1) ? "INV-" . str_pad($invoice['in_id'], 8, '0', STR_PAD_LEFT) : "EST-" . str_pad($invoice['in_id'], 8, '0', STR_PAD_LEFT);
 		$data['subject'] = ($invoice['type'] == 1) ? "Invoice" : "Estimate";
 
-		var_dump($this->timber->config('site_logo'));
+		var_dump($this->timber->config('_site_logo'));
 		var_dump('../../../../..' . TIMBER_THEMES_DIR . $this->timber->twig->getDefaultTheme() . '/assets/img/logo.png');
 		die();
-		$data['logo'] = $this->timber->storage->getRelFilePath( $this->timber->config('site_logo'), '../../../../..' . TIMBER_THEMES_DIR . $this->timber->twig->getDefaultTheme() . '/assets/img/logo.png' );
+		$data['logo'] = $this->timber->storage->getRelFilePath( $this->timber->config('_site_logo'), '../../../../..' . TIMBER_THEMES_DIR . $this->timber->twig->getDefaultTheme() . '/assets/img/logo.png' );
 		var_dump($data['logo']);
 		$data['name'] = "";
 		$data['description'] = "";
