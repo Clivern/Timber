@@ -238,29 +238,13 @@ class Biller {
 					<td>' . $data['client']['address2'] . '</td>
 				</tr>';
 
-		$tbl .= '<tr>
-					<td>' . $this->timber->translator->trans('VAT: ') . $data['company']['vat'] . '</td>
-					<td></td>
-					<td>' . $data['client']['city'] . '</td>
-				</tr>';
+		$tbl .= ($data['company']['vat'] != '') ? '<tr><td>' . $this->timber->translator->trans('VAT: ') . $data['company']['vat'] . '</td><td></td><td>' . $data['client']['city'] . '</td></tr>' : '<tr><td><br/></td><td></td><td>' . $data['client']['city'] . '</td></tr>';
 
-		$tbl .= '<tr>
-					<td>' . $this->timber->translator->trans('Phone: ') . $data['company']['phone'] . '</td>
-					<td></td>
-					<td>' . $data['client']['country'] . '</td>
-				</tr>';
+		$tbl .= ($data['company']['phone']) ? '<tr><td>' . $this->timber->translator->trans('Phone: ') . $data['company']['phone'] . '</td><td></td><td>' . $data['client']['country'] . '</td></tr>' : '<tr><td><br/></td><td></td><td></td></tr>';
 
-		$tbl .= '<tr>
-					<td></td>
-					<td></td>
-					<td>' . $this->timber->translator->trans('VAT: ') . $data['client']['vat'] . '</td>
-				</tr>';
+		$tbl .= ($data['client']['vat'] != '') ? '<tr><td></td><td></td><td>' . $this->timber->translator->trans('VAT: ') . $data['client']['vat'] . '</td></tr>' : '<tr><td></td><td></td><td><br/></td></tr>';
 
-		$tbl .= '<tr>
-					<td></td>
-					<td></td>
-					<td>' . $this->timber->translator->trans('Phone: ') . $data['client']['phone'] . '</td>
-				</tr>';
+		$tbl .= ($data['client']['phone'] != '') ? '<tr><td></td><td></td><td>' . $this->timber->translator->trans('Phone: ') . $data['client']['phone'] . '</td></tr>' : '<tr><td></td><td></td><td><br/></td></tr>';
 
 		# Client and Company
 		$this->pdf->writeHTML($tbl, true, false, false, false, '');
