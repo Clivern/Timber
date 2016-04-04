@@ -11,7 +11,7 @@ Timber is a Full-Featured Freelancer Platform. It comes with many features to ex
  * Extreme Security.
  * Many Settings To Build Your Desired App.
 
-*Latest Version: 1.0*
+*Latest Version: 1.1*
 
 Installation
 ------------
@@ -487,9 +487,15 @@ Timber will show notification to all administrators if new updates released.
 
 ### Changelog
 
-*Latest Version: 1.0*
+*Latest Version: 1.1*
 
 ```
+Version 1.1
+-----------
+> Tickets issue in single projects fixed.
+> Calendar issue fixed.
+> Some little fixes.
+
 Version 1.0
 -----------
 > Initial Release.

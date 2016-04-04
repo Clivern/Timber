@@ -6,7 +6,7 @@
  * @copyright   2015 Clivern
  * @link        http://clivern.com
  * @license     http://codecanyon.com/license
- * @version     1.0
+ * @version     1.1
  * @package     Hello
  */
 
