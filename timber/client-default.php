@@ -23,7 +23,7 @@
  * @since 1.0
  * @var string
  */
-define('TIMBER_CURRENT_VERSION', '1.0');
+define('TIMBER_CURRENT_VERSION', '1.1');
 
 /**
  * App Home URL
