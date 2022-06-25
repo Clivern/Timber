@@ -11,7 +11,7 @@
         	"twig/twig": "~1.0",
         	"codeguy/upload": "dev-master",
             "omnipay/authorizenet": "~2.0",
-            "omnipay/paypal": "~2.0",
+            "omnipay/paypal": "2.6.4",
             "omnipay/stripe": "~2.0",
             "phpmailer/phpmailer": "~5.2.9",
             "tecnick.com/tcpdf": "~6.2.8"
