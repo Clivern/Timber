@@ -8,7 +8,7 @@
         	"slim/slim": "2.*",
         	"hybridauth/hybridauth": "dev-master",
         	"j4mie/idiorm": "~1.5",
-        	"twig/twig": "~1.0",
+        	"twig/twig": "1.44.6",
         	"codeguy/upload": "dev-master",
             "omnipay/authorizenet": "~2.0",
             "omnipay/paypal": "~2.0",
