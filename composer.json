@@ -14,7 +14,7 @@
             "omnipay/paypal": "~2.0",
             "omnipay/stripe": "~2.0",
             "phpmailer/phpmailer": "~5.2.9",
-            "tecnick.com/tcpdf": "~6.2.8"
+            "tecnick.com/tcpdf": "~6.7.0"
     	},
     	"autoload": {
        	    "classmap": [ "timber/configs", "timber/models", "timber/controllers","timber/services", "timber/libraries", "timber/database/migrations" ]
