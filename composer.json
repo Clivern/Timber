@@ -5,7 +5,7 @@
  	"license": "GPL",
  	"type": "project",
     	"require": {
-        	"slim/slim": "2.*",
+        	"slim/slim": "4.*",
         	"hybridauth/hybridauth": "dev-master",
         	"j4mie/idiorm": "~1.5",
         	"twig/twig": "~1.0",
